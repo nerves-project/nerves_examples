@@ -1,0 +1,9 @@
+/_build
+/cover
+/deps
+nerves-env.sh
+erl_crash.dump
+*.ez
+_images
+rel/nerves_system_libs
+rel/blinky
