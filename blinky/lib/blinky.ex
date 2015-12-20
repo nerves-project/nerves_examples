@@ -9,10 +9,10 @@ defmodule Blinky do
 
   def blink_forever do
     Led.set green: true, red: false
-    Logger.info "green"
+    Logger.debug "green"
     :timer.sleep 100
     Led.set red: true, green: false
-    Logger.info "red"
+    Logger.debug "red"
     :timer.sleep 100
     blink_forever
   end

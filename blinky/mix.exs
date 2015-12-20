@@ -10,16 +10,14 @@ defmodule Blinky.Mixfile do
      deps: deps]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger, :nerves_io_led],
-     mod: {Blinky, [:leds]}]
+     mod: {Blinky, [:nerves_io_led]}]
   end
 
   defp deps, do: [
     {:nerves_io_led, github: "nerves-project/nerves_io_led"},
+    {:nerves_ssdp_server, "~> 0.0.1"},
     {:exrm, "~> 0.19.9"}
   ]
 
