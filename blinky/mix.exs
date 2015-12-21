@@ -17,7 +17,6 @@ defmodule Blinky.Mixfile do
 
   defp deps, do: [
     {:nerves_io_led, github: "nerves-project/nerves_io_led"},
-    {:nerves_ssdp_server, "~> 0.0.1"},
     {:exrm, "~> 0.19.9"}
   ]
 
