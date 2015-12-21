@@ -1,0 +1,10 @@
+%{"bbmustache": {:hex, :bbmustache, "1.0.3"},
+  "conform": {:hex, :conform, "0.17.0"},
+  "erlware_commons": {:hex, :erlware_commons, "0.15.0"},
+  "exrm": {:hex, :exrm, "0.19.9"},
+  "getopt": {:hex, :getopt, "0.8.2"},
+  "neotoma": {:hex, :neotoma, "1.7.3"},
+  "nerves_io_ethernet": {:git, "https://github.com/nerves-project/nerves_io_ethernet.git", "6069109b6e04722617585914ac6b2beb178d919f", []},
+  "nerves_ssdp_server": {:git, "https://github.com/nerves-project/nerves_ssdp_server.git", "d73c4ee63e2f80e22da0948f0ab2477db852bab6", []},
+  "providers": {:hex, :providers, "1.4.1"},
+  "relx": {:hex, :relx, "3.5.0"}}
