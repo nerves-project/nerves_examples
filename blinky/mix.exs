@@ -12,7 +12,7 @@ defmodule Blinky.Mixfile do
 
   def application do
     [applications: [:logger, :nerves_io_led],
-     mod: {Blinky, [:nerves_io_led]}]
+     mod: {Blinky, []}]
   end
 
   defp deps, do: [

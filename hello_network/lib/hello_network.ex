@@ -1,7 +1,7 @@
 defmodule HelloNetwork do
 
   require Logger
-  
+
   alias Nerves.IO.Ethernet
 
   def start(_type, _args) do
@@ -10,4 +10,3 @@ defmodule HelloNetwork do
   end
 
 end
- 
