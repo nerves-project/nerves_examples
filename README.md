@@ -30,7 +30,18 @@ The examples currently support Raspberry Pi (rpi), Raspberry Pi 2 (rpi2), and Be
 
 The following instructions assume rpi2, but you can substitute any of the supported target IDs below.
 
-### Building on Mac OS X
+### Building using Bake (newer, experimental, recomended)
+
+See the [bakeware web site]([http://bakeware.io) for bake insstall instructions.
+
+```sh
+cd <example-project>
+bake system get
+bake toolchain get
+bake firmware
+```
+
+### Building on Mac OS X (homebrew-nerves method)
 
 These instructions currently use [homebrew-nerves](https://github.com/nerves-project/homebrew-nerves).  This may change in the future.
 
