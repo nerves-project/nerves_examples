@@ -32,13 +32,13 @@ The following instructions assume rpi2, but you can substitute any of the suppor
 
 ### Building using Bake (newer, experimental, recomended)
 
-See the [bakeware web site]([http://bakeware.io) for bake insstall instructions.
+See the [bakeware web site](http://bakeware.io) for bake install instructions.
 
-```sh
+```
 cd <example-project>
-bake system get
-bake toolchain get
-bake firmware
+bake system get --target rpi2
+bake toolchain get --target rpi2
+bake firmware --target rpi2
 ```
 
 ### Building on Mac OS X (homebrew-nerves method)
