@@ -1,4 +1,4 @@
-# configuration for Alix 2d/3d series (target alix)
+# configuration for PC Engines Alix 2d/3d series (target alix)
 
 use Mix.Config
 
