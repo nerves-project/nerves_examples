@@ -1,1 +1,2 @@
-{targets,[{bbb,[{'nerves/bbb',<<"0.1.0">>}]}]}.
+{targets,[{bbb,[{'nerves/bbb',<<"0.1.0">>}]},
+          {rpi2,[{'nerves/rpi2',<<"0.1.0">>}]}]}.
