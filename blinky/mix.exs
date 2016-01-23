@@ -1,4 +1,5 @@
 defmodule Blinky.Mixfile do
+
   use Mix.Project
 
   def project do
@@ -11,13 +12,13 @@ defmodule Blinky.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :nerves_io_led],
+    [applications: [:nerves, :logger, :nerves_io_led],
      mod: {Blinky, []}]
   end
 
   defp deps, do: [
-    {:nerves_io_led, github: "nerves-project/nerves_io_led"},
-    {:exrm, "~> 0.19.9"}
+    {:nerves, github: "nerves-project/nerves"},
+    {:nerves_io_led, github: "nerves-project/nerves_io_led"}
   ]
 
 end
