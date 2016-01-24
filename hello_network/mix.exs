@@ -12,13 +12,13 @@ defmodule HelloNetwork.Mixfile do
   end
 
   def application, do: [
-    applications: [:logger, :nerves_io_ethernet],
+    applications: [:nerves, :logger, :nerves_io_ethernet],
     mod: {HelloNetwork, [:nerves_io_ethernet]}
   ]
 
   defp deps, do: [
     {:nerves_io_ethernet, github: "nerves-project/nerves_io_ethernet"},
-    {:exrm, "~> 0.19.9"}
+    {:nerves, github: "nerves-project/nerves"}
   ]
 
 end

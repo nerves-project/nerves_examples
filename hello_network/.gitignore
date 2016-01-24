@@ -5,4 +5,6 @@ nerves-env.sh
 erl_crash.dump
 *.ez
 _images
-rel/
+rel/hello_network
+rel/files
+
