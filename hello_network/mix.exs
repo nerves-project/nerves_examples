@@ -4,7 +4,7 @@ defmodule HelloNetwork.Mixfile do
 
   def project do
     [app: :hello_network,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -17,8 +17,8 @@ defmodule HelloNetwork.Mixfile do
   ]
 
   defp deps, do: [
-    {:nerves_io_ethernet, github: "nerves-project/nerves_io_ethernet"},
-    {:nerves, github: "nerves-project/nerves"}
+    {:nerves, "~> 0.2"},
+    {:nerves_io_ethernet, github: "nerves-project/nerves_io_ethernet", tag: "v0.5.1"}
   ]
 
 end

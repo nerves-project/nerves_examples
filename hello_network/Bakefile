@@ -3,10 +3,13 @@ use Bake.Config
 platform :nerves
 
 target :rpi2,
-  recipe: {"nerves/rpi2", "~> 0.1"}
+  recipe: {"nerves/rpi2", "~> 0.3"}
 
 target :rpi,
-  recipe: {"nerves/rpi", "~> 0.1"}
+  recipe: {"nerves/rpi", "~> 0.3"}
 
 target :bbb,
-  recipe: {"nerves/bbb", "~> 0.1"}
+  recipe: {"nerves/bbb", "~> 0.3"}
+
+target :galileo,
+  recipe: {"nerves/galileo", "~> 0.3"}

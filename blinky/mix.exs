@@ -4,7 +4,7 @@ defmodule Blinky.Mixfile do
 
   def project do
     [app: :blinky,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -17,7 +17,7 @@ defmodule Blinky.Mixfile do
   end
 
   defp deps, do: [
-    {:nerves, github: "nerves-project/nerves"},
+    {:nerves, "~> 0.2"},
     {:nerves_io_led, github: "nerves-project/nerves_io_led"}
   ]
 

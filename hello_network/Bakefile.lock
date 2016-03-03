@@ -1,2 +1,4 @@
-{targets,[{rpi2,[{'nerves/rpi2',<<"0.3.1">>}]},
-          {bbb,[{'nerves/bbb',<<"0.3.1">>}]}]}.
+{targets,[{rpi,[{'nerves/rpi',<<"0.3.3">>}]},
+          {galileo,[{'nerves/galileo',<<"0.3.3">>}]},
+          {bbb,[{'nerves/bbb',<<"0.3.3">>}]},
+          {rpi2,[{'nerves/rpi2',<<"0.3.3">>}]}]}.
