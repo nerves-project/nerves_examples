@@ -1,8 +1,8 @@
 defmodule Blinky do
 
   @moduledoc """
-  Simple example to blink a list of LEDs forever.   
-  
+  Simple example to blink a list of LEDs forever.
+
   The list of LEDs is platform-dependent, and defined in the config
   directory (see config.exs).   See README.md for build instructions.
   """
@@ -25,7 +25,7 @@ defmodule Blinky do
 
   # given an led key, turn it on for 100ms then back off
   defp blink(led_key) do
-    Logger.debug "blinking led #{inspect led_key}"
+  #    Logger.debug "blinking led #{inspect led_key}"
     Led.set [{led_key, true}]
     :timer.sleep 100
     Led.set [{led_key, false}]
