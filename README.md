@@ -19,11 +19,12 @@ For detailed information on how to build an example, see the README.md in each a
 - Custom per-target configuration via `config/config.exs`
 - Builds off-target with debug output via `Logger`
 
-### `hello_ethernet`
+### `hello_network`
 
-Brings up the Ethernet adapter and logs some data through it
+Brings up network, makes it discoverable
 
-- Uses `Nerves.IO.Ethernet` to configure DHCP with ipv4LL fallback
+- Uses `Nerves.Networking` to configure DHCP with ipv4LL fallback
+- Demonstrates using `Nerves.SSDP.Server` for discovery via `cell list`
 
 ## Configuring Build Environment
 
