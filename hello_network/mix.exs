@@ -22,7 +22,7 @@ defmodule HelloNetwork.Mixfile do
   defp deps, do: [
     {:nerves, "~> 0.2"},
     {:nerves_lib, github: "nerves-project/nerves_lib"},
-    {:nerves_networking, github: "nerves-project/nerves_networking", tag: "v0.6.0"}
+    {:nerves_networking, github: "nerves-project/nerves_networking", tag: "v0.6.0"},
     {:nerves_ssdp_server, github: "nerves-project/nerves_ssdp_server"}
   ]
 
