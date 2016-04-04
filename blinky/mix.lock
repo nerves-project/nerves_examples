@@ -4,7 +4,7 @@
   "conform": {:hex, :conform, "0.17.0"},
   "erlware_commons": {:hex, :erlware_commons, "0.19.0"},
   "ex_aws": {:hex, :ex_aws, "0.4.18"},
-  "exrm": {:hex, :exrm, "1.0.2"},
+  "exrm": {:hex, :exrm, "1.0.3"},
   "getopt": {:hex, :getopt, "0.8.2"},
   "git_cli": {:hex, :git_cli, "0.1.0"},
   "hackney": {:hex, :hackney, "1.4.10"},
