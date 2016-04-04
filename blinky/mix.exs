@@ -23,9 +23,17 @@ defmodule Blinky.Mixfile do
   end
 
   defp deps, do: [
-    {:nerves, path: "../../nerves"},
+    {:nerves, github: "nerves-project/nerves"},
     {:nerves_io_led, github: "nerves-project/nerves_io_led"}
   ]
+
+  def system("alix") do
+    [{:nerves_system_bbb, github: "nerves-project/nerves_system_alix"}]
+  end
+
+  def system("ev3") do
+    [{:nerves_system_bbb, github: "nerves-project/nerves_system_ev3"}]
+  end
 
   def system("bbb") do
     [{:nerves_system_bbb, github: "nerves-project/nerves_system_bbb"}]
@@ -36,13 +44,11 @@ defmodule Blinky.Mixfile do
   end
 
   def system("rpi2") do
-    #[{:nerves_system_rpi2, github: "nerves-project/nerves_system_rpi2"}]
     [{:nerves_system_rpi2, github: "nerves-project/nerves_system_rpi2"}]
   end
 
   def system("rpi3") do
-    #[{:nerves_system_rpi2, github: "nerves-project/nerves_system_rpi2"}]
-    [{:nerves_system_rpi3, path: "../nerves_system_rpi3"}]
+    [{:nerves_system_rpi3, github: "../nerves_system_rpi3"}]
   end
 
   def aliases do
