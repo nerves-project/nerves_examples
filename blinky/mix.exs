@@ -5,7 +5,7 @@ defmodule Blinky.Mixfile do
 
   def project do
     [app: :blinky,
-     version: "0.3.0",
+     version: "0.1.0",
      archives: [nerves_bootstrap: "~> 0.1"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
