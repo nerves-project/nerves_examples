@@ -23,7 +23,7 @@ defmodule Blinky.Mixfile do
   end
 
   defp deps, do: [
-    {:nerves, github: "nerves-project/nerves"},
+    {:nerves, github: "nerves-project/nerves", branch: "mix"},
     {:nerves_io_led, github: "nerves-project/nerves_io_led"}
   ]
 
