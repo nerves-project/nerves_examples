@@ -28,11 +28,11 @@ defmodule Blinky.Mixfile do
   ]
 
   def system("alix") do
-    [{:nerves_system_bbb, github: "nerves-project/nerves_system_alix"}]
+    [{:nerves_system_alix, github: "nerves-project/nerves_system_alix"}]
   end
 
   def system("ev3") do
-    [{:nerves_system_bbb, github: "nerves-project/nerves_system_ev3"}]
+    [{:nerves_system_ev3, github: "nerves-project/nerves_system_ev3"}]
   end
 
   def system("bbb") do
@@ -53,7 +53,7 @@ defmodule Blinky.Mixfile do
 
   def aliases do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],
-     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
+     "deps.loadpaths":  ["nerves.loadpaths", "deps.loadpaths"]]
   end
 
 end
