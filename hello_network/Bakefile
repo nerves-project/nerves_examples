@@ -2,6 +2,9 @@ use Bake.Config
 
 platform :nerves
 
+target :rpi3,
+  recipe: {"nerves/rpi3", "~> 0.4"}
+
 target :rpi2,
   recipe: {"nerves/rpi2", "~> 0.3"}
 

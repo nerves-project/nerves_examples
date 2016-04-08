@@ -8,5 +8,8 @@ target :rpi,
 target :rpi2,
   recipe: {"nerves/rpi2", "~> 0.1"}
 
+target :rpi3,
+  recipe: {"nerves/rpi3", "~> 0.4"}
+
 target :bbb,
   recipe: {"nerves/bbb", "~> 0.1"}
