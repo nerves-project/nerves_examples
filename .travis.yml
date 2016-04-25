@@ -18,7 +18,7 @@ env:
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb
+      https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
       sudo dpkg -i esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
       wget https://github.com/fhunleth/fwup/releases/download/v0.6.1/fwup_0.6.1_amd64.deb;
       sudo dpkg -i fwup_0.6.1_amd64.deb;
