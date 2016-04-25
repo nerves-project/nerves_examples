@@ -48,7 +48,7 @@ defmodule Blinky.Mixfile do
   end
 
   def system("rpi3") do
-    [{:nerves_system_rpi3, github: "../nerves_system_rpi3"}]
+    [{:nerves_system_rpi3, github: "nerves-project/nerves_system_rpi3"}]
   end
 
   def aliases do
