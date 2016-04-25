@@ -53,7 +53,7 @@ defmodule Blinky.Mixfile do
 
   def aliases do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],
-     "deps.loadpaths":  ["nerves.loadpaths", "deps.loadpaths"]]
+     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
   end
 
 end
