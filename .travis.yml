@@ -7,6 +7,12 @@ os:
   - linux
   - osx
 
+# Install dependencies
+addons:
+  apt:
+    packages:
+    - squashfs-tools
+
 env:
   global:
     - ELIXIR_VERSION=1.2.4 ERLANG_VERSION=18.3
