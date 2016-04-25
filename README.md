@@ -1,6 +1,8 @@
 Nerves Examples
 ===============
 
+[![Build Status](https://travis-ci.org/nerves-project/nerves-examples.png?branch=master)](https://travis-ci.org/nerves-project/nerves-examples)
+
 Here are couple simple nerves examples.   All of these projects should work on the following platforms:
 
 - Raspberry Pi A+/B+
