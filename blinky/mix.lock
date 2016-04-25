@@ -9,7 +9,7 @@
   "idna": {:hex, :idna, "1.2.0"},
   "metrics": {:hex, :metrics, "1.0.1"},
   "mimerl": {:hex, :mimerl, "1.0.2"},
-  "nerves": {:git, "https://github.com/nerves-project/nerves.git", "7a7b38f3e5aeebe3f0f4952506fafe405037e881", [branch: "mix"]},
+  "nerves": {:git, "https://github.com/nerves-project/nerves.git", "5df308c0bfaa2655c5769b2a22e61058ff309c80", [branch: "mix"]},
   "nerves_io_led": {:git, "https://github.com/nerves-project/nerves_io_led.git", "b81f27fe2df66b7b7f84066ee892becef015a3fe", []},
   "nerves_system": {:git, "https://github.com/nerves-project/nerves_system.git", "f5f12d81bab12d8cf9d57ee1ed6c6aefc092a329", []},
   "nerves_system_br": {:git, "https://github.com/nerves-project/nerves_system_br.git", "d2f6600f67f81b54877f8f7486769bc8d716546a", [tag: "v0.4.0"]},
