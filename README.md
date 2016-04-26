@@ -34,54 +34,44 @@ The examples currently support Raspberry Pi (rpi), Raspberry Pi 2 (rpi2), and Be
 
 The following instructions assume rpi2, but you can substitute any of the supported target IDs below.
 
-### Building using Bake
+On OS X:
 
-See the [bakeware web site](http://bakeware.io) for bake install instructions.
+```
+brew update
+brew upgrade elixir   ## v1.2.4, BUT NOT HEAD!!
+brew install coreutils
+```
+
+On All Platforms:
+
+mix local.hex               # update hex
+mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez —force
+
+
+## Building with Mix
+
+Note that `NERVES_TARGET` environment can set the platform you get.  See mix.exs
+for the example to see how this works.
 
 ```
 cd <example-project>
-bake system get --target rpi2
-bake toolchain get --target rpi2
-bake firmware --target rpi2
+git pull 
+git checkout mix
+rm -rf rel _images _build
+mix deps.clean --all
+mix deps.get 
+mix firmware
 ```
 
-## Compiling & Burning
-
-```sh
-$ bake firmware --target rpi2
-```
+## Burning Using Mix
 
 For Mac OS
 ```
-$ bake burn --target rpi2
+$ mix firmware.burn
 ```
 
-For Linux (shown using the blinky app, you will need to replace this with the name of the otp app and target name you are trying to burn)
+## Burning with `fwup`
+
 ```
 $ fwup -a -i _images/blinky-rpi2 -t complete
-```
-
-### Switching targets
-
-You can change targets by passing a different `--target` to the command line options for the bake commands. You can also set the default target globally. This makes it a little easier for people who will be typically deploying firmware for a certain board. Lets say you own a BeagleBone Black and you always want to have `bake` assume you want to build for that.
-
-```
-$ bake global set default_target bbb
-```
-
-Now that you have a global target defined, you can omit the `--target` flag
-
-```
-$ bake firmware
-=> Using global default target: bbb
-```
-
-You can also get or clear this value
-
-```
-$ bake global get default_target
-=> Global variable default_target: rpi2
-$ bake global clear default_target
-$ bake global get default_target
-=> Global variable default_target is not set
 ```
