@@ -56,11 +56,11 @@ for the example to see how this works.
 
 ```
 cd <example-project>
-git pull 
+git pull
 git checkout mix
 rm -rf rel _images _build
 mix deps.clean --all
-mix deps.get 
+mix deps.get
 mix firmware
 ```
 
@@ -74,5 +74,5 @@ $ mix firmware.burn
 ## Burning with `fwup`
 
 ```
-$ fwup -a -i _images/blinky-rpi2 -t complete
+$ fwup -a -i _images/rpi2/blinky.fw -t complete
 ```
