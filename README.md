@@ -44,9 +44,10 @@ brew install coreutils
 
 On All Platforms:
 
-mix local.hex               # update hex
+```
+mix local.hex # update hex
 mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez —force
-
+```
 
 ## Building with Mix
 
