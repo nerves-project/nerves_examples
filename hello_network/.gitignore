@@ -1,10 +1,5 @@
 /_build
-/cover
 /deps
-nerves-env.sh
 erl_crash.dump
 *.ez
 _images
-rel/hello_network
-rel/files
-

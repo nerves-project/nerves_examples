@@ -1,6 +1,5 @@
 # configuration for Beaglebone Black (target bbb)
 use Mix.Config
-import_config "../config.exs"
 
 config :blinky, led_list: [ :led0, :led1, :led2, :led3 ]
 
