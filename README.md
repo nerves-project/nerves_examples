@@ -9,6 +9,7 @@ Here are couple simple nerves examples.   All of these projects should work on t
 - Raspberry Pi 2 B
 - Raspberry Pi Zero
 - Beaglebone Black
+- Lego EV3
 
 For detailed information on how to build an example, see the README.md in each application's root directory.
 
@@ -18,7 +19,7 @@ For detailed information on how to build an example, see the README.md in each a
 
 - Boots to Elixir shell and blinks LEDs forever in background
 - Uses `Nerves.LED` to manage named LEDs
-- Custom per-target configuration via `config/config.exs`
+- Custom per-target configuration via `config/#{target}.exs`
 - Builds off-target with debug output via `Logger`
 
 ### `hello_network`
@@ -39,14 +40,14 @@ On OS X:
 ```
 brew update
 brew upgrade elixir   ## v1.2.4, BUT NOT HEAD!!
-brew install coreutils
+brew install coreutils fwup
 ```
 
 On All Platforms:
 
 ```
 mix local.hex # update hex
-mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez —force
+mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez
 ```
 
 ## Building with Mix
@@ -57,16 +58,12 @@ for the example to see how this works.
 ```
 cd <example-project>
 git pull
-git checkout mix
-rm -rf rel _images _build
-mix deps.clean --all
 mix deps.get
 mix firmware
 ```
 
 ## Burning Using Mix
 
-For Mac OS
 ```
 $ mix firmware.burn
 ```
