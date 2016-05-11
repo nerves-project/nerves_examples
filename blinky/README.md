@@ -4,5 +4,5 @@
 
 - Boots to Elixir shell and blinks LEDs forever in background
 - Uses `Nerves.LED` to manage named LEDs
-- Custom per-target configuration via `config/config.exs`
+- Custom per-target configuration via `config/#{target}.exs`
 - Builds off-target with debug output via `Logger`

@@ -12,7 +12,6 @@ defmodule Blinky.Mixfile do
      target: @target,
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
-     config_path: "config/#{@target}/config.exs",
      aliases: aliases,
      deps: deps ++ system(@target)]
   end
@@ -23,32 +22,12 @@ defmodule Blinky.Mixfile do
   end
 
   defp deps do
-    [{:nerves, github: "nerves-project/nerves", branch: "mix"},
+    [{:nerves, "~> 0.3.0"},
      {:nerves_io_led, github: "nerves-project/nerves_io_led"}]
   end
 
-  def system("alix") do
-    [{:nerves_system_alix, github: "nerves-project/nerves_system_alix"}]
-  end
-
-  def system("ev3") do
-    [{:nerves_system_ev3, github: "nerves-project/nerves_system_ev3"}]
-  end
-
-  def system("bbb") do
-    [{:nerves_system_bbb, github: "nerves-project/nerves_system_bbb"}]
-  end
-
-  def system("rpi") do
-    [{:nerves_system_rpi, github: "nerves-project/nerves_system_rpi"}]
-  end
-
-  def system("rpi2") do
-    [{:nerves_system_rpi2, github: "nerves-project/nerves_system_rpi2"}]
-  end
-
-  def system("rpi3") do
-    [{:nerves_system_rpi3, github: "nerves-project/nerves_system_rpi3"}]
+  def system(target) do
+    [{:"nerves_system_#{target}", ">= 0.0.0"}]
   end
 
   def aliases do

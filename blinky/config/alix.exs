@@ -1,6 +1,5 @@
 # configuration for PC Engines Alix 2d/3d series (target alix)
 use Mix.Config
-import_config "../config.exs"
 
 config :blinky, led_list: [ :led1, :led2, :led3 ]
 

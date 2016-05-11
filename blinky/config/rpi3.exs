@@ -1,4 +1,4 @@
-# Configuration for the Raspberry Pi 3 Model B (target rpi3)
+# Configuration for the Raspberry Pi 2 Model B (target rpi2)
 use Mix.Config
 import_config "../config.exs"
 
