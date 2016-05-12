@@ -1,12 +1,15 @@
 Nerves Examples
 ===============
 
+[![Build Status](https://travis-ci.org/nerves-project/nerves-examples.png?branch=master)](https://travis-ci.org/nerves-project/nerves-examples)
+
 Here are couple simple nerves examples.   All of these projects should work on the following platforms:
 
 - Raspberry Pi A+/B+
 - Raspberry Pi 2 B
 - Raspberry Pi Zero
 - Beaglebone Black
+- Lego EV3
 
 For detailed information on how to build an example, see the README.md in each application's root directory.
 
@@ -16,7 +19,7 @@ For detailed information on how to build an example, see the README.md in each a
 
 - Boots to Elixir shell and blinks LEDs forever in background
 - Uses `Nerves.LED` to manage named LEDs
-- Custom per-target configuration via `config/config.exs`
+- Custom per-target configuration via `config/#{target}.exs`
 - Builds off-target with debug output via `Logger`
 
 ### `hello_network`
@@ -32,54 +35,41 @@ The examples currently support Raspberry Pi (rpi), Raspberry Pi 2 (rpi2), and Be
 
 The following instructions assume rpi2, but you can substitute any of the supported target IDs below.
 
-### Building using Bake
+On OS X:
 
-See the [bakeware web site](http://bakeware.io) for bake install instructions.
+```
+brew update
+brew upgrade elixir   ## v1.2.4, BUT NOT HEAD!!
+brew install coreutils fwup
+```
+
+On All Platforms:
+
+```
+mix local.hex # update hex
+mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez
+```
+
+## Building with Mix
+
+Note that `NERVES_TARGET` environment can set the platform you get.  See mix.exs
+for the example to see how this works.
 
 ```
 cd <example-project>
-bake system get --target rpi2
-bake toolchain get --target rpi2
-bake firmware --target rpi2
+git pull
+mix deps.get
+mix firmware
 ```
 
-## Compiling & Burning
-
-```sh
-$ bake firmware --target rpi2
-```
-
-For Mac OS
-```
-$ bake burn --target rpi2
-```
-
-For Linux (shown using the blinky app, you will need to replace this with the name of the otp app and target name you are trying to burn)
-```
-$ fwup -a -i _images/blinky-rpi2 -t complete
-```
-
-### Switching targets
-
-You can change targets by passing a different `--target` to the command line options for the bake commands. You can also set the default target globally. This makes it a little easier for people who will be typically deploying firmware for a certain board. Lets say you own a BeagleBone Black and you always want to have `bake` assume you want to build for that.
+## Burning Using Mix
 
 ```
-$ bake global set default_target bbb
+$ mix firmware.burn
 ```
 
-Now that you have a global target defined, you can omit the `--target` flag
+## Burning with `fwup`
 
 ```
-$ bake firmware
-=> Using global default target: bbb
-```
-
-You can also get or clear this value
-
-```
-$ bake global get default_target
-=> Global variable default_target: rpi2
-$ bake global clear default_target
-$ bake global get default_target
-=> Global variable default_target is not set
+$ fwup -a -i _images/rpi2/blinky.fw -t complete
 ```
