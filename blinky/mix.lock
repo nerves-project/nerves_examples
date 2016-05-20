@@ -9,7 +9,7 @@
   "idna": {:hex, :idna, "1.2.0", "ac62ee99da068f43c50dc69acf700e03a62a348360126260e87f2b54eced86b2", [:rebar3], []},
   "metrics": {:hex, :metrics, "1.0.1", "25f094dea2cda98213cecc3aeff09e940299d950904393b2a29d191c346a8486", [:rebar3], []},
   "mimerl": {:hex, :mimerl, "1.0.2", "993f9b0e084083405ed8252b99460c4f0563e41729ab42d9074fd5e52439be88", [:rebar3], []},
-  "nerves": {:hex, :nerves, "0.3.0", "c938e862e727868d4931e69646f9c257c28e91b80acc3393a9baaff65d8d6945", [:mix], [{:porcelain, "~> 2.0", [hex: :porcelain, optional: false]}, {:exrm, "~> 1.0.4", [hex: :exrm, optional: false]}]},
+  "nerves": {:hex, :nerves, "0.3.1", "c518c33d563d0e7911ae08b23eac043ffc71de70de7b48e73518f04824223a07", [:mix], [{:porcelain, "~> 2.0", [hex: :porcelain, optional: false]}, {:exrm, "~> 1.0.4", [hex: :exrm, optional: false]}]},
   "nerves_io_led": {:git, "https://github.com/nerves-project/nerves_io_led.git", "b81f27fe2df66b7b7f84066ee892becef015a3fe", []},
   "nerves_system": {:hex, :nerves_system, "0.1.2", "fe149b74300295de213e740daea7e46df57d262d3acffcd753bb0a7b9628918c", [:mix], [{:porcelain, "~> 2.0", [hex: :porcelain, optional: false]}, {:httpoison, "~> 0.8.3", [hex: :httpoison, optional: false]}]},
   "nerves_system_alix": {:hex, :nerves_system_alix, "0.5.0", "313d5f7b69bce0a2153b129e814a8dac019f126ada84e9cf8e59e46a4c6a7ff5", [:mix], [{:nerves_toolchain_i586_unknown_linux_gnu, "~> 0.6.0", [hex: :nerves_toolchain_i586_unknown_linux_gnu, optional: false]}, {:nerves_system_br, "~> 0.5.0", [hex: :nerves_system_br, optional: false]}, {:nerves_system, "~> 0.1.2", [hex: :nerves_system, optional: false]}]},
