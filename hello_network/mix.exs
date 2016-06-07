@@ -7,7 +7,7 @@ defmodule HelloNetwork.Mixfile do
     [app: :hello_network,
      version: "0.1.0",
      elixir: "~> 1.2.4 or ~> 1.3",
-     archives: [nerves_bootstrap: "~> 0.1"],
+     archives: [nerves_bootstrap: "~> 0.1.2"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,

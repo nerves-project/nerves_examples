@@ -1,12 +1,12 @@
 defmodule Blinky.Mixfile do
   use Mix.Project
 
-  @target System.get_env("NERVES_TARGET") || "rpi2"
+  @target System.get_env("NERVES_TARGET") || "rpi"
 
   def project do
     [app: :blinky,
      version: "0.1.0",
-     archives: [nerves_bootstrap: "~> 0.1"],
+     archives: [nerves_bootstrap: "~> 0.1.2"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
@@ -32,7 +32,7 @@ defmodule Blinky.Mixfile do
 
   def aliases do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],
-     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
+     "deps.loadpaths":  ["deps.loadpaths",    "nerves.loadpaths"]]
   end
 
 end
