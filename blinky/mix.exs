@@ -12,8 +12,8 @@ defmodule Blinky.Mixfile do
      target: @target,
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
-     aliases: aliases,
-     deps: deps ++ system(@target)]
+     aliases: aliases(),
+     deps: deps() ++ system(@target)]
   end
 
   def application do
