@@ -7,7 +7,7 @@ defmodule Blinky do
   directory (see config.exs).   See README.md for build instructions.
   """
 
-  alias Nerves.IO.Led
+  alias Nerves.Leds
   require Logger
 
   def start(_type, _args) do
@@ -26,9 +26,9 @@ defmodule Blinky do
   # given an led key, turn it on for 100ms then back off
   defp blink(led_key) do
   #    Logger.debug "blinking led #{inspect led_key}"
-    Led.set [{led_key, true}]
+    Leds.set [{led_key, true}]
     :timer.sleep 100
-    Led.set [{led_key, false}]
+    Leds.set [{led_key, false}]
   end
 
 end

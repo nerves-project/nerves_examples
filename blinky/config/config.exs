@@ -4,6 +4,6 @@ use Mix.Config
 # it is overridden by custom target configuration brought below
 
 config :blinky, led_list: [ :red, :green ]
-config :nerves_io_led, names: [ red: "led0", green: "led1" ]
+config :nerves_leds, names: [ red: "led0", green: "led1" ]
 
 import_config "#{Mix.Project.config[:target]}.exs"

@@ -5,7 +5,7 @@ defmodule Blinky.Mixfile do
 
   def project do
     [app: :blinky,
-     version: "0.1.0",
+     version: "0.2.0",
      archives: [nerves_bootstrap: "~> 0.1.2"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -17,13 +17,12 @@ defmodule Blinky.Mixfile do
   end
 
   def application do
-    [applications: [:nerves, :logger, :nerves_io_led],
-     mod: {Blinky, []}]
+    [applications: [:nerves, :logger, :nerves_nerves_leds], mod: {Blinky, []}]
   end
 
   defp deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_io_led, github: "nerves-project/nerves_io_led", tag: "v0.6.0" }]
+     {:nerves_leds, github: "nerves-project/nerves_leds", tag: "v0.7.0" }]
   end
 
   def system(target) do
