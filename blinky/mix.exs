@@ -23,7 +23,7 @@ defmodule Blinky.Mixfile do
 
   defp deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_io_led, github: "nerves-project/nerves_io_led"}]
+     {:nerves_io_led, github: "nerves-project/nerves_io_led", tag: "v0.6.0" }]
   end
 
   def system(target) do
