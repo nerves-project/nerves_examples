@@ -3,7 +3,7 @@ use Mix.Config
 
 config :blinky, led_list: [ :led1, :led2, :led3 ]
 
-config :nerves_io_led, names: [
+config :nerves_leds, names: [
   led1: "alix:1",
   led2: "alix:2",
   led3: "alix:3"
