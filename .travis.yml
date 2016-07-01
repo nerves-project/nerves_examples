@@ -30,7 +30,7 @@ before_install:
       sudo dpkg -i fwup_0.8.0_amd64.deb;
     else
       brew update;
-      brew install erlang;
+      brew install homebrew/versions/erlang-r19;
       brew install fwup;
       brew install squashfs;
       brew install coreutils;
