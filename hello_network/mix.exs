@@ -6,34 +6,39 @@ defmodule HelloNetwork.Mixfile do
   def project do
     [app: :hello_network,
      version: "0.1.0",
-     elixir: "~> 1.2.4 or ~> 1.3",
-     archives: [nerves_bootstrap: "~> 0.1.2"],
+     elixir: "~> 1.3",
+     archives: [nerves_bootstrap: "~> 0.1.3"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
+     build_embedded: Mix.env == :prod,
+     start_permanent: Mix.env == :prod,
      aliases: aliases(),
      deps: deps() ++ system(@target)]
   end
 
-  def application, do: [
-    mod: {HelloNetwork, []},
-    applications: [:nerves, :logger,
-                   :nerves_networking,
-                   :nerves_ssdp_server,
-                   :nerves_lib]
-  ]
+  def application do
+    [mod: {HelloNetwork, []},
+     applications: [:logger,
+                    :nerves_networking,
+                    :nerves_ssdp_server,
+                    :nerves_lib]]
+  end
 
-  defp deps, do: [
-    {:nerves, "~> 0.3.0"},
-    {:nerves_lib, github: "nerves-project/nerves_lib"},
-    {:nerves_networking, github: "nerves-project/nerves_networking", tag: "v0.6.0"},
-    {:nerves_ssdp_server, github: "nerves-project/nerves_ssdp_server"}
-  ]
+  defp deps do
+    [{:nerves, "~> 0.3.0"},
+     {:nerves_lib, github: "nerves-project/nerves_lib"},
+     {:nerves_networking, github: "nerves-project/nerves_networking", tag: "v0.6.0"},
+     {:nerves_ssdp_server, github: "nerves-project/nerves_ssdp_server"}]
+  end
 
   def system(target) do
-    [{:"nerves_system_#{target}", ">= 0.0.0"}]
+    [
+     #{:"nerves_system_#{target}", ">= 0.0.0"}
+     {:"nerves_system_#{target}", github: "nerves-project/nerves_system_#{target}", branch: "pre"}
+    ]
   end
 
   def aliases do
