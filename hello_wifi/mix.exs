@@ -29,7 +29,7 @@ defmodule HelloWifi.Mixfile do
 
   defp deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_interim_wifi, "~> 0.0.1"}]
+     {:nerves_interim_wifi, "~> 0.0.2"}]
   end
 
   def system(target) do
