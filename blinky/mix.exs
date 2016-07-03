@@ -31,8 +31,7 @@ defmodule Blinky.Mixfile do
 
   def system(target) do
     [
-     #{:"nerves_system_#{target}", ">= 0.0.0"}
-     {:"nerves_system_#{target}", github: "nerves-project/nerves_system_#{target}", branch: "pre"}
+     {:"nerves_system_#{target}", "~> 0.6"}
     ]
   end
 
