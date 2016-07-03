@@ -6,27 +6,33 @@ defmodule Blinky.Mixfile do
   def project do
     [app: :blinky,
      version: "0.2.0",
-     archives: [nerves_bootstrap: "~> 0.1.2"],
+     elixir: "~> 1.3",
+     archives: [nerves_bootstrap: "~> 0.1.3"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
+     build_embedded: Mix.env == :prod,
+     start_permanent: Mix.env == :prod,
      aliases: aliases(),
      deps: deps() ++ system(@target)]
   end
 
   def application do
-    [applications: [:nerves, :logger, :nerves_leds], mod: {Blinky, []}]
+    [mod: {Blinky, []},
+     applications: [:logger, :nerves_leds]]
   end
 
   defp deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_leds, github: "nerves-project/nerves_leds", tag: "v0.7.0" }]
+     {:nerves_leds, "~> 0.7.0"}]
   end
 
   def system(target) do
-    [{:"nerves_system_#{target}", ">= 0.0.0"}]
+    [
+     {:"nerves_system_#{target}", "~> 0.6"}
+    ]
   end
 
   def aliases do
