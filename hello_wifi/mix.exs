@@ -13,8 +13,6 @@ defmodule HelloWifi.Mixfile do
      target: @target,
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
      aliases: aliases(),
      deps: deps() ++ system(@target)]
   end
