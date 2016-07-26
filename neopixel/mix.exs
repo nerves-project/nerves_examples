@@ -26,7 +26,7 @@ defmodule Neopixel.Mixfile do
 
   def deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_io_neopixel, path: "../../nerves_io_neopixel"}]
+     {:nerves_io_neopixel, github: "mobileoverlord/nerves_io_neopixel", submodule: true}]
   end
 
   def system(target) do
