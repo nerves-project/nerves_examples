@@ -23,4 +23,8 @@ defmodule HelloNetwork do
     {:ok, _} = SSDPServer.publish usn, st
   end
 
+  @doc "Attempts to perform a DNS lookup to test connectivity."
+  def test_dns(hostname \\ 'nerves-project.org') do
+    :inet_res.gethostbyname(hostname)
+  end
 end
