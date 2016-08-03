@@ -40,7 +40,7 @@ On OS X:
 ```
 brew update
 brew upgrade elixir   ## v1.2.4, BUT NOT HEAD!!
-brew install coreutils fwup
+brew install coreutils fwup squashfs
 ```
 
 On All Platforms:
