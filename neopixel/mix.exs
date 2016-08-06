@@ -21,12 +21,12 @@ defmodule Neopixel.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Neopixel, []},
-     applications: [:logger, :nerves_io_neopixel]]
+     applications: [:logger, :nerves_neopixel]]
   end
 
   def deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_io_neopixel, github: "mobileoverlord/nerves_io_neopixel", submodule: true}]
+     {:nerves_neopixel, "~> 0.3.0"}]
   end
 
   def system(target) do
