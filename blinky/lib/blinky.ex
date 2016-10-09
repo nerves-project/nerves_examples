@@ -26,7 +26,7 @@ defmodule Blinky do
     blink_list_forever(led_list)
   end
 
-  # given an led key, turn it on for 100ms then back off
+  # given an led key, turn it on for @on_duration then back off
   defp blink(led_key) do
     #Logger.debug "blinking led #{inspect led_key}"
     Leds.set [{led_key, true}]
