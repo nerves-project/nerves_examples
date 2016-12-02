@@ -24,7 +24,9 @@ defmodule Blinky.Mixfile do
 
   defp deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_leds, "~> 0.7.0"}]
+     {:nerves_leds, "~> 0.7.0"},
+     {:relx, "3.11.0", override: true},
+     {:erlware_commons, "0.21.0", override: true}]
   end
 
   def system(target) do
