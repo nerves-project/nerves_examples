@@ -12,7 +12,7 @@ defmodule Linkit.Mixfile do
      build_path: "_build/#{@target}",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     aliases: aliases,
+     aliases: aliases(),
      deps: deps() ++ system()]
   end
 

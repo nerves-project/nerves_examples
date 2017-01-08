@@ -17,7 +17,7 @@ defmodule Blinky do
     led_list = Application.get_env(:blinky, :led_list)
     Logger.debug "list of leds to blink is #{inspect led_list}"
     spawn fn -> blink_list_forever(led_list) end
-    {:ok, self}
+    {:ok, self()}
   end
 
   # call blink_led on each led in the list sequence, repeating forever

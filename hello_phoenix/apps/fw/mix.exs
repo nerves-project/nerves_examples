@@ -13,8 +13,8 @@ defmodule Fw.Mixfile do
      lockfile: "../../mix.lock",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     aliases: aliases,
-     deps: deps ++ system(@target)]
+     aliases: aliases(),
+     deps: deps() ++ system(@target)]
   end
 
   # Configuration for the OTP application.

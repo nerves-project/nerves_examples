@@ -12,8 +12,8 @@ defmodule HelloGpioInput.Mixfile do
      build_path: "_build/#{@target}",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     aliases: aliases,
-     deps: deps ++ system(@target)]
+     aliases: aliases(),
+     deps: deps() ++ system(@target)]
   end
 
   # Configuration for the OTP application.
