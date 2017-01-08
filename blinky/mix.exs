@@ -7,7 +7,7 @@ defmodule Blinky.Mixfile do
     [app: :blinky,
      version: "0.2.0",
      elixir: "~> 1.3",
-     archives: [nerves_bootstrap: "~> 0.1.3"],
+     archives: [nerves_bootstrap: "~> 0.2"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
@@ -23,13 +23,13 @@ defmodule Blinky.Mixfile do
   end
 
   defp deps do
-    [{:nerves, "~> 0.3.0"},
-     {:nerves_leds, "~> 0.7.0"}]
+    [{:nerves, "~> 0.4"},
+     {:nerves_leds, "~> 0.7"}]
   end
 
   def system(target) do
     [
-     {:"nerves_system_#{target}", "~> 0.6"}
+     {:"nerves_system_#{target}", "~> 0.9"}
     ]
   end
 
