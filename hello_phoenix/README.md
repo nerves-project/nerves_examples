@@ -26,7 +26,7 @@ To use DHCP
 @opts [mode: "dhcp"]
 ```
 
-You can use also run the exmaple with wifi bye switching out the `nerves_networking` dependency
+You can use also run the exmaple with wifi by switching out the `nerves_networking` dependency
 for `nerves_interim_wifi`
 
 For more information See
