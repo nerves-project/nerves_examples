@@ -7,7 +7,7 @@ defmodule HelloLeds.Mixfile do
     [app: :hello_leds,
      version: "0.2.0",
      elixir: "~> 1.3",
-     archives: [nerves_bootstrap: "~> 0.1.3"],
+     archives: [nerves_bootstrap: "~> 0.2"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
