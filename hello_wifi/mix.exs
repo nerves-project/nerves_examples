@@ -13,6 +13,7 @@ defmodule HelloWifi.Mixfile do
      target: @target,
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
+     kernel_modules: kernel_modules(@target),
      aliases: aliases(),
      deps: deps() ++ system(@target)]
   end
@@ -22,19 +23,22 @@ defmodule HelloWifi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {HelloWifi, []},
-     applications: [:logger, :nerves_interim_wifi]]
+     extra_applications: [:logger]]
   end
 
   defp deps do
-    [{:nerves, "~> 0.3.0"},
-     {:nerves_interim_wifi, "~> 0.0.2"}]
+    [{:nerves, "~> 0.4"},
+     {:nerves_interim_wifi, "~> 0.1.1"}]
   end
 
   def system(target) do
-    [
-     {:"nerves_system_#{target}", "~> 0.6"}
-    ]
+    [{:"nerves_system_#{target}", "~> 0.6"}]
   end
+
+  def kernel_modules("rpi3") do
+    ["brcmfmac"]
+  end
+  def kernel_modules(_), do: []
 
   def aliases do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],
