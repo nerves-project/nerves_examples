@@ -2,7 +2,7 @@
 
 Connect your Nerves device to the network using Wifi. This example project is configured to default to the Raspberry Pi 3 board with its built in Wifi. You can also use this with a collection of popular wifi dongles.
 
-To us this on your board:
+To use this on your board:
 1. Edit the config file and enter your wifi credentials
 ```elixir
 # config/config.exs
