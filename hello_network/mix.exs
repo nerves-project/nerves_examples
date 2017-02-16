@@ -5,9 +5,9 @@ defmodule HelloNetwork.Mixfile do
 
   def project do
     [app: :hello_network,
-     version: "0.1.0",
-     elixir: "~> 1.3",
-     archives: [nerves_bootstrap: "~> 0.2"],
+     version: "0.2.0",
+     elixir: "~> 1.4.0",
+     archives: [nerves_bootstrap: "~> 0.2.1"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
@@ -19,22 +19,17 @@ defmodule HelloNetwork.Mixfile do
 
   def application do
     [mod: {HelloNetwork, []},
-     applications: [:logger,
-                    :nerves_networking,
-                    :nerves_ssdp_server,
-                    :nerves_lib]]
+     extra_applications: [:logger]]
   end
 
   defp deps do
-    [{:nerves, "~> 0.3.0"},
-     {:nerves_lib, github: "nerves-project/nerves_lib"},
-     {:nerves_networking, github: "nerves-project/nerves_networking", tag: "v0.6.0"},
-     {:nerves_ssdp_server, github: "nerves-project/nerves_ssdp_server"}]
+    [{:nerves, "~> 0.4.7"},
+     {:nerves_networking, "~> 0.6.0"}]
   end
 
   def system(target) do
     [
-     {:"nerves_system_#{target}", "~> 0.6"}
+     {:"nerves_system_#{target}", "~> 0.10.0"}
     ]
   end
 

@@ -5,9 +5,9 @@ defmodule HelloWifi.Mixfile do
 
   def project do
     [app: :hello_wifi,
-     version: "0.0.1",
-     elixir: "~> 1.3",
-     archives: [nerves_bootstrap: "~> 0.2"],
+     version: "0.1.0",
+     elixir: "~> 1.4.0",
+     archives: [nerves_bootstrap: "~> 0.2.1"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
@@ -27,12 +27,14 @@ defmodule HelloWifi.Mixfile do
   end
 
   defp deps do
-    [{:nerves, "~> 0.4"},
-     {:nerves_interim_wifi, "~> 0.1.1"}]
+    [{:nerves, "~> 0.4.7"},
+     {:nerves_interim_wifi, "~> 0.2.0"}]
   end
 
   def system(target) do
-    [{:"nerves_system_#{target}", "~> 0.6"}]
+    [
+     {:"nerves_system_#{target}", "~> 0.10.0"}
+    ]
   end
 
   def kernel_modules("rpi3") do

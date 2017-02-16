@@ -5,9 +5,9 @@ defmodule HelloLeds.Mixfile do
 
   def project do
     [app: :hello_leds,
-     version: "0.2.0",
-     elixir: "~> 1.3",
-     archives: [nerves_bootstrap: "~> 0.2"],
+     version: "0.3.0",
+     elixir: "~> 1.4.0",
+     archives: [nerves_bootstrap: "~> 0.2.1"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      target: @target,
@@ -23,13 +23,13 @@ defmodule HelloLeds.Mixfile do
   end
 
   defp deps do
-    [{:nerves, "~> 0.3.0"},
+    [{:nerves, "~> 0.4.7"},
      {:nerves_leds, "~> 0.7.0"}]
   end
 
   def system(target) do
     [
-     {:"nerves_system_#{target}", "~> 0.6"}
+     {:"nerves_system_#{target}", "~> 0.10.0"}
     ]
   end
 

@@ -49,5 +49,7 @@ script:
   - mix do deps.get, firmware --verbosity=verbose
   - cd ../hello_network
   - mix do deps.get, firmware --verbosity=verbose
+  - cd ../hello_phoenix/apps/fw
+  - mix do deps.get, firmware --verbosity=verbose
   - cd ../hello_wifi
   - mix do deps.get, firmware --verbosity=verbose

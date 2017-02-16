@@ -5,9 +5,10 @@ defmodule Fw.Mixfile do
 
   def project do
     [app: :fw,
-     version: "0.0.1",
+     version: "0.1.0",
+     elixir: "~> 1.4.0",
      target: @target,
-     archives: [nerves_bootstrap: "~> 0.2"],
+     archives: [nerves_bootstrap: "~> 0.2.1"],
      deps_path: "../../deps/#{@target}",
      build_path: "../../_build/#{@target}",
      lockfile: "../../mix.lock",
@@ -26,13 +27,13 @@ defmodule Fw.Mixfile do
   end
 
   def deps do
-    [{:nerves, "~> 0.3.0"},
-     {:nerves_networking, github: "nerves-project/nerves_networking"},
+    [{:nerves, "~> 0.4.7"},
+     {:nerves_networking, "~> 0.6.0"},
      {:ui, in_umbrella: true}]
   end
 
   def system(target) do
-    [{:"nerves_system_#{target}", ">= 0.0.0"}]
+    [{:"nerves_system_#{target}", "~> 0.10.0"}]
   end
 
   def aliases do
