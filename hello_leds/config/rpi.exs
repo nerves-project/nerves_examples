@@ -1,4 +1,5 @@
 # Configuration for the Raspberry Pi A+ / B+ / B / Zero (target rpi)
 use Mix.Config
 
-config :nerves_leds, names: [ red: "led0", green: "led1" ]
+config :hello_leds, led_list: [ :green ]
+config :nerves_leds, names: [ green: "led0" ]
