@@ -1,91 +1,40 @@
-# HelloGpio
- to use the repository
- 
+# Hello GPIO
+
+This example demonstrates how to control General Purpose Input/Output (GPIO) pins using the `elixir_ale` library.
+
 ## Hardware
 
-A singe led connected to GND and a GPIO pin with a 270 Ω resistor
+You will need a singe LED connected to GND and a GPIO pin with a 270 Ω resistor.
 
 ![GPIO schematic](assets/gpio.png)
 
+The default configuration uses GPIO pin 26, which can be found on a Raspberry Pi using the following diagram from https://pinout.xyz:
+
+![Raspberry Pi pinout](https://pinout.xyz/resources/raspberry-pi-pinout.png)
+
 ## How to use the code in the repository
 
-1. Connect the hardware
+1. Connect the hardware according to the schematic above
 2. Configure which output pin to use by editing `config\config.exs`
-3. Get dependencies `mix deps.get`
-3. Compile `mix compile`
-4. Create firmware `mix firmware`
-5. Burn firmware `mix firmware.burn`
+3. Get dependencies with `mix deps.get`
+4. Create firmware with `mix firmware`
+5. Burn firmware to an SD card with `mix firmware.burn`
+6. Insert the SD card into your target board and power it on
+7. After about 5 seconds, the LED should start blinking
 
-The code in the repository defaults to Raspberry pi 3. If you are creating an image for any other system either edit `mix.exs` and change the target or preface all mix command with `NERVES_TARGET=rpi2 mix compile`
-
-# How to create a new project
-
-Create the project:
-
-``` bash 
-mix nerves.new hello_gpio --target=rpi3
-cd hello_gpio
-```
-
-open mix.exs and add a dependency to `elixir_ale` and start `elixlir_ale` on boot
-
-``` elixir
-# mix.exs
-
-# add :elixir_ale to applications
-def application do
-    [mod: {HelloGpio, []},
-     applications: [:logger, :elixir_ale]]
-end
-
-# and add dependency to elixir_ale
-def deps do
-    [{:nerves, "~> 0.3.0"},
-     {:elixir_ale, "~> 0.5.5"}]
-end
-
-```
-
-Then we need to add config for which pin to use. Open config\config.exs
-
-
-``` elixir
-# config\config.exs
-
-# the gpio-pin the led is connected to
-config :hello_gpio, :ledpin, pin: 26
-```
-
-Then just set the pin blinking forever when the app starts:
-
-``` elixir
-@ledpin Application.get_env(:hello_gpio, :ledpin)[:pin]
-
-def start(_type, _args) do
-    IO.puts "Starting pin #{@ledpin} as output"
-    {:ok, pin} = Gpio.start_link(@ledpin, :output)
-
-    spawn fn -> blink_led_forever(pin) end
-    
-     {:ok, self}  
-  end
-  
-  defp blink_led_forever(pin) do
-    IO.puts "Blink!"
-    Gpio.write(pin, 1)
-    :timer.sleep(500)
-    Gpio.write(pin, 0)
-    :timer.sleep(500)
-    
-    blink_led_forever(pin)
-  end
-```
-
-Then download dependencies, compile and burn firmware
+The default target is set to Raspberry Pi 3.
+If you are creating an image for any other target, either change the default in `mix.exs` or preface all mix commands with a `NERVES_TARGET` environment variable.
+For example, if you're using a BeagleBone Black:
 
 ``` bash
-mix deps.get
-mix compile
-mix firmware
-mix firmware.burn
+NERVES_TARGET=bbb mix deps.get
+NERVES_TARGET=bbb mix firmware
+NERVES_TARGET=bbb mix firmware.burn
 ```
+
+## Learn more
+
+  * Official docs: https://hexdocs.pm/nerves/getting-started.html
+  * Official website: http://www.nerves-project.org/
+  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+  * Source: https://github.com/nerves-project/nerves
