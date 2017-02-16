@@ -5,6 +5,8 @@
 # is restricted to this project.
 use Mix.Config
 
+config :logger, level: :debug
+
 config :hello_gpio_input, :inputpin, pin: 26
 
 # Import target specific config. This must remain at the bottom
