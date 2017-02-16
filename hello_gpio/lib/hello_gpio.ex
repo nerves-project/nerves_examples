@@ -10,8 +10,8 @@ defmodule HelloGpio do
     {:ok, pin} = Gpio.start_link(@ledpin, :output)
 
     spawn fn -> blink_led_forever(pin) end
-    
-     {:ok, self}  
+
+    {:ok, self()}
   end
 
   defp blink_led_forever(pin) do

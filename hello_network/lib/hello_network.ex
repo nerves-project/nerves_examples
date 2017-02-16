@@ -11,7 +11,7 @@ defmodule HelloNetwork do
       {:ok, _} = Networking.setup @interface
     end
     #publish_node_via_ssdp(@interface)
-    {:ok, self}
+    {:ok, self()}
   end
 
   # define SSDP service type that allows discovery from the cell tool,
