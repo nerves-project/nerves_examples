@@ -5,7 +5,7 @@ defmodule HelloGpioInput.Mixfile do
 
   def project do
     [app: :hello_gpio_input,
-     version: "0.0.1",
+     version: "0.1.0",
      elixir: "~> 1.4.0",
      target: @target,
      archives: [nerves_bootstrap: "~> 0.2.1"],

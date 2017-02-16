@@ -9,7 +9,13 @@ defmodule HelloGpioInput do
     Logger.debug "Starting input on pin #{@input_pin}"
     {:ok, pid} = Gpio.start_link(@input_pin, :input)
 
-    # Start listening for interrupts
+    spawn fn -> listen_forever(pid) end
+
+    {:ok, self()}
+  end
+
+  defp listen_forever(pid) do
+    # Start listening for interrupts on rising and falling edges
     Gpio.set_int(pid, :both)
     loop()
   end
