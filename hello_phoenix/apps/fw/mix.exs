@@ -23,7 +23,7 @@ defmodule Fw.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Fw, []},
-     applications: [:logger, :ui, :nerves_networking]]
+     extra_applications: [:logger, :ui, :nerves_networking]]
   end
 
   def deps do

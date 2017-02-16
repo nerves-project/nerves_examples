@@ -22,7 +22,7 @@ defmodule Linkit.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Linkit, []},
-     applications: [:nerves, :logger, :nerves_uart, :firmata, :elixir_ale]]
+     extra_applications: [:logger]]
   end
 
   def deps do

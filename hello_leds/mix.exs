@@ -19,7 +19,7 @@ defmodule HelloLeds.Mixfile do
 
   def application do
     [mod: {HelloLeds, []},
-     applications: [:logger, :nerves_leds]]
+     extra_applications: [:logger]]
   end
 
   defp deps do

@@ -22,7 +22,7 @@ defmodule HelloGpio.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {HelloGpio, []},
-     applications: [:logger, :elixir_ale]]
+     extra_applications: [:logger]]
   end
 
   def deps do
