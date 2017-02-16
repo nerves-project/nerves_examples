@@ -9,6 +9,11 @@ use Mix.Config
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
+# NOTE: The nerves_neopixel library currently only supports
+# Raspberry Pi. The Raspberry Pi only has the following two
+# IO pins that support hardware PWM, which is required to
+# drive NeoPixels.
+
 config :neopixel, :channel0,
   pin: 18,
   count: 36
