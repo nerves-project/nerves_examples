@@ -1,7 +1,7 @@
 defmodule HelloLeds.Mixfile do
   use Mix.Project
 
-  @target System.get_env("NERVES_TARGET") || "rpi"
+  @target System.get_env("NERVES_TARGET") || "rpi3"
 
   def project do
     [app: :hello_leds,

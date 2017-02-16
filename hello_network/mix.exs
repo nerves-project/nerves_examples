@@ -1,7 +1,7 @@
 defmodule HelloNetwork.Mixfile do
   use Mix.Project
 
-  @target System.get_env("NERVES_TARGET") || "rpi2"
+  @target System.get_env("NERVES_TARGET") || "rpi3"
 
   def project do
     [app: :hello_network,
