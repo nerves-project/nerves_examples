@@ -15,7 +15,7 @@ addons:
 
 env:
   global:
-    - ELIXIR_VERSION=1.3.1 ERLANG_VERSION=19.0
+    - ELIXIR_VERSION=1.4.0 ERLANG_VERSION=19.0
   matrix:
     - NERVES_TARGET=rpi
     - NERVES_TARGET=rpi2
@@ -26,13 +26,14 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
       wget https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
       sudo dpkg -i esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
-      wget https://github.com/fhunleth/fwup/releases/download/v0.8.0/fwup_0.8.0_amd64.deb;
-      sudo dpkg -i fwup_0.8.0_amd64.deb;
+      wget https://github.com/fhunleth/fwup/releases/download/v0.13.0/fwup_0.13.0_amd64.deb;
+      sudo dpkg -i fwup_0.13.0_amd64.deb;
     else
       brew update;
       brew install homebrew/versions/erlang-r19;
       brew install fwup;
       brew install squashfs;
+      brew unlink coreutils;
       brew install coreutils;
     fi
   - wget https://github.com/elixir-lang/elixir/releases/download/v$ELIXIR_VERSION/Precompiled.zip
@@ -45,11 +46,30 @@ script:
   - mix local.hex --force
   - mix local.rebar --force
   - mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez --force
-  - cd blinky
+  - pushd blinky
   - mix do deps.get, firmware --verbosity=verbose
-  - cd ../hello_network
+  - popd
+  - pushd hello_gpio
   - mix do deps.get, firmware --verbosity=verbose
-  - cd ../hello_phoenix/apps/fw
+  - popd
+  - pushd hello_gpio_input
   - mix do deps.get, firmware --verbosity=verbose
-  - cd ../hello_wifi
+  - popd
+  - pushd hello_leds
   - mix do deps.get, firmware --verbosity=verbose
+  - popd
+  - pushd hello_network
+  - mix do deps.get, firmware --verbosity=verbose
+  - popd
+  - pushd hello_phoenix/apps/fw
+  - mix do deps.get, firmware --verbosity=verbose
+  - popd
+  - pushd hello_wifi
+  - mix do deps.get, firmware --verbosity=verbose
+  - popd
+  - pushd linkit
+  - mix do deps.get, firmware --verbosity=verbose
+  - popd
+  - pushd neopixel
+  - mix do deps.get, firmware --verbosity=verbose
+  - popd
