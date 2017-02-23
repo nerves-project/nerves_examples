@@ -23,7 +23,7 @@ defmodule Blinky.Mixfile do
   end
 
   defp deps do
-    [{:nerves, "~> 0.4.7", runtime: false},
+    [{:nerves, "~> 0.4.7"},
      {:nerves_leds, "~> 0.7.0"}]
   end
 

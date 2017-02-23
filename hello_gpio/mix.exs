@@ -26,7 +26,7 @@ defmodule HelloGpio.Mixfile do
   end
 
   def deps do
-    [{:nerves, "~> 0.4.7", runtime: false},
+    [{:nerves, "~> 0.4.7"},
      {:elixir_ale, "~> 0.5.7"}]
   end
 

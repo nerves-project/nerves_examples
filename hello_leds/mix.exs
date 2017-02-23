@@ -29,7 +29,7 @@ defmodule HelloLeds.Mixfile do
 
   def system(target) do
     [
-     {:"nerves_system_#{target}", "~> 0.10.0"}
+     {:"nerves_system_#{target}", "~> 0.10.0", runtime: false}
     ]
   end
 

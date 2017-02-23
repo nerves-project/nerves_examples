@@ -27,11 +27,11 @@ defmodule Neopixel.Mixfile do
 
   def deps do
     [{:nerves, "~> 0.4.7"},
-     {:nerves_neopixel, "~> 0.3"}]
+     {:nerves_neopixel, "~> 0.3.0"}]
   end
 
   def system(target) do
-    [{:"nerves_system_#{target}", "~> 0.10"}]
+    [{:"nerves_system_#{target}", "~> 0.10.0", runtime: false}]
   end
 
   def aliases do
