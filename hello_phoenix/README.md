@@ -21,7 +21,7 @@ Depending on your network configuration, you may want to statically assign the I
 9. After it finishes booting (about 5 seconds), open a browser window on your host computer to `http://<IP address you chose>/`
 
 ``` bash
-MIX_TARGET=rpi3
+export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
 mix firmware.burn

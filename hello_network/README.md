@@ -17,7 +17,7 @@ You can start this example and then find your device on the network using the
 7. After about 5 seconds, you should see messages on the console
 
 ``` bash
-MIX_TARGET=rpi3
+export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
 mix firmware.burn

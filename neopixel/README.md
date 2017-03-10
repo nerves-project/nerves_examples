@@ -26,7 +26,7 @@ Even if you don't damage anything, you are more likely to be disappointed or fru
 9. After it finishes booting (about 5 seconds), an animated pattern should start moving down your strip of NeoPixels
 
 ``` bash
-MIX_TARGET=rpi3
+export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
 mix firmware.burn

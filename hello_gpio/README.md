@@ -24,7 +24,7 @@ The default configuration uses GPIO pin 26, which can be found on a Raspberry Pi
 8. After about 5 seconds, the LED should start blinking
 
 ``` bash
-MIX_TARGET=rpi3
+export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
 mix firmware.burn

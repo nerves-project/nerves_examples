@@ -32,7 +32,7 @@ If you're using another board, you will need to connect a supported USB WiFi don
 8. After it finishes booting (about 5 seconds), pressing the button will log events to the console on the HDMI monitor
 
 ``` bash
-MIX_TARGET=rpi3
+export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
 mix firmware.burn
