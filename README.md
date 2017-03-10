@@ -3,73 +3,18 @@ Nerves Examples
 
 [![Build Status](https://travis-ci.org/nerves-project/nerves-examples.png?branch=master)](https://travis-ci.org/nerves-project/nerves-examples)
 
-Here are couple simple nerves examples.   All of these projects should work on the following platforms:
+This repository contains several Nerves example projects as sub-directories.
+Most of these projects should work on all of the [Nerves supported targets](https://hexdocs.pm/nerves/targets.html).
+One notable exception is the `neopixel` example, which depends on the Raspberry Pi hardware and won't work on other platforms.
 
-- Raspberry Pi A+/B+
-- Raspberry Pi 2 B
-- Raspberry Pi Zero
-- Beaglebone Black
-- Lego EV3
+For detailed information on how to build an example, see the `README.md` in each application's root directory.
 
-For detailed information on how to build an example, see the README.md in each application's root directory.
+* [`blinky`](https://github.com/nerves-project/nerves-examples/blob/master/blinky/README.md)
+* [`hello_gpio`](https://github.com/nerves-project/nerves-examples/blob/master/hello_gpio/README.md)
+* [`hello_gpio_input`](https://github.com/nerves-project/nerves-examples/blob/master/hello_gpio_input/README.md)
+* [`hello_leds`](https://github.com/nerves-project/nerves-examples/blob/master/hello_leds/README.md)
+* [`neopixel`](https://github.com/nerves-project/nerves-examples/blob/master/neopixel/README.md)
+* [`hello_network`](https://github.com/nerves-project/nerves-examples/blob/master/hello_network/README.md)
+* [`hello_wifi`](https://github.com/nerves-project/nerves-examples/blob/master/hello_wifi/README.md)
+* [`hello_phoenix`](https://github.com/nerves-project/nerves-examples/blob/master/hello_phoenix/README.md)
 
-### `blinky`
-
-"Hello World" for the embedded world... and a little more
-
-- Boots to Elixir shell and blinks LEDs forever in background
-- Uses `Nerves.LED` to manage named LEDs
-- Custom per-target configuration via `config/#{target}.exs`
-- Builds off-target with debug output via `Logger`
-
-### `hello_network`
-
-Brings up network, makes it discoverable
-
-- Uses `Nerves.Networking` to configure DHCP with ipv4LL fallback
-- Demonstrates using `Nerves.SSDP.Server` for discovery via `cell list`
-
-## Configuring Build Environment
-
-The examples currently support Raspberry Pi (rpi), Raspberry Pi 2 (rpi2), and Beaglebone Black (bbb) targets.
-
-The following instructions assume rpi2, but you can substitute any of the supported target IDs below.
-
-On OS X:
-
-```
-brew update
-brew upgrade elixir   ## v1.2.4, BUT NOT HEAD!!
-brew install coreutils fwup squashfs
-```
-
-On All Platforms:
-
-```
-mix local.hex # update hex
-mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez
-```
-
-## Building with Mix
-
-Note that `NERVES_TARGET` environment can set the platform you get.  See mix.exs
-for the example to see how this works.
-
-```
-cd <example-project>
-git pull
-mix deps.get
-mix firmware
-```
-
-## Burning Using Mix
-
-```
-$ mix firmware.burn
-```
-
-## Burning with `fwup`
-
-```
-$ fwup -a -i _images/rpi2/blinky.fw -t complete
-```
