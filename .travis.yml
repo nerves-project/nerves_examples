@@ -67,9 +67,6 @@ script:
   - pushd hello_wifi
   - mix do deps.get, firmware --verbosity=verbose
   - popd
-  - pushd linkit
-  - mix do deps.get, firmware --verbosity=verbose
-  - popd
   - pushd neopixel
   - mix do deps.get, firmware --verbosity=verbose
   - popd
