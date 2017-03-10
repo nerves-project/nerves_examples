@@ -17,10 +17,10 @@ env:
   global:
     - ELIXIR_VERSION=1.4.0 ERLANG_VERSION=19.0
   matrix:
-    - NERVES_TARGET=rpi
-    - NERVES_TARGET=rpi2
-    - NERVES_TARGET=rpi3
-    - NERVES_TARGET=bbb
+    - MIX_TARGET=rpi
+    - MIX_TARGET=rpi2
+    - MIX_TARGET=rpi3
+    - MIX_TARGET=bbb
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
