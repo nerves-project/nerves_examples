@@ -75,7 +75,7 @@ Then edit lib/hello_gpio_input.ex
       {:gpio_interrupt, p, :rising} ->
         IO.puts "Received raising event on pin #{p}"
       {:gpio_interrupt, p, :falling} ->
-        IO.puts "Received fallig event on pin #{p}"
+        IO.puts "Received falling event on pin #{p}"
     end
     loop()
   end
