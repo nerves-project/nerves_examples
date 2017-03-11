@@ -4,7 +4,7 @@ This example demonstrates how to control General Purpose Input/Output (GPIO) pin
 
 ## Hardware
 
-You will need a singe LED connected to GND and a GPIO pin with a 270 Ω resistor.
+You will need a single LED connected to GND and a GPIO pin with a 270 Ω resistor.
 
 ![GPIO schematic](assets/gpio.png)
 
