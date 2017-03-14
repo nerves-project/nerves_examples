@@ -1,12 +1,27 @@
-# HelloNetwork
+# Hello Network
 
-Configures the primary network interface using [DHCP] and announces itself
+Configures the primary Ethernet network interface using [DHCP] and announces itself
 on the network using [SSDP].
 
 You can start this example and then find your device on the network using the
 `cell` command-line tool (see the [`cell-tool`] project).
 
-## Usage
+## How to use the code in the repository
+
+1. Specify your target with the `MIX_TARGET` environment variable
+2. Get dependencies with `mix deps.get`
+3. Create firmware with `mix firmware`
+4. Burn firmware to an SD card with `mix firmware.burn`
+5. Connect a monitor to the HDMI port on the board
+6. Insert the SD card into your target board and power it on
+7. After about 5 seconds, you should see messages on the console
+
+``` bash
+export MIX_TARGET=rpi3
+mix deps.get
+mix firmware
+mix firmware.burn
+```
 
 ### Testing DNS name resolution
 
@@ -25,11 +40,12 @@ when DNS resolution is available is something like this:
 Supports only [IPv4LL] and DHCP addressing (no interface for static IPv4
 configuration yet).
 
-## Roadmap
+## Learn more
 
-- [ ] Add documentation.
-- [ ] Add support for static IPv4 configuration.
-- [ ] Add test cases.
+  * Official docs: https://hexdocs.pm/nerves/getting-started.html
+  * Official website: http://www.nerves-project.org/
+  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+  * Source: https://github.com/nerves-project/nerves
 
 [DHCP]:        https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
 [SSDP]:        https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol

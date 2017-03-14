@@ -17,7 +17,7 @@ defmodule HelloLeds do
     led_list = Application.get_env(:hello_leds, :led_list)
     Logger.debug "list of leds to blink is #{inspect led_list}"
     Enum.each(led_list, &start_blink(&1))
-    {:ok, self}
+    {:ok, self()}
   end
 
   # Set led `led_key` to the state defined below. It is also possible

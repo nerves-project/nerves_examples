@@ -1,9 +1,14 @@
+# This file is responsible for configuring your application
+# and its dependencies with the aid of the Mix.Config module.
+#
+# This configuration file is loaded before any dependency and
+# is restricted to this project.
 use Mix.Config
 
-# this default configuration is appropriate for the raspberry pi
-# it is overridden by custom target configuration brought below
+config :logger, level: :debug
 
-config :blinky, led_list: [ :red, :green ]
-config :nerves_leds, names: [ red: "led0", green: "led1" ]
+# Import target specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+# Uncomment to use target specific configurations
 
 import_config "#{Mix.Project.config[:target]}.exs"
