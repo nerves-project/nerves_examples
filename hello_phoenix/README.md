@@ -41,7 +41,7 @@ To use DHCP:
 
 ### Using Wireless instead of Wired Ethernet
 
-You can use also run the exmaple with WiFi by switching out the `nerves_networking` dependency
+You can use also run the example with WiFi by switching out the `nerves_networking` dependency
 for `nerves_interim_wifi`.
 
 For more information, see:
