@@ -57,6 +57,11 @@ defmodule HelloWifi.Mixfile do
 
   # Specify target specific dependencies
   def deps("host"), do: []
+  def deps("rpi0") do
+    [{:nerves_runtime, "~> 0.1.0"},
+     {:"nerves_system_rpi0", github: "tmecklem/nerves_system_rpi0", tag: "v0.11.1", runtime: false},
+     {:nerves_interim_wifi, "~> 0.2.0"}]
+  end
   def deps(target) do
     [{:nerves_runtime, "~> 0.1.0"},
      {:"nerves_system_#{target}", "~> 0.11.0", runtime: false},
@@ -70,14 +75,11 @@ defmodule HelloWifi.Mixfile do
      "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
   end
 
+  def kernel_modules("rpi0"), do: ["brcmfmac"]
   def kernel_modules("rpi3"), do: ["brcmfmac"]
   def kernel_modules("rpi2"), do: ["8192cu"]
   def kernel_modules("rpi"), do: ["8192cu"]
   def kernel_modules(_), do: []
 
-  def aliases do
-    ["deps.precompile": ["nerves.precompile", "deps.precompile"],
-     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
-  end
 
 end
