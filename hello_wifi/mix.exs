@@ -73,6 +73,7 @@ defmodule HelloWifi.Mixfile do
   def kernel_modules("rpi3"), do: ["brcmfmac"]
   def kernel_modules("rpi2"), do: ["8192cu"]
   def kernel_modules("rpi"), do: ["8192cu"]
+  def kernel_modules("linkit"), do: ["mt7603e"]
   def kernel_modules(_), do: []
 
   def aliases do
