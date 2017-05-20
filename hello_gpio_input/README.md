@@ -4,7 +4,7 @@ This example demonstrates how to use General-Purpose Input/Output (GPIO) pins as
 
 ## Hardware
 
-Connect a 4-pin push-button with a 10 kΩ pull-down resistor to a GPIO pin.
+Connect a 4-pin push-button with a 10 kΩ pull-up resistor to a GPIO pin.
 
 Schematic:
 
