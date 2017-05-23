@@ -58,7 +58,7 @@ defmodule HelloGpioInput.Mixfile do
   def deps("host"), do: []
   def deps(target) do
     [{:nerves_runtime, "~> 0.1.0"},
-     {:"nerves_system_#{target}", "~> 0.11.0", runtime: false},
+     {:"nerves_system_#{target}", "~> 0.12.0", runtime: false},
      {:elixir_ale, "~> 0.5.7"}]
   end
 
