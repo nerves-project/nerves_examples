@@ -12,15 +12,17 @@ Depending on your network configuration, you may want to statically assign the I
 
 1. Connect the network as described above
 2. Configure you network preferences by editing `apps/fw/lib/fw.ex` if desired
-3. Specify your target with the `MIX_TARGET` environment variable
-4. Get dependencies with `mix deps.get`
-5. Create firmware with `mix firmware`
-6. Burn firmware to an SD card with `mix firmware.burn`
-7. Connect a monitor to the HDMI port on the board
-8. Insert the SD card into your target board and power it on
-9. After it finishes booting (about 5 seconds), open a browser window on your host computer to `http://<IP address you chose>/`
+3. Change to the `apps/fw` directory with `cd apps/fw`
+4. Specify your target with the `MIX_TARGET` environment variable
+5. Get dependencies with `mix deps.get`
+6. Create firmware with `mix firmware`
+7. Burn firmware to an SD card with `mix firmware.burn`
+8. Connect a monitor to the HDMI port on the board
+9. Insert the SD card into your target board and power it on
+10. After it finishes booting (about 5 seconds), open a browser window on your host computer to `http://<IP address you chose>/`
 
 ``` bash
+cd apps/fw
 export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
