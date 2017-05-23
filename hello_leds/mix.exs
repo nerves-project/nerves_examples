@@ -58,7 +58,7 @@ defmodule HelloLeds.Mixfile do
   def deps("host"), do: []
   def deps(target) do
     [{:nerves_runtime, "~> 0.1.0"},
-     {:"nerves_system_#{target}", "~> 0.11.0", runtime: false},
+     {:"nerves_system_#{target}", "~> 0.12.0", runtime: false},
      {:nerves_leds, "~> 0.7.0"}]
   end
 
