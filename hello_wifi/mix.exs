@@ -58,10 +58,25 @@ defmodule HelloWifi.Mixfile do
   # Specify target specific dependencies
   def deps("host"), do: []
   def deps(target) do
-    [{:nerves_runtime, "~> 0.1.0"},
-     {:"nerves_system_#{target}", "~> 0.12.0", runtime: false},
-     {:nerves_interim_wifi, "~> 0.2.0"}]
+    [ system(target),
+      {:nerves_runtime, "~> 0.1.0"},
+      {:nerves_interim_wifi, "~> 0.2.0"},
+    ]
   end
+
+  # Specify the version of the System to use for each target
+  def system("rpi0"), do:       {:nerves_system_rpi0,       "~> 0.12.0", runtime: false}
+  def system("rpi"), do:        {:nerves_system_rpi,        "~> 0.12.0", runtime: false}
+  def system("rpi2"), do:       {:nerves_system_rpi2,       "~> 0.12.1", runtime: false}
+  def system("rpi3"), do:       {:nerves_system_rpi3,       "~> 0.12.0", runtime: false}
+  def system("bbb"), do:        {:nerves_system_bbb,        "~> 0.12.0", runtime: false}
+  def system("alix"), do:       {:nerves_system_alix,       "~> 0.7.0",  runtime: false}
+  def system("ag150"), do:      {:nerves_system_ag150,      "~> 0.7.0",  runtime: false}
+  def system("galileo"), do:    {:nerves_system_galileo,    "~> 0.7.0",  runtime: false}
+  def system("ev3"), do:        {:nerves_system_ev3,        "~> 0.11.0", runtime: false}
+  def system("linkit"), do:     {:nerves_system_linkit,     "~> 0.11.0", runtime: false}
+  def system("qemu_arm"), do:   {:nerves_system_qemu_arm,   "~> 0.11.0", runtime: false}
+  def system(target), do:       Mix.raise "Unknown MIX_TARGET: #{target}"
 
   # We do not invoke the Nerves Env when running on the Host
   def aliases("host"), do: []
