@@ -3,6 +3,7 @@
 /db
 /deps
 /*.ez
+mix.lock
 
 # Nerves images
 /_images
