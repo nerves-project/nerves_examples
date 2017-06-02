@@ -10,17 +10,25 @@ If you're using another board, you will need to connect a supported USB WiFi don
 
 ## How to Use this Repository
 
-1. Configure your WiFi settings by editing `config/config.exs` (note: `ssid` is case-sensitive)
+1. Your WiFi settings are configured using environmental variables (note: `ssid` is case-sensitive)
 
    ```elixir
    # config/config.exs
    use Mix.Config
 
    config :hello_wifi, :wlan0,
-     ssid: "my_accesspoint_name",
+     ssid: System.get_env("NERVES_WIFI_SSID"),
      key_mgmt: :"WPA-PSK",
-     psk: "secret"
+     psk: System.get_env("NERVES_WIFI_PSK")
 
+   ```
+
+   Specify your WiFi settings using the `NERVES_WIFI_SSID` and `NERVES_WIFI_PSK`
+   environmental variables
+
+   ``` bash
+   export NERVES_WIFI_SSID=my_accesspoint_name
+   export NERVES_WIFI_PSK=secret 
    ```
 
 2. Specify your target with the `MIX_TARGET` environment variable
