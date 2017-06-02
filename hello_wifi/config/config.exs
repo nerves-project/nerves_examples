@@ -11,8 +11,10 @@ use Mix.Config
 
 # import_config "#{Mix.Project.config[:target]}.exs"
 
-# Change these options to your
+# Configure these options using environmental variables
+# `export NERVES_WIFI_SSID=my_accesspoint_name`
+# `export NERVES_WIFI_PSK=secret`
 config :hello_wifi, :wlan0,
-  ssid: "my_accesspoint_name",
+  ssid: System.get_env("NERVES_WIFI_SSID"),
   key_mgmt: :"WPA-PSK",
-  psk: "secretsecret"
+  psk: System.get_env("NERVES_WIFI_PSK")
