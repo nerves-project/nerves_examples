@@ -67,6 +67,8 @@ script:
   - pushd hello_wifi
   - mix do deps.get, firmware --verbosity=verbose
   - popd
-  - pushd neopixel
-  - mix do deps.get, firmware --verbosity=verbose
-  - popd
+  - if [[ "$MIX_TARGET" == rpi* ]]; then
+      pushd neopixel;
+      mix do deps.get, firmware --verbosity=verbose;
+      popd;
+    fi
