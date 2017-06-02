@@ -10,7 +10,7 @@ If you're using another board, you will need to connect a supported USB WiFi don
 
 ## How to Use this Repository
 
-1. Configure your WiFi settings by editing `config/config.exs` (note: `ssid` is case-sensitive`)
+1. Configure your WiFi settings by editing `config/config.exs` (note: `ssid` is case-sensitive)
 
    ```elixir
    # config/config.exs
