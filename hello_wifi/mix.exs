@@ -65,7 +65,7 @@ defmodule HelloWifi.Mixfile do
   end
 
   # Specify the version of the System to use for each target
-  def system("rpi0"), do:       {:nerves_system_rpi0,       "~> 0.12.0", runtime: false}
+  def system("rpi0"), do:       {:nerves_system_rpi0,       "~> 0.13.0", runtime: false}
   def system("rpi"), do:        {:nerves_system_rpi,        "~> 0.12.0", runtime: false}
   def system("rpi2"), do:       {:nerves_system_rpi2,       "~> 0.12.1", runtime: false}
   def system("rpi3"), do:       {:nerves_system_rpi3,       "~> 0.12.0", runtime: false}
@@ -85,7 +85,7 @@ defmodule HelloWifi.Mixfile do
      "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
   end
 
-  def kernel_modules("rpi0"), do: []
+  def kernel_modules("rpi0"), do: ["brcmfmac"]
   def kernel_modules("rpi3"), do: ["brcmfmac"]
   def kernel_modules("rpi2"), do: ["8192cu"]
   def kernel_modules("rpi"), do: ["8192cu"]
