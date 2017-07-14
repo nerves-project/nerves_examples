@@ -14,7 +14,7 @@ defmodule HelloWifi.Mixfile do
      version: "0.1.0",
      elixir: "~> 1.4.0",
      target: @target,
-     archives: [nerves_bootstrap: "~> 0.3.0"],
+     archives: [nerves_bootstrap: "~> 0.5"],
      kernel_modules: kernel_modules(@target),
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
@@ -51,7 +51,7 @@ defmodule HelloWifi.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   def deps do
-    [{:nerves, "~> 0.5.1", runtime: false}] ++
+    [{:nerves, "~> 0.6.1", runtime: false}] ++
     deps(@target)
   end
 
@@ -65,16 +65,16 @@ defmodule HelloWifi.Mixfile do
   end
 
   # Specify the version of the System to use for each target
-  def system("rpi0"), do:       {:nerves_system_rpi0,       "~> 0.13.0", runtime: false}
-  def system("rpi"), do:        {:nerves_system_rpi,        "~> 0.12.0", runtime: false}
-  def system("rpi2"), do:       {:nerves_system_rpi2,       "~> 0.12.1", runtime: false}
-  def system("rpi3"), do:       {:nerves_system_rpi3,       "~> 0.12.0", runtime: false}
-  def system("bbb"), do:        {:nerves_system_bbb,        "~> 0.12.0", runtime: false}
+  def system("rpi0"), do:       {:nerves_system_rpi0,       "~> 0.15.0", runtime: false}
+  def system("rpi"), do:        {:nerves_system_rpi,        "~> 0.13.0", runtime: false}
+  def system("rpi2"), do:       {:nerves_system_rpi2,       "~> 0.13.0", runtime: false}
+  def system("rpi3"), do:       {:nerves_system_rpi3,       "~> 0.13.0", runtime: false}
+  def system("bbb"), do:        {:nerves_system_bbb,        "~> 0.13.0", runtime: false}
   def system("alix"), do:       {:nerves_system_alix,       "~> 0.7.0",  runtime: false}
   def system("ag150"), do:      {:nerves_system_ag150,      "~> 0.7.0",  runtime: false}
   def system("galileo"), do:    {:nerves_system_galileo,    "~> 0.7.0",  runtime: false}
   def system("ev3"), do:        {:nerves_system_ev3,        "~> 0.11.0", runtime: false}
-  def system("linkit"), do:     {:nerves_system_linkit,     "~> 0.11.0", runtime: false}
+  def system("linkit"), do:     {:nerves_system_linkit,     "~> 0.12.0", runtime: false}
   def system("qemu_arm"), do:   {:nerves_system_qemu_arm,   "~> 0.11.0", runtime: false}
   def system(target), do:       Mix.raise "Unknown MIX_TARGET: #{target}"
 
