@@ -59,7 +59,7 @@ defmodule HelloNetwork.Mixfile do
   def deps(target) do
     [ system(target),
       {:nerves_runtime, "~> 0.1.0"},
-      {:nerves_networking, "~> 0.6.0"},
+      {:nerves_network, "~> 0.3.0"},
     ]
   end
 

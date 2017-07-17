@@ -1,11 +1,5 @@
 # Hello Network
 
-Configures the primary Ethernet network interface using [DHCP] and announces itself
-on the network using [SSDP].
-
-You can start this example and then find your device on the network using the
-`cell` command-line tool (see the [`cell-tool`] project).
-
 ## How to use the code in the repository
 
 1. Specify your target with the `MIX_TARGET` environment variable
@@ -30,15 +24,15 @@ console to check that your Nerves device indeed has successfully established
 network connectivity and that DNS name resolution works. The expected output
 when DNS resolution is available is something like this:
 
-    iex(1)> HelloNetwork.test_dns
-    {:ok,
-     {:hostent, 'nerves-project.org', [], :inet, 4,
-      [{192, 30, 252, 154}, {192, 30, 252, 153}]}}
-
+``` elixir
+iex(1)> HelloNetwork.test_dns()
+{:ok,
+ {:hostent, 'nerves-project.org', [], :inet, 4,
+  [{192, 30, 252, 154}, {192, 30, 252, 153}]}}
+```
 ## Limitations
 
-Supports only [IPv4LL] and DHCP addressing (no interface for static IPv4
-configuration yet).
+Supports only [IPv4LL]
 
 ## Learn more
 
