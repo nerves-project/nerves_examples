@@ -26,8 +26,8 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
       wget https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
       sudo dpkg -i esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
-      wget https://github.com/fhunleth/fwup/releases/download/v0.13.0/fwup_0.13.0_amd64.deb;
-      sudo dpkg -i fwup_0.13.0_amd64.deb;
+      wget https://github.com/fhunleth/fwup/releases/download/v0.15.3/fwup_0.15.3_amd64.deb;
+      sudo dpkg -i fwup_0.15.3_amd64.deb;
     else
       brew update;
       brew install erlang;
