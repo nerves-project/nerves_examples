@@ -17,6 +17,7 @@ env:
   global:
     - ELIXIR_VERSION=1.4.5 ERLANG_VERSION=19.3
   matrix:
+    - MIX_TARGET=rpi0
     - MIX_TARGET=rpi
     - MIX_TARGET=rpi2
     - MIX_TARGET=rpi3
@@ -69,6 +70,11 @@ script:
   - popd
   - if [[ "$MIX_TARGET" == rpi* ]]; then
       pushd neopixel;
+      mix do deps.get, firmware --verbosity=verbose;
+      popd;
+    fi
+  - if [[ "$MIX_TARGET" == rpi0 ]]; then
+      pushd hello_gadget;
       mix do deps.get, firmware --verbosity=verbose;
       popd;
     fi
