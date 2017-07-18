@@ -3,7 +3,9 @@ defmodule HelloNetwork do
   Example of setting up Networking on a Nerves device.
   """
 
-  alias Nerves.{Network, Udhcpc}
+  require Logger
+
+  alias Nerves.{Network}
 
   @interface "eth0"
   @settings [ipv4_address_method: :dhcp]
@@ -37,26 +39,23 @@ defmodule HelloNetwork do
 
   def init({interface, settings}) do
     Network.setup(interface, settings)
-    {:ok, _} = Registry.register(Udhcpc, interface, [])
-    state = %{ip_address: nil,
-              connected: false,
-              interface: @interface
-            }
 
-    # Return our initial state.
-    {:ok, state}
+    SystemRegistry.register
+    {:ok, %{ interface: interface, ip_address: nil, connected: false }}
   end
 
-  def handle_info({Udhcpc, :bound, %{ifname: interface, ipv4_address: ip}}, %{interface: iface} = state) when iface == interface do
-    case test_dns() do
-      {:hostent, 'nerves-project.org', [], :inet, 4, _} ->
-        {:noreply, %{state | connected: true, ip_address: ip}}
-      _ -> {:noreply, %{state | connected: false, ip_address: ip}}
+  def handle_info({:system_registry, :global, registry}, state) do
+    ip = get_in registry, [:state, :network_interface, state.interface, :ipv4_address]
+    if ip != state.ip_address do
+      Logger.info "IP ADDRESS CHANGED: #{ip}"
     end
+
+    connected = match?({:ok, {:hostent, 'nerves-project.org', [], :inet, 4, _}}, test_dns())
+    {:noreply, %{state | ip_address: ip, connected: connected || false}}
   end
 
   def handle_info(_, state), do: {:noreply, state}
 
-  def handle_call(:connected?, _from, state), do: {:reply, state.connected}
-  def handle_call(:ip_addr, _from, state), do: {:reply, state.ip_address}
+  def handle_call(:connected?, _from, state), do: {:reply, state.connected, state}
+  def handle_call(:ip_addr, _from, state), do: {:reply, state.ip_address, state}
 end
