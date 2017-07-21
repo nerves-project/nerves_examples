@@ -5,7 +5,7 @@ defmodule HelloNetwork do
 
   require Logger
 
-  alias Nerves.{Network}
+  alias Nerves.Network
 
   @interface "eth0"
   @settings [ipv4_address_method: :dhcp]
