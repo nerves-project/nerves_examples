@@ -15,7 +15,7 @@ addons:
 
 env:
   global:
-    - ELIXIR_VERSION=1.4.0 ERLANG_VERSION=19.0
+    - ELIXIR_VERSION=1.4.5 ERLANG_VERSION=19.3
   matrix:
     - MIX_TARGET=rpi
     - MIX_TARGET=rpi2
@@ -23,24 +23,24 @@ env:
     - MIX_TARGET=bbb
 
 before_install:
+  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0
+  - source ~/.asdf/asdf.sh
+  - asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
+  - asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+  - asdf install erlang $ERLANG_VERSION
+  - asdf install elixir $ELIXIR_VERSION
+  - asdf global erlang $ERLANG_VERSION
+  - asdf global elixir $ELIXIR_VERSION
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      wget https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
-      sudo dpkg -i esl-erlang_$ERLANG_VERSION-1~ubuntu~trusty_amd64.deb;
       wget https://github.com/fhunleth/fwup/releases/download/v0.15.3/fwup_0.15.3_amd64.deb;
       sudo dpkg -i fwup_0.15.3_amd64.deb;
     else
       brew update;
-      brew install erlang;
       brew install fwup;
       brew install squashfs;
       brew unlink coreutils;
       brew install coreutils;
     fi
-  - wget https://github.com/elixir-lang/elixir/releases/download/v$ELIXIR_VERSION/Precompiled.zip
-  - unzip -d elixir Precompiled.zip
-
-before_script:
-  - export PATH=`pwd`/elixir/bin:$PATH
 
 script:
   - mix local.hex --force
