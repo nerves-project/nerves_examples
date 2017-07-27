@@ -59,7 +59,7 @@ defmodule Fw.Mixfile do
   def deps("host"), do: []
   def deps(target) do
     [ system(target),
-      {:nerves_runtime, "~> 0.1.0"},
+      {:nerves_runtime, "~> 0.4.2"},
       {:nerves_networking, "~> 0.6.0"},
       {:ui, in_umbrella: true},
     ]
