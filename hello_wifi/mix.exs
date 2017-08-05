@@ -69,7 +69,7 @@ defmodule HelloWifi.Mixfile do
   def system("rpi"), do:        {:nerves_system_rpi,        "~> 0.13.0", runtime: false}
   def system("rpi2"), do:       {:nerves_system_rpi2,       "~> 0.13.0", runtime: false}
   def system("rpi3"), do:       {:nerves_system_rpi3,       "~> 0.13.0", runtime: false}
-  def system("bbb"), do:        {:nerves_system_bbb,        "~> 0.13.0", runtime: false}
+  def system("bbb"), do:        {:nerves_system_bbb,        "~> 0.14.0", runtime: false}
   def system("alix"), do:       {:nerves_system_alix,       "~> 0.7.0",  runtime: false}
   def system("ag150"), do:      {:nerves_system_ag150,      "~> 0.7.0",  runtime: false}
   def system("galileo"), do:    {:nerves_system_galileo,    "~> 0.7.0",  runtime: false}
@@ -89,6 +89,7 @@ defmodule HelloWifi.Mixfile do
   def kernel_modules("rpi3"), do: ["brcmfmac"]
   def kernel_modules("rpi2"), do: ["8192cu"]
   def kernel_modules("rpi"), do: ["8192cu"]
+  def kernel_modules("bbb"), do: ["wl18xx", "wlcore-sdio"]
   def kernel_modules("linkit"), do: ["mt7603e"]
   def kernel_modules(_), do: []
 
