@@ -1,4 +1,4 @@
-language: bash
+language: elixir
 
 sudo: required
 dist: trusty
@@ -6,6 +6,8 @@ dist: trusty
 os:
   - linux
   - osx
+otp_release: 19.3
+elixir: 1.4.5
 
 # Install dependencies
 addons:
@@ -14,23 +16,14 @@ addons:
     - squashfs-tools
 
 env:
-  global:
-    - ELIXIR_VERSION=1.4.5 ERLANG_VERSION=19.3
   matrix:
+    - MIX_TARGET=rpi0
     - MIX_TARGET=rpi
     - MIX_TARGET=rpi2
     - MIX_TARGET=rpi3
     - MIX_TARGET=bbb
 
 before_install:
-  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0
-  - source ~/.asdf/asdf.sh
-  - asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
-  - asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-  - asdf install erlang $ERLANG_VERSION
-  - asdf install elixir $ELIXIR_VERSION
-  - asdf global erlang $ERLANG_VERSION
-  - asdf global elixir $ELIXIR_VERSION
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
       wget https://github.com/fhunleth/fwup/releases/download/v0.15.3/fwup_0.15.3_amd64.deb;
       sudo dpkg -i fwup_0.15.3_amd64.deb;
@@ -42,9 +35,11 @@ before_install:
       brew install coreutils;
     fi
 
-script:
-  - mix local.hex --force
+install:
   - mix local.rebar --force
+  - mix local.hex --force
+
+script:
   - mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez --force
   - pushd blinky
   - mix do deps.get, firmware --verbosity=verbose
