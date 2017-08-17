@@ -22,7 +22,7 @@ defmodule Neopixel do
     Supervisor.start_link(children, opts)
   end
 
-  defp start_animations(ch0_config, ch1_config) do
+  defp start_animations(ch0_config, _ch1_config) do
     Process.sleep(1000)
     Neopixel.Animate.spinner(0, ch0_config[:count])
     # Neopixel.Animate.pulse(1, ch1_config[:count])

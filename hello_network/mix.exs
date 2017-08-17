@@ -4,19 +4,20 @@ defmodule HelloNetwork.Mixfile do
   @target System.get_env("MIX_TARGET") || "host"
 
   Mix.shell.info([:green, """
-  Env
+  Mix environment
     MIX_TARGET:   #{@target}
     MIX_ENV:      #{Mix.env}
   """, :reset])
 
   def project do
     [app: :hello_network,
-     version: "0.2.0",
-     elixir: "~> 1.4.0",
+     version: "0.3.0",
+     elixir: "~> 1.4",
      target: @target,
-     archives: [nerves_bootstrap: "~> 0.5"],
+     archives: [nerves_bootstrap: "~> 0.6"],
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
+     lockfile: "mix.lock.#{@target}",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(@target),
@@ -50,7 +51,7 @@ defmodule HelloNetwork.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   def deps do
-    [{:nerves, "~> 0.6.1", runtime: false}] ++
+    [{:nerves, "~> 0.7", runtime: false}] ++
     deps(@target)
   end
 
@@ -58,23 +59,21 @@ defmodule HelloNetwork.Mixfile do
   def deps("host"), do: []
   def deps(target) do
     [ system(target),
-      {:nerves_runtime, "~> 0.4.0"},
-      {:nerves_network, "~> 0.3.0"},
+      {:bootloader, "~> 0.1"},
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_network, "~> 0.3"},
     ]
   end
 
   # Specify the version of the System to use for each target
-  def system("rpi0"), do:       {:nerves_system_rpi0,       "~> 0.15.0", runtime: false}
-  def system("rpi"), do:        {:nerves_system_rpi,        "~> 0.13.0", runtime: false}
-  def system("rpi2"), do:       {:nerves_system_rpi2,       "~> 0.13.0", runtime: false}
-  def system("rpi3"), do:       {:nerves_system_rpi3,       "~> 0.13.0", runtime: false}
-  def system("bbb"), do:        {:nerves_system_bbb,        "~> 0.13.0", runtime: false}
-  def system("alix"), do:       {:nerves_system_alix,       "~> 0.7.0",  runtime: false}
-  def system("ag150"), do:      {:nerves_system_ag150,      "~> 0.7.0",  runtime: false}
-  def system("galileo"), do:    {:nerves_system_galileo,    "~> 0.7.0",  runtime: false}
+  def system("rpi0"), do:       {:nerves_system_rpi0,       "~> 0.17.0", runtime: false}
+  def system("rpi"), do:        {:nerves_system_rpi,        "~> 0.16.0", runtime: false}
+  def system("rpi2"), do:       {:nerves_system_rpi2,       "~> 0.16.0", runtime: false}
+  def system("rpi3"), do:       {:nerves_system_rpi3,       "~> 0.16.0", runtime: false}
+  def system("bbb"), do:        {:nerves_system_bbb,        "~> 0.16.0", runtime: false}
   def system("ev3"), do:        {:nerves_system_ev3,        "~> 0.11.0", runtime: false}
-  def system("linkit"), do:     {:nerves_system_linkit,     "~> 0.12.0", runtime: false}
-  def system("qemu_arm"), do:   {:nerves_system_qemu_arm,   "~> 0.11.0", runtime: false}
+  def system("linkit"), do:     {:nerves_system_linkit,     "~> 0.14.0", runtime: false}
+  def system("qemu_arm"), do:   {:nerves_system_qemu_arm,   "~> 0.12.0", runtime: false}
   def system(target), do:       Mix.raise "Unknown MIX_TARGET: #{target}"
 
   # We do not invoke the Nerves Env when running on the Host

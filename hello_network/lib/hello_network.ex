@@ -1,18 +1,17 @@
 defmodule HelloNetwork do
   @moduledoc """
-  Example of setting up Networking on a Nerves device.
+  Example of setting up wired and wireless networking on a Nerves device.
   """
 
   require Logger
 
   alias Nerves.Network
 
-  @interface "eth0"
-  @settings [ipv4_address_method: :dhcp]
+  @interface Application.get_env(:hello_network, :interface, :eth0)
 
   @doc "Main entry point into the program. This is an OTP callback."
   def start(_type, _args) do
-    GenServer.start_link(__MODULE__, {@interface, @settings}, [name: __MODULE__])
+    GenServer.start_link(__MODULE__, to_string(@interface), [name: __MODULE__])
   end
 
   @doc "Are we connected to the internet?"
@@ -37,8 +36,8 @@ defmodule HelloNetwork do
 
   ## GenServer callbacks
 
-  def init({interface, settings}) do
-    Network.setup(interface, settings)
+  def init(interface) do
+    Network.setup(interface)
 
     SystemRegistry.register
     {:ok, %{ interface: interface, ip_address: nil, connected: false }}

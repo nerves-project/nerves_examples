@@ -4,7 +4,7 @@
 ##  The cookie needs to be configured prior to vm boot for
 ##  for read only filesystem.
 
-# -name hello_leds@0.0.0.0
+# -name firmware@0.0.0.0
 -setcookie ZKf4a0QT7EHzWCwLey/cur+yN2BPyBSDtUFkyCjeMuAW+peD3x/xyqZzqByVHPWq
 
 ## Use Ctrl-C to interrupt the current shell rather than invoking the emulator's

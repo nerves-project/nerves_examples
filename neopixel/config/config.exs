@@ -5,9 +5,15 @@
 # is restricted to this project.
 use Mix.Config
 
-# Import target specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-# Uncomment to use target specific configurations
+# Customize the firmware. Uncomment all or parts of the following
+# to add files to the root filesystem or modify the firmware
+# archive.
+
+# config :nerves, :firmware,
+#   rootfs_additions: "config/rootfs_additions",
+#   fwup_conf: "config/fwup.conf"
+
+config :logger, level: :debug
 
 # NOTE: The nerves_neopixel library currently only supports
 # Raspberry Pi. The Raspberry Pi only has the following two
@@ -27,3 +33,7 @@ config :neopixel, :channel1,
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
+
+config :bootloader,
+  init: [:nerves_runtime],
+  app: :neopixel
