@@ -1,62 +1,48 @@
 # Hello Phoenix
 
-A basic umbrella app for deploying the [Phoenix Framework] application to a Nerves device.
+This example demonstrates a basic poncho project for deploying a [Phoenix
+Framework]-based application to a Nerves device. A "poncho project" is similar
+to an umbrella project except that it's actually multiple separate-but-related
+Elixir apps that use `path` dependencies instead of `in_umbrella` dependencies.
+You can read more about the motivations behind this concept on the
+embedded-elixir blog post about [Poncho Projects].
 
 ## Hardware
 
-This example serves a Phoenix-based web page over the network using the target's wired Ethernet interface.
-In order to verify that it's working, you will need to either connect it to your host computer either directly or through a switch.
-Depending on your network configuration, you may want to statically assign the IP address to the Nerves device (and host computer, or use DHCP.
+This example serves a Phoenix-based web page over the network using the target's
+Ethernet interface. By default, it will use DHCP to get an IP address on its
+`eth0` interface. For more information about how to configure the network
+settings for your environment, including WiFi settings, see the `hello_network`
+example.
 
 ## How to Use this Repository
 
-1. Connect the network as described above
-2. Configure you network preferences by editing `apps/fw/lib/fw.ex` if desired
-3. Change to the `apps/fw` directory with `cd apps/fw`
-4. Specify your target with the `MIX_TARGET` environment variable
-5. Get dependencies with `mix deps.get`
-6. Create firmware with `mix firmware`
-7. Burn firmware to an SD card with `mix firmware.burn`
-8. Connect a monitor to the HDMI port on the board
-9. Insert the SD card into your target board and power it on
-10. After it finishes booting (about 5 seconds), open a browser window on your host computer to `http://<IP address you chose>/`
+1.  Connect your target hardware to your network as described above
+2.  Change to the `firmware` app directory:
+3.  Specify your target with the `MIX_TARGET` environment variable
+4.  Get dependencies with `mix deps.get`
+5.  Create firmware with `mix firmware`
+6.  Burn firmware to an SD card with `mix firmware.burn`
+7.  Connect a monitor to the HDMI port on the board
+8.  Insert the SD card into your target board and power it on
+9.  After it finishes booting (about 5 seconds), check the console on the
+    monitor for messages about an IP address being assigned.
+10. Open a browser window on your host computer to `http://<IP address>/`
 
 ``` bash
-cd apps/fw
+cd firmware
 export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
 mix firmware.burn
 ```
 
-### Network Connection
-
-This example is configured to use a static IP address so you can plug an Ethernet cable
-directly from the target to your host. You can change this behavior by editing the interface
-options in `apps/fw/lib/fw.ex`
-
-To use DHCP:
-
-```elixir
-@opts [mode: "dhcp"]
-```
-
-### Using Wireless instead of Wired Ethernet
-
-You can use also run the example with WiFi by switching out the `nerves_networking` dependency
-for `nerves_interim_wifi`.
-
-For more information, see:
-
-* https://github.com/nerves-project/nerves_networking
-* https://github.com/nerves-project/nerves_interim_wifi
-
 [Phoenix Framework](http://www.phoenixframework.org/)
+[Poncho Projects](http://embedded-elixir.com/post/2017-05-19-poncho-projects/)
 
-## Learn more
+## Learn More
 
   * Official docs: https://hexdocs.pm/nerves/getting-started.html
   * Official website: http://www.nerves-project.org/
   * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
   * Source: https://github.com/nerves-project/nerves
-

@@ -15,7 +15,7 @@ addons:
 
 env:
   global:
-    - ELIXIR_VERSION=1.4.5 ERLANG_VERSION=19.3
+    - ELIXIR_VERSION=1.4.5 ERLANG_VERSION=20.0
   matrix:
     - MIX_TARGET=rpi
     - MIX_TARGET=rpi2
@@ -52,19 +52,13 @@ script:
   - pushd hello_gpio
   - mix do deps.get, firmware --verbosity=verbose
   - popd
-  - pushd hello_gpio_input
-  - mix do deps.get, firmware --verbosity=verbose
-  - popd
   - pushd hello_leds
   - mix do deps.get, firmware --verbosity=verbose
   - popd
   - pushd hello_network
   - mix do deps.get, firmware --verbosity=verbose
   - popd
-  - pushd hello_phoenix/apps/fw
-  - mix do deps.get, firmware --verbosity=verbose
-  - popd
-  - pushd hello_wifi
+  - pushd hello_phoenix/firmware
   - mix do deps.get, firmware --verbosity=verbose
   - popd
   - if [[ "$MIX_TARGET" == rpi* ]]; then

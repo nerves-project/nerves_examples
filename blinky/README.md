@@ -11,7 +11,7 @@ The "Hello World" of the embedded world... blinking an LED
 No additional hardware is required for this example.
 The built-in user-controllable LEDs will blink, as configured for your target hardware.
 
-## How to use the code in the repository
+## How to Use the Code in this Repository
 
 1. Specify your target with the `MIX_TARGET` environment variable
 2. Get dependencies with `mix deps.get`
@@ -27,7 +27,7 @@ mix firmware
 mix firmware.burn
 ```
 
-## Learn more
+## Learn More
 
   * Official docs: https://hexdocs.pm/nerves/getting-started.html
   * Official website: http://www.nerves-project.org/

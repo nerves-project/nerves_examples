@@ -4,6 +4,7 @@
 /deps
 /*.ez
 mix.lock
+mix.lock.*
 
 # Nerves images
 /_images

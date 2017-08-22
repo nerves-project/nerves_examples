@@ -1,4 +1,4 @@
-defmodule Blinky.Mixfile do
+defmodule Firmware.Mixfile do
   use Mix.Project
 
   @target System.get_env("MIX_TARGET") || "host"
@@ -10,13 +10,14 @@ defmodule Blinky.Mixfile do
   """, :reset])
 
   def project do
-    [app: :blinky,
-     version: "0.4.0",
+    [app: :firmware,
+     version: "0.2.0",
      elixir: "~> 1.4",
      target: @target,
      archives: [nerves_bootstrap: "~> 0.6"],
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
+     lockfile: "mix.lock.#{@target}",
      lockfile: "mix.lock.#{@target}",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -32,12 +33,12 @@ defmodule Blinky.Mixfile do
   # Specify target specific application configurations
   # It is common that the application start function will start and supervise
   # applications which could cause the host to fail. Because of this, we only
-  # invoke Blinky.start/2 when running on a target.
+  # invoke Firmware.start/2 when running on a target.
   def application("host") do
     [extra_applications: [:logger]]
   end
   def application(_target) do
-    [mod: {Blinky, []},
+    [mod: {Firmware, []},
      extra_applications: [:logger]]
   end
 
@@ -61,7 +62,8 @@ defmodule Blinky.Mixfile do
     [ system(target),
       {:bootloader, "~> 0.1"},
       {:nerves_runtime, "~> 0.4"},
-      {:nerves_leds, "~> 0.7"},
+      {:nerves_network, "~> 0.3"},
+      {:ui, path: "../ui"},
     ]
   end
 

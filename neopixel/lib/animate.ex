@@ -21,22 +21,22 @@ defmodule Neopixel.Animate do
     delay = opts[:delay] || 100
 
     data = List.duplicate(color, pixels)
-    spawn fn () -> pulse_indef(ch, data, 0, :up) end
+    spawn fn () -> pulse_indef(ch, data, delay, 0, :up) end
   end
 
-  def pulse_indef(ch, data, 0, :down) do
-    pulse_indef(ch, data, 1, :up)
+  def pulse_indef(ch, data, delay, 0, :down) do
+    pulse_indef(ch, data, delay, 1, :up)
   end
 
-  def pulse_indef(ch, data, 125, :up) do
-    pulse_indef(ch, data, 124, :down)
+  def pulse_indef(ch, data, delay, 125, :up) do
+    pulse_indef(ch, data, delay, 124, :down)
   end
 
-  def pulse_indef(ch, data, brightness, direction) do
+  def pulse_indef(ch, data, delay, brightness, direction) do
     Neopixel.render ch, {brightness, data}
-    :timer.sleep(5)
+    :timer.sleep(delay)
     brightness =
       if direction == :up, do: brightness + 1, else: brightness - 1
-    pulse_indef(ch, data, brightness, direction)
+    pulse_indef(ch, data, delay, brightness, direction)
   end
 end
