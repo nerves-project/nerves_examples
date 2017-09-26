@@ -37,8 +37,8 @@ mix firmware
 mix firmware.burn
 ```
 
-[Phoenix Framework](http://www.phoenixframework.org/)
-[Poncho Projects](http://embedded-elixir.com/post/2017-05-19-poncho-projects/)
+[Phoenix Framework]: http://www.phoenixframework.org/
+[Poncho Projects]: http://embedded-elixir.com/post/2017-05-19-poncho-projects/
 
 ## Learn More
 
