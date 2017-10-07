@@ -18,12 +18,12 @@ config :logger, level: :debug
 config :hello_gpio, input_pin: 20
 config :hello_gpio, output_pin: 26
 
+config :bootloader,
+  init: [:nerves_runtime],
+  app: :hello_gpio
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
-
-config :bootloader,
-  init: [:nerves_runtime],
-  app: :hello_gpio

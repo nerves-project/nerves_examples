@@ -41,12 +41,12 @@ config :ui, Ui.Endpoint,
   pubsub: [name: Ui.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :bootloader,
+  init: [:nerves_runtime, :nerves_network],
+  app: :firmware
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
-
-config :bootloader,
-  init: [:nerves_runtime, :nerves_network],
-  app: :firmware
