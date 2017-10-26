@@ -46,7 +46,10 @@ defmodule HelloNetwork do
   def handle_info({:system_registry, :global, registry}, state) do
     ip = get_in registry, [:state, :network_interface, state.interface, :ipv4_address]
     if ip != state.ip_address do
-      Logger.info "IP ADDRESS CHANGED: #{ip}"
+      node_name = :"hello_network@#{ip}"
+      Logger.info "IP address changed. Setting node name to: #{node_name}"
+      :net_kernel.stop()
+      :net_kernel.start([node_name])
     end
 
     connected = match?({:ok, {:hostent, 'nerves-project.org', [], :inet, 4, _}}, test_dns())

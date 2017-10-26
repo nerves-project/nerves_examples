@@ -82,6 +82,21 @@ iex(1)> HelloNetwork.test_dns()
  {:hostent, 'nerves-project.org', [], :inet, 4,
   [{192, 30, 252, 154}, {192, 30, 252, 153}]}}
 ```
+
+### Distribution and the Remote Shell
+
+Whenever the IP address of the device changes, it restarts the Erlang
+Distribution node to set its name to `:hello_network@#{ip}` so that you can
+remotely connect to it over the network. It will log the node name to the
+console, but if you do not have a screen or serial console cable attached, you
+can also determine the node name based on the IP address assigned by your DHCP
+server. Assuming your development computer's IP address is `10.0.0.100` and your
+Nerves device is `10.0.0.200`, you would connect to the remote shell as follows:
+
+```bash
+iex --name console@10.0.0.100 --hidden --remsh hello_network@10.0.0.200 --cookie ZKf4a0QT7EHzWCwLey
+```
+
 ## Learn More
 
   * Official docs: https://hexdocs.pm/nerves/getting-started.html
