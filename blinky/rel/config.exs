@@ -28,6 +28,7 @@ end
 
 release :blinky do
   set version: current_version(:blinky)
+  plugin Shoehorn
   if System.get_env("NERVES_SYSTEM") do
     set dev_mode: false
     set include_src: false
@@ -36,4 +37,3 @@ release :blinky do
     set vm_args: "rel/vm.args"
   end
 end
-
