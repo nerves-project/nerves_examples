@@ -56,19 +56,19 @@ defmodule Neopixel.MixProject do
   defp deps(target) do
     [
       {:shoehorn, "~> 0.2"},
-      {:nerves_runtime, "~> 0.4"},
+      {:nerves_runtime, "~> 0.5"},
       {:nerves_neopixel, "~> 0.3.1"},
     ] ++ system(target)
   end
 
-  defp system("rpi"), do: [{:nerves_system_rpi, ">= 0.0.0", runtime: false}]
-  defp system("rpi0"), do: [{:nerves_system_rpi0, ">= 0.0.0", runtime: false}]
-  defp system("rpi2"), do: [{:nerves_system_rpi2, ">= 0.0.0", runtime: false}]
-  defp system("rpi3"), do: [{:nerves_system_rpi3, ">= 0.0.0", runtime: false}]
-  defp system("bbb"), do: [{:nerves_system_bbb, ">= 0.0.0", runtime: false}]
-  defp system("ev3"), do: [{:nerves_system_ev3, ">= 0.0.0", runtime: false}]
-  defp system("qemu_arm"), do: [{:nerves_system_qemu_arm, ">= 0.0.0", runtime: false}]
-  defp system("x86_64"), do: [{:nerves_system_x86_64, ">= 0.0.0", runtime: false}]
+  defp system("rpi"), do: [{:nerves_system_rpi, "~> 0.20.0", runtime: false}]
+  defp system("rpi0"), do: [{:nerves_system_rpi0, "~> 0.21.0", runtime: false}]
+  defp system("rpi2"), do: [{:nerves_system_rpi2, "~> 0.20.0", runtime: false}]
+  defp system("rpi3"), do: [{:nerves_system_rpi3, "~> 0.20.0", runtime: false}]
+  defp system("bbb"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
+  defp system("ev3"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
+  defp system("qemu_arm"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
+  defp system("x86_64"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
   defp system(target), do: Mix.raise "Unknown MIX_TARGET: #{target}"
 
   # We do not invoke the Nerves Env when running on the Host
