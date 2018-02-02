@@ -1,4 +1,4 @@
-defmodule Neopixle.MixProject do
+defmodule Neopixel.MixProject do
   use Mix.Project
 
   @target System.get_env("MIX_TARGET") || "host"
@@ -15,7 +15,7 @@ defmodule Neopixle.MixProject do
 
   def project do
     [
-      app: :neopixle,
+      app: :neopixel,
       version: "0.1.0",
       elixir: "~> 1.4",
       target: @target,
@@ -36,13 +36,13 @@ defmodule Neopixle.MixProject do
   # Specify target specific application configurations
   # It is common that the application start function will start and supervise
   # applications which could cause the host to fail. Because of this, we only
-  # invoke Neopixle.start/2 when running on a target.
+  # invoke Neopixel.start/2 when running on a target.
   def application("host") do
     [extra_applications: [:logger]]
   end
 
   def application(_target) do
-    [mod: {Neopixle.Application, []}, extra_applications: [:logger]]
+    [mod: {Neopixel.Application, []}, extra_applications: [:logger]]
   end
 
   # Run "mix help deps" to learn about dependencies.
