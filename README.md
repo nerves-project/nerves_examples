@@ -1,7 +1,7 @@
 Nerves Examples
 ===============
 
-[![Build Status](https://travis-ci.org/nerves-project/nerves-examples.png?branch=master)](https://travis-ci.org/nerves-project/nerves-examples)
+[![CircleCI](https://circleci.com/gh/nerves-project/nerves_examples.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_examples)
 
 This repository contains several Nerves example projects as sub-directories.
 Most of these projects should work on all of the [Nerves supported targets](https://hexdocs.pm/nerves/targets.html).

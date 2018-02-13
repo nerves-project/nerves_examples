@@ -1,0 +1,339 @@
+elixir_version: &elixir_version
+  ELIXIR_VERSION: 1.6.1
+
+defaults: &defaults
+  working_directory: /nerves/build
+  docker:
+    - image: nervesproject/nerves:0.17.0
+
+install_elixir: &install_elixir
+  run:
+    name: Install Elixir
+    command: |
+      wget https://github.com/elixir-lang/elixir/releases/download/v$ELIXIR_VERSION/Precompiled.zip
+      unzip -d /usr/local/elixir Precompiled.zip
+      echo 'export PATH=/usr/local/elixir/bin:$PATH' >> $BASH_ENV
+
+install_hex_rebar: &install_hex_rebar
+  run:
+    name: Install hex and rebar
+    command: |
+      cd /tmp
+      mix local.hex --force
+      mix local.rebar --force
+
+install_nerves_bootstrap: &install_nerves_bootstrap
+  run:
+    name: Install nerves_bootstrap
+    command: |
+      cd /tmp
+      mix archive.install github nerves-project/nerves_bootstrap --force
+
+build: &build
+  steps:
+    - checkout
+    - <<: *install_elixir
+    - <<: *install_hex_rebar
+    - <<: *install_nerves_bootstrap
+    - run:
+        name: Build Project
+        command: |
+          cd $MIX_PROJECT
+          mix deps.get
+          mix firmware
+
+jobs:
+  blinky_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "blinky" 
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  blinky_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "blinky" 
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  blinky_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "blinky" 
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  blinky_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "blinky" 
+      MIX_TARGET: "rpi3"
+    <<: *build
+      
+  blinky_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "blinky" 
+      MIX_TARGET: "bbb"
+    <<: *build
+
+  hello_gpio_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_gpio" 
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  hello_gpio_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_gpio" 
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  hello_gpio_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_gpio" 
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  hello_gpio_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_gpio" 
+      MIX_TARGET: "rpi3"
+    <<: *build
+      
+  hello_gpio_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_gpio" 
+      MIX_TARGET: "bbb"
+    <<: *build
+  
+  hello_leds_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_leds" 
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  hello_leds_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_leds" 
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  hello_leds_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_leds" 
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  hello_leds_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_leds" 
+      MIX_TARGET: "rpi3"
+    <<: *build
+      
+  hello_leds_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_leds" 
+      MIX_TARGET: "bbb"
+    <<: *build
+
+  hello_network_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network" 
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  hello_network_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network" 
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  hello_network_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network" 
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  hello_network_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network" 
+      MIX_TARGET: "rpi3"
+    <<: *build
+      
+  hello_network_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network" 
+      MIX_TARGET: "bbb"
+    <<: *build
+      
+  hello_phoenix_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  hello_phoenix_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  hello_phoenix_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  hello_phoenix_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_TARGET: "rpi3"
+    <<: *build
+      
+  hello_phoenix_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_TARGET: "bbb"
+    <<: *build
+
+  neopixel_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "neopixel" 
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  neopixel_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "neopixel" 
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  neopixel_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "neopixel" 
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  neopixel_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "neopixel" 
+      MIX_TARGET: "rpi3"
+    <<: *build
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - blinky_rpi0:
+          context: org-global
+      - blinky_rpi:
+          context: org-global
+      - blinky_rpi2:
+          context: org-global
+      - blinky_rpi3:
+          context: org-global
+      - blinky_bbb:
+          context: org-global
+      - hello_gpio_rpi0:
+          context: org-global
+      - hello_gpio_rpi:
+          context: org-global
+      - hello_gpio_rpi2:
+          context: org-global
+      - hello_gpio_rpi3:
+          context: org-global
+      - hello_gpio_bbb:
+          context: org-global
+      - hello_leds_rpi0:
+          context: org-global
+      - hello_leds_rpi:
+          context: org-global
+      - hello_leds_rpi2:
+          context: org-global
+      - hello_leds_rpi3:
+          context: org-global
+      - hello_leds_bbb:
+          context: org-global
+      - hello_network_rpi0:
+          context: org-global
+      - hello_network_rpi:
+          context: org-global
+      - hello_network_rpi2:
+          context: org-global
+      - hello_network_rpi3:
+          context: org-global
+      - hello_network_bbb:
+          context: org-global
+      - hello_phoenix_rpi0:
+          context: org-global
+      - hello_phoenix_rpi:
+          context: org-global
+      - hello_phoenix_rpi2:
+          context: org-global
+      - hello_phoenix_rpi3:
+          context: org-global
+      - hello_phoenix_bbb:
+          context: org-global
+      - neopixel_rpi0:
+          context: org-global
+      - neopixel_rpi:
+          context: org-global
+      - neopixel_rpi2:
+          context: org-global
+      - neopixel_rpi3:
+          context: org-global
