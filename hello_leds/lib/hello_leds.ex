@@ -1,5 +1,4 @@
 defmodule HelloLeds do
-
   @moduledoc """
   Simple example to blink a list of LEDs forever.
 
@@ -7,15 +6,16 @@ defmodule HelloLeds do
   directory (see config.exs).   See README.md for build instructions.
   """
 
-  @on_duration  200 # ms
-  @off_duration 200 # ms
+  # Durations are in milliseconds
+  @on_duration 200
+  @off_duration 200
 
   alias Nerves.Leds
   require Logger
 
   def start(_type, _args) do
     led_list = Application.get_env(:hello_leds, :led_list)
-    Logger.debug "list of leds to blink is #{inspect led_list}"
+    Logger.debug("list of leds to blink is #{inspect(led_list)}")
     Enum.each(led_list, &start_blink(&1))
     {:ok, self()}
   end
@@ -27,15 +27,17 @@ defmodule HelloLeds do
   # The first parameter must be an atom.
   @spec start_blink(Keyword.T) :: true
   defp start_blink(led_key) do
-    Logger.debug "blinking led #{inspect led_key}"
+    Logger.debug("blinking led #{inspect(led_key)}")
     # led_key is a variable that contains an atom
-    Leds.set [{
-      led_key,
-      [
-        trigger: "timer",
-        delay_off: @off_duration,
-        delay_on: @on_duration
-      ]
-    }]
+    Leds.set([
+      {
+        led_key,
+        [
+          trigger: "timer",
+          delay_off: @off_duration,
+          delay_on: @on_duration
+        ]
+      }
+    ])
   end
 end

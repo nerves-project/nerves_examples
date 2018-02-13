@@ -28,8 +28,8 @@ config :nerves_network, :default,
   ]
 
 config :firmware, interface: :eth0
-#config :firmware, interface: :wlan0
-#config :firmware, interface: :usb0
+# config :firmware, interface: :wlan0
+# config :firmware, interface: :usb0
 
 config :ui, Ui.Endpoint,
   http: [port: 80],
@@ -38,8 +38,7 @@ config :ui, Ui.Endpoint,
   root: Path.dirname(__DIR__),
   server: true,
   render_errors: [accepts: ~w(html json)],
-  pubsub: [name: Ui.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Ui.PubSub, adapter: Phoenix.PubSub.PG2]
 
 config :bootloader,
   init: [:nerves_runtime, :nerves_network],
