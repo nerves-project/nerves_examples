@@ -15,7 +15,7 @@ use Mix.Config
 
 config :logger, level: :debug
 
-config :bootloader,
+config :shoehorn,
   init: [:nerves_runtime],
   app: :blinky
 

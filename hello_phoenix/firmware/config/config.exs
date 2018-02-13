@@ -40,7 +40,7 @@ config :ui, Ui.Endpoint,
   render_errors: [accepts: ~w(html json)],
   pubsub: [name: Ui.PubSub, adapter: Phoenix.PubSub.PG2]
 
-config :bootloader,
+config :shoehorn,
   init: [:nerves_runtime, :nerves_network],
   app: :firmware
 

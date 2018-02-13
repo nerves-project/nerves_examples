@@ -18,7 +18,7 @@ config :logger, level: :debug
 config :hello_gpio, input_pin: 20
 config :hello_gpio, output_pin: 26
 
-config :bootloader,
+config :shoehorn,
   init: [:nerves_runtime],
   app: :hello_gpio
 

@@ -28,7 +28,7 @@ config :neopixel, :channel1,
   pin: 19,
   count: 21
 
-config :bootloader,
+config :shoehorn,
   init: [:nerves_runtime],
   app: :neopixel
 

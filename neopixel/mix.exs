@@ -3,31 +3,28 @@ defmodule Neopixel.MixProject do
 
   @target System.get_env("MIX_TARGET") || "host"
 
-  Mix.shell().info([
-    :green,
-    """
-    Mix environment
-      MIX_TARGET:   #{@target}
-      MIX_ENV:      #{Mix.env()}
-    """,
-    :reset
-  ])
-
   def project do
     [
       app: :neopixel,
       version: "0.1.0",
       elixir: "~> 1.4",
       target: @target,
-      archives: [nerves_bootstrap: "~> 0.7"],
+      archives: [nerves_bootstrap: "~> 0.8"],
       deps_path: "deps/#{@target}",
       build_path: "_build/#{@target}",
       lockfile: "mix.lock.#{@target}",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      aliases: aliases(@target),
+      aliases: ["loadconfig": [&bootstrap/1]],
       deps: deps()
     ]
+  end
+
+  # Starting nerves_bootstrap adds the required aliases to Mix.Project.config()
+  # Aliases are only added if MIX_TARGET is set.
+  def bootstrap(args) do
+    Application.start(:nerves_bootstrap)
+    Mix.Task.run("loadconfig", args)
   end
 
   # Run "mix help compile.app" to learn about applications.
@@ -42,12 +39,12 @@ defmodule Neopixel.MixProject do
   end
 
   def application(_target) do
-    [mod: {Neopixel.Application, []}, extra_applications: [:logger]]
+    [mod: {Neopixel, []}, extra_applications: [:logger]]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:nerves, "~> 0.9", runtime: false}] ++ deps(@target)
+    [{:nerves, "~> 0.10", runtime: false}] ++ deps(@target)
   end
 
   # Specify target specific dependencies
@@ -71,13 +68,4 @@ defmodule Neopixel.MixProject do
   defp system("x86_64"), do: Mix.raise("Sorry, this example only works on Raspberry Pi")
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 
-  # We do not invoke the Nerves Env when running on the Host
-  defp aliases("host"), do: []
-
-  defp aliases(_target) do
-    [
-      # Add custom mix aliases here
-    ]
-    |> Nerves.Bootstrap.add_aliases()
-  end
 end

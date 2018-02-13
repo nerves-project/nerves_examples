@@ -31,7 +31,7 @@ config :nerves_network, :default,
     ipv4_address_method: :dhcp
   ]
 
-config :bootloader,
+config :shoehorn,
   init: [:nerves_runtime, :nerves_network],
   app: :hello_network
 
