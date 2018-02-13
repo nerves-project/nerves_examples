@@ -13,7 +13,6 @@ config :ui, Ui.Endpoint,
   check_origin: false,
   watchers: []
 
-
 # Watch static and templates for browser reloading.
 config :ui, Ui.Endpoint,
   live_reload: [

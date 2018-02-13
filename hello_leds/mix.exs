@@ -23,8 +23,8 @@ defmodule HelloLeds.MixProject do
       deps_path: "deps/#{@target}",
       build_path: "_build/#{@target}",
       lockfile: "mix.lock.#{@target}",
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       aliases: aliases(@target),
       deps: deps()
     ]
@@ -57,7 +57,7 @@ defmodule HelloLeds.MixProject do
     [
       {:shoehorn, "~> 0.2"},
       {:nerves_runtime, "~> 0.5"},
-      {:nerves_leds, "~> 0.7"},
+      {:nerves_leds, "~> 0.7"}
     ] ++ system(target)
   end
 
@@ -69,7 +69,7 @@ defmodule HelloLeds.MixProject do
   defp system("ev3"), do: [{:nerves_system_ev3, "~> 0.15.0", runtime: false}]
   defp system("qemu_arm"), do: [{:nerves_system_qemu_arm, "~> 0.16.0", runtime: false}]
   defp system("x86_64"), do: [{:nerves_system_x86_64, "~> 0.5.0", runtime: false}]
-  defp system(target), do: Mix.raise "Unknown MIX_TARGET: #{target}"
+  defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 
   # We do not invoke the Nerves Env when running on the Host
   defp aliases("host"), do: []

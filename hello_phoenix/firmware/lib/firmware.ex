@@ -20,7 +20,6 @@ defmodule Firmware do
   end
 
   def start_network do
-    Nerves.Network.setup to_string(@interface)
+    Nerves.Network.setup(to_string(@interface))
   end
-
 end

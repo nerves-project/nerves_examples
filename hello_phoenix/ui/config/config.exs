@@ -10,8 +10,7 @@ config :ui, Ui.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "9w9MI64d1L8mjw+tzTmS3qgJTJqYNGJ1dNfn4S/Zm6BbKAmo2vAyVW7CgfI3CpII",
   render_errors: [view: Ui.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Ui.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Ui.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -20,4 +19,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

@@ -1,5 +1,4 @@
 defmodule Blinky do
-
   @moduledoc """
   Simple example to blink a list of LEDs forever.
 
@@ -7,16 +6,18 @@ defmodule Blinky do
   (see config.exs). See README.md for build instructions.
   """
 
-  @on_duration  200 # ms
-  @off_duration 200 # ms
+  # ms
+  @on_duration 200
+  # ms
+  @off_duration 200
 
   alias Nerves.Leds
   require Logger
 
   def start(_type, _args) do
     led_list = Application.get_env(:blinky, :led_list)
-    Logger.debug "list of leds to blink is #{inspect led_list}"
-    spawn fn -> blink_list_forever(led_list) end
+    Logger.debug("list of leds to blink is #{inspect(led_list)}")
+    spawn(fn -> blink_list_forever(led_list) end)
     {:ok, self()}
   end
 
@@ -28,11 +29,10 @@ defmodule Blinky do
 
   # given an led key, turn it on for @on_duration then back off
   defp blink(led_key) do
-    #Logger.debug "blinking led #{inspect led_key}"
-    Leds.set [{led_key, true}]
-    :timer.sleep @on_duration
-    Leds.set [{led_key, false}]
-    :timer.sleep @off_duration
+    # Logger.debug "blinking led #{inspect led_key}"
+    Leds.set([{led_key, true}])
+    :timer.sleep(@on_duration)
+    Leds.set([{led_key, false}])
+    :timer.sleep(@off_duration)
   end
-
 end

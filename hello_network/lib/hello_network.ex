@@ -11,7 +11,7 @@ defmodule HelloNetwork do
 
   @doc "Main entry point into the program. This is an OTP callback."
   def start(_type, _args) do
-    GenServer.start_link(__MODULE__, to_string(@interface), [name: __MODULE__])
+    GenServer.start_link(__MODULE__, to_string(@interface), name: __MODULE__)
   end
 
   @doc "Are we connected to the internet?"
@@ -39,14 +39,15 @@ defmodule HelloNetwork do
   def init(interface) do
     Network.setup(interface)
 
-    SystemRegistry.register
-    {:ok, %{ interface: interface, ip_address: nil, connected: false }}
+    SystemRegistry.register()
+    {:ok, %{interface: interface, ip_address: nil, connected: false}}
   end
 
   def handle_info({:system_registry, :global, registry}, state) do
-    ip = get_in registry, [:state, :network_interface, state.interface, :ipv4_address]
+    ip = get_in(registry, [:state, :network_interface, state.interface, :ipv4_address])
+
     if ip != state.ip_address do
-      Logger.info "IP ADDRESS CHANGED: #{ip}"
+      Logger.info("IP ADDRESS CHANGED: #{ip}")
     end
 
     connected = match?({:ok, {:hostent, 'nerves-project.org', [], :inet, 4, _}}, test_dns())

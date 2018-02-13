@@ -16,8 +16,8 @@ use Mix.Config
 config :logger, level: :debug
 
 config :hello_network, interface: :eth0
-#config :hello_network, interface: :wlan0
-#config :hello_network, interface: :usb0
+# config :hello_network, interface: :wlan0
+# config :hello_network, interface: :usb0
 
 key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
 

@@ -23,8 +23,8 @@ defmodule Neopixel.MixProject do
       deps_path: "deps/#{@target}",
       build_path: "_build/#{@target}",
       lockfile: "mix.lock.#{@target}",
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       aliases: aliases(@target),
       deps: deps()
     ]
@@ -57,7 +57,7 @@ defmodule Neopixel.MixProject do
     [
       {:shoehorn, "~> 0.2"},
       {:nerves_runtime, "~> 0.5"},
-      {:nerves_neopixel, "~> 0.3.1"},
+      {:nerves_neopixel, "~> 0.3.1"}
     ] ++ system(target)
   end
 
@@ -65,11 +65,11 @@ defmodule Neopixel.MixProject do
   defp system("rpi0"), do: [{:nerves_system_rpi0, "~> 0.21.0", runtime: false}]
   defp system("rpi2"), do: [{:nerves_system_rpi2, "~> 0.20.0", runtime: false}]
   defp system("rpi3"), do: [{:nerves_system_rpi3, "~> 0.20.0", runtime: false}]
-  defp system("bbb"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
-  defp system("ev3"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
-  defp system("qemu_arm"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
-  defp system("x86_64"), do: Mix.raise "Sorry, this example only works on Raspberry Pi"
-  defp system(target), do: Mix.raise "Unknown MIX_TARGET: #{target}"
+  defp system("bbb"), do: Mix.raise("Sorry, this example only works on Raspberry Pi")
+  defp system("ev3"), do: Mix.raise("Sorry, this example only works on Raspberry Pi")
+  defp system("qemu_arm"), do: Mix.raise("Sorry, this example only works on Raspberry Pi")
+  defp system("x86_64"), do: Mix.raise("Sorry, this example only works on Raspberry Pi")
+  defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 
   # We do not invoke the Nerves Env when running on the Host
   defp aliases("host"), do: []

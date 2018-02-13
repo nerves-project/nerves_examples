@@ -9,7 +9,7 @@ defmodule Neopixel do
     ch0_config = Application.get_env(:neopixel, :channel0)
     ch1_config = Application.get_env(:neopixel, :channel1)
 
-    spawn fn -> start_animations(ch0_config, ch1_config) end
+    spawn(fn -> start_animations(ch0_config, ch1_config) end)
 
     # Define workers and child supervisors to be supervised
     children = [
@@ -27,5 +27,4 @@ defmodule Neopixel do
     Neopixel.Animate.spinner(0, ch0_config[:count])
     # Neopixel.Animate.pulse(1, ch1_config[:count])
   end
-
 end
