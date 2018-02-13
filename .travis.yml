@@ -15,7 +15,7 @@ addons:
 
 env:
   global:
-    - ELIXIR_VERSION=1.4.5 ERLANG_VERSION=20.0
+    - ELIXIR_VERSION=1.5.3 ERLANG_VERSION=20.0
   matrix:
     - MIX_TARGET=rpi
     - MIX_TARGET=rpi2
@@ -32,8 +32,8 @@ before_install:
   - asdf global erlang $ERLANG_VERSION
   - asdf global elixir $ELIXIR_VERSION
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      wget https://github.com/fhunleth/fwup/releases/download/v0.15.3/fwup_0.15.3_amd64.deb;
-      sudo dpkg -i fwup_0.15.3_amd64.deb;
+      wget https://github.com/fhunleth/fwup/releases/download/v1.0.0/fwup_1.0.0_amd64.deb;
+      sudo dpkg -i fwup_1.0.0_amd64.deb;
     else
       brew update;
       brew install fwup;
@@ -45,7 +45,7 @@ before_install:
 script:
   - mix local.hex --force
   - mix local.rebar --force
-  - mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez --force
+  - mix archive.install hex nerves_bootstrap --force
   - pushd blinky
   - mix do deps.get, firmware --verbosity=verbose
   - popd
