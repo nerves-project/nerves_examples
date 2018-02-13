@@ -6,9 +6,8 @@ defmodule Blinky do
   (see config.exs). See README.md for build instructions.
   """
 
-  # ms
+  # Durations are in milliseconds
   @on_duration 200
-  # ms
   @off_duration 200
 
   alias Nerves.Leds
