@@ -1,5 +1,9 @@
 # Blinky
 
+# WARNING
+All of the examples in this repository require the 1.0.0 release candidate
+version of the `nerves_bootstrap` archive. Install it with
+
 The "Hello World" of the embedded world... blinking an LED
 
 - Boots to Elixir `iex` shell and blinks LEDs forever in background

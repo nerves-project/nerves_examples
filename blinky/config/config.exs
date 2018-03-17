@@ -9,15 +9,14 @@ use Mix.Config
 # to add files to the root filesystem or modify the firmware
 # archive.
 
-# config :nerves, :firmware,
-#   rootfs_additions: "config/rootfs_additions",
+config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 #   fwup_conf: "config/fwup.conf"
 
 config :logger, level: :debug
 
 config :shoehorn,
   init: [:nerves_runtime],
-  app: :blinky
+  app: Mix.Project.config()[:app]
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
