@@ -1,7 +1,14 @@
 Nerves Examples
 ===============
-
 [![CircleCI](https://circleci.com/gh/nerves-project/nerves_examples.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_examples)
+
+# WARNING
+All of the examples in this repository require the 1.0.0 release candidate
+version of the `nerves_bootstrap` archive. Install it with
+
+```bash
+mix archive.install hex nerves_bootstrap 1.0.0-rc.2
+```
 
 This repository contains several Nerves example projects as sub-directories.
 Most of these projects should work on all of the [Nerves supported targets](https://hexdocs.pm/nerves/targets.html).
