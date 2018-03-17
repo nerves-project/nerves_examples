@@ -9,8 +9,8 @@ use Mix.Config
 # to add files to the root filesystem or modify the firmware
 # archive.
 
-# config :nerves, :firmware,
-#   rootfs_additions: "config/rootfs_additions",
+config :nerves, :firmware,
+  rootfs_overlay: "rootfs_overlay"
 #   fwup_conf: "config/fwup.conf"
 
 config :logger, level: :debug
@@ -18,9 +18,12 @@ config :logger, level: :debug
 config :hello_gpio, input_pin: 20
 config :hello_gpio, output_pin: 26
 
+# Use shoehorn to start the main application. See the shoehorn
+# docs for separating out critical OTP applications such as those
+# involved with firmware updates.
 config :shoehorn,
   init: [:nerves_runtime],
-  app: :hello_gpio
+  app: Mix.Project.config()[:app]
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
