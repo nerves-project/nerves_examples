@@ -9,8 +9,8 @@ use Mix.Config
 # to add files to the root filesystem or modify the firmware
 # archive.
 
-# config :nerves, :firmware,
-#   rootfs_additions: "config/rootfs_additions",
+config :nerves, :firmware,
+  rootfs_overlay: "rootfs_overlay"
 #   fwup_conf: "config/fwup.conf"
 
 config :logger, level: :debug
@@ -28,12 +28,9 @@ config :neopixel, :channel1,
   pin: 19,
   count: 21
 
+# Use shoehorn to start the main application. See the shoehorn
+# docs for separating out critical OTP applications such as those
+# involved with firmware updates.
 config :shoehorn,
   init: [:nerves_runtime],
-  app: :neopixel
-
-# Import target specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-# Uncomment to use target specific configurations
-
-# import_config "#{Mix.Project.config[:target]}.exs"
+  app: Mix.Project.config()[:app]
