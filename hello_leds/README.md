@@ -1,5 +1,9 @@
 # Hello LEDs
 
+# WARNING
+All of the examples in this repository require the 1.0.0 release candidate
+version of the `nerves_bootstrap` archive. Install it with
+
 Functionally similar to `blinky`, but showing how the [Linux `/sys/class/leds` interface](http://elixir.free-electrons.com/source/Documentation/leds/leds-class.txt?v=4.10) can be used to blink the LED(s) instead of manually turning them on and off.
 
 - Boots to Elixir shell and blinks LEDs forever in background
