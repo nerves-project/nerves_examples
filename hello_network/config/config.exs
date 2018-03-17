@@ -5,14 +5,6 @@
 # is restricted to this project.
 use Mix.Config
 
-# Customize the firmware. Uncomment all or parts of the following
-# to add files to the root filesystem or modify the firmware
-# archive.
-
-# config :nerves, :firmware,
-#   rootfs_additions: "config/rootfs_additions",
-#   fwup_conf: "config/fwup.conf"
-
 config :logger, level: :debug
 
 config :hello_network, interface: :eth0
@@ -31,9 +23,19 @@ config :nerves_network, :default,
     ipv4_address_method: :dhcp
   ]
 
+# Customize the firmware. Uncomment all or parts of the following
+# to add files to the root filesystem or modify the firmware
+# archive.
+
+config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
+#   fwup_conf: "config/fwup.conf"
+
+# Use shoehorn to start the main application. See the shoehorn
+# docs for separating out critical OTP applications such as those
+# involved with firmware updates.
 config :shoehorn,
-  init: [:nerves_runtime, :nerves_network],
-  app: :hello_network
+  init: [:nerves_runtime],
+  app: Mix.Project.config()[:app]
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

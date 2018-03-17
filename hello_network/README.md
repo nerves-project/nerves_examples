@@ -1,5 +1,9 @@
 # Hello Network
 
+# WARNING
+All of the examples in this repository require the 1.0.0 release candidate
+version of the `nerves_bootstrap` archive. Install it with
+
 This example shows how to connect your Nerves device to the network using wired
 or wireless Ethernet. By default, the configuration assumes that you'll be
 connecting using the wired Ethernet interface `eth0`, but you can change the
