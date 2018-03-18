@@ -47,7 +47,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "blinky" 
+      MIX_PROJECT: "blinky"
       MIX_TARGET: "rpi0"
     <<: *build
 
@@ -55,7 +55,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "blinky" 
+      MIX_PROJECT: "blinky"
       MIX_TARGET: "rpi"
     <<: *build
 
@@ -63,7 +63,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "blinky" 
+      MIX_PROJECT: "blinky"
       MIX_TARGET: "rpi2"
     <<: *build
 
@@ -71,23 +71,31 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "blinky" 
+      MIX_PROJECT: "blinky"
       MIX_TARGET: "rpi3"
     <<: *build
-      
+
   blinky_bbb:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "blinky" 
+      MIX_PROJECT: "blinky"
       MIX_TARGET: "bbb"
+    <<: *build
+
+  blinky_ev3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "blinky"
+      MIX_TARGET: "ev3"
     <<: *build
 
   hello_gpio_rpi0:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_gpio" 
+      MIX_PROJECT: "hello_gpio"
       MIX_TARGET: "rpi0"
     <<: *build
 
@@ -95,7 +103,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_gpio" 
+      MIX_PROJECT: "hello_gpio"
       MIX_TARGET: "rpi"
     <<: *build
 
@@ -103,7 +111,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_gpio" 
+      MIX_PROJECT: "hello_gpio"
       MIX_TARGET: "rpi2"
     <<: *build
 
@@ -111,23 +119,23 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_gpio" 
+      MIX_PROJECT: "hello_gpio"
       MIX_TARGET: "rpi3"
     <<: *build
-      
+
   hello_gpio_bbb:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_gpio" 
+      MIX_PROJECT: "hello_gpio"
       MIX_TARGET: "bbb"
     <<: *build
-  
+
   hello_leds_rpi0:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_leds" 
+      MIX_PROJECT: "hello_leds"
       MIX_TARGET: "rpi0"
     <<: *build
 
@@ -135,7 +143,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_leds" 
+      MIX_PROJECT: "hello_leds"
       MIX_TARGET: "rpi"
     <<: *build
 
@@ -143,7 +151,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_leds" 
+      MIX_PROJECT: "hello_leds"
       MIX_TARGET: "rpi2"
     <<: *build
 
@@ -151,15 +159,15 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_leds" 
+      MIX_PROJECT: "hello_leds"
       MIX_TARGET: "rpi3"
     <<: *build
-      
+
   hello_leds_bbb:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_leds" 
+      MIX_PROJECT: "hello_leds"
       MIX_TARGET: "bbb"
     <<: *build
 
@@ -167,7 +175,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_network" 
+      MIX_PROJECT: "hello_network"
       MIX_TARGET: "rpi0"
     <<: *build
 
@@ -175,7 +183,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_network" 
+      MIX_PROJECT: "hello_network"
       MIX_TARGET: "rpi"
     <<: *build
 
@@ -183,7 +191,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_network" 
+      MIX_PROJECT: "hello_network"
       MIX_TARGET: "rpi2"
     <<: *build
 
@@ -191,23 +199,47 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_network" 
+      MIX_PROJECT: "hello_network"
       MIX_TARGET: "rpi3"
     <<: *build
-      
+
   hello_network_bbb:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_network" 
+      MIX_PROJECT: "hello_network"
       MIX_TARGET: "bbb"
     <<: *build
-      
+
+  hello_network_x86_64:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network"
+      MIX_TARGET: "x86_64"
+    <<: *build
+
+  hello_network_ev3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network"
+      MIX_TARGET: "ev3"
+    <<: *build
+
+  hello_network_qemu_arm:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network"
+      MIX_TARGET: "qemu_arm"
+    <<: *build
+
   hello_phoenix_rpi0:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_PROJECT: "hello_phoenix/firmware"
       MIX_TARGET: "rpi0"
     <<: *build
 
@@ -215,7 +247,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_PROJECT: "hello_phoenix/firmware"
       MIX_TARGET: "rpi"
     <<: *build
 
@@ -223,7 +255,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_PROJECT: "hello_phoenix/firmware"
       MIX_TARGET: "rpi2"
     <<: *build
 
@@ -231,23 +263,47 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_PROJECT: "hello_phoenix/firmware"
       MIX_TARGET: "rpi3"
     <<: *build
-      
+
   hello_phoenix_bbb:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "hello_phoenix/firmware" 
+      MIX_PROJECT: "hello_phoenix/firmware"
       MIX_TARGET: "bbb"
+    <<: *build
+
+  hello_phoenix_x86_64:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware"
+      MIX_TARGET: "x86_64"
+    <<: *build
+
+  hello_phoenix_ev3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware"
+      MIX_TARGET: "ev3"
+    <<: *build
+
+  hello_phoenix_qemu_arm:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware"
+      MIX_TARGET: "qemu_arm"
     <<: *build
 
   neopixel_rpi0:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "neopixel" 
+      MIX_PROJECT: "neopixel"
       MIX_TARGET: "rpi0"
     <<: *build
 
@@ -255,7 +311,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "neopixel" 
+      MIX_PROJECT: "neopixel"
       MIX_TARGET: "rpi"
     <<: *build
 
@@ -263,7 +319,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "neopixel" 
+      MIX_PROJECT: "neopixel"
       MIX_TARGET: "rpi2"
     <<: *build
 
@@ -271,7 +327,7 @@ jobs:
     <<: *defaults
     environment:
       <<: *elixir_version
-      MIX_PROJECT: "neopixel" 
+      MIX_PROJECT: "neopixel"
       MIX_TARGET: "rpi3"
     <<: *build
 
@@ -288,6 +344,8 @@ workflows:
       - blinky_rpi3:
           context: org-global
       - blinky_bbb:
+          context: org-global
+      - blinky_ev3:
           context: org-global
       - hello_gpio_rpi0:
           context: org-global
@@ -319,6 +377,12 @@ workflows:
           context: org-global
       - hello_network_bbb:
           context: org-global
+      - hello_network_x86_64:
+          context: org-global
+      - hello_network_ev3:
+          context: org-global
+      - hello_network_qemu_arm:
+          context: org-global
       - hello_phoenix_rpi0:
           context: org-global
       - hello_phoenix_rpi:
@@ -328,6 +392,12 @@ workflows:
       - hello_phoenix_rpi3:
           context: org-global
       - hello_phoenix_bbb:
+          context: org-global
+      - hello_phoenix_x86_64:
+          context: org-global
+      - hello_phoenix_ev3:
+          context: org-global
+      - hello_phoenix_qemu_arm:
           context: org-global
       - neopixel_rpi0:
           context: org-global
