@@ -1,10 +1,5 @@
 # Hello GPIO
 
-# WARNING
-All of the examples in this repository require the 1.0.0 release candidate
-version of the `nerves_bootstrap` archive. Install it with
-
-
 This example demonstrates how to use General-Purpose Input/Output (GPIO) pins as
 digital inputs and outputs using the `elixir_ale` library.
 

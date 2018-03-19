@@ -1,9 +1,5 @@
 # NeoPixel
 
-# WARNING
-All of the examples in this repository require the 1.0.0 release candidate
-version of the `nerves_bootstrap` archive. Install it with
-
 Control [WS2812 "NeoPixel" RGB LEDs](https://www.adafruit.com/category/168)
 directly from a Raspberry Pi. This example only works on the Raspberry Pi family
 of targets because the `nerves_neopixel` library currently only supports the

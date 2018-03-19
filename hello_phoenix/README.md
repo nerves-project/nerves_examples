@@ -1,9 +1,5 @@
 # Hello Phoenix
 
-# WARNING
-All of the examples in this repository require the 1.0.0 release candidate
-version of the `nerves_bootstrap` archive. Install it with
-
 This example demonstrates a basic poncho project for deploying a [Phoenix
 Framework]-based application to a Nerves device. A "poncho project" is similar
 to an umbrella project except that it's actually multiple separate-but-related
