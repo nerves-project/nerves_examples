@@ -1,0 +1,6 @@
+## Start the Elixir shell
+-name <%= Mix.Project.config[:host_id] %>@10.0.10.<%= Mix.Project.config[:host_id] %>
+-cookie distributed_blinky
+-noshell
+-user Elixir.IEx.CLI
+-extra --no-halt

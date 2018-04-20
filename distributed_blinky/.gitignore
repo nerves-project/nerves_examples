@@ -1,0 +1,12 @@
+# App artifacts
+/_build
+/db
+/deps
+/*.ez
+/rel
+
+# Nerves images
+/_images
+
+# Generate on crash by the VM
+erl_crash.dump
