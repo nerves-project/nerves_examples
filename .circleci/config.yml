@@ -299,38 +299,6 @@ jobs:
       MIX_TARGET: "qemu_arm"
     <<: *build
 
-  neopixel_rpi0:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "neopixel"
-      MIX_TARGET: "rpi0"
-    <<: *build
-
-  neopixel_rpi:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "neopixel"
-      MIX_TARGET: "rpi"
-    <<: *build
-
-  neopixel_rpi2:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "neopixel"
-      MIX_TARGET: "rpi2"
-    <<: *build
-
-  neopixel_rpi3:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "neopixel"
-      MIX_TARGET: "rpi3"
-    <<: *build
-
 workflows:
   version: 2
   build:
@@ -398,12 +366,4 @@ workflows:
       - hello_phoenix_ev3:
           context: org-global
       - hello_phoenix_qemu_arm:
-          context: org-global
-      - neopixel_rpi0:
-          context: org-global
-      - neopixel_rpi:
-          context: org-global
-      - neopixel_rpi2:
-          context: org-global
-      - neopixel_rpi3:
           context: org-global
