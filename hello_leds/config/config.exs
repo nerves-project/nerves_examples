@@ -33,8 +33,8 @@ config :logger, backends: [RingLogger]
 
 # Set a mdns domain and node_name to be able to remsh into the device.
 config :nerves_init_gadget,
-  node_name: :hello_gpio,
-  mdns_domain: "hello_gpio.local"
+  node_name: :hello_leds,
+  mdns_domain: "hello_leds.local"
 
 # for Devices that don't support usb gadget such as raspberry pi 1, 2, and 3.
 # address_method: :dhcp,

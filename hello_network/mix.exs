@@ -53,7 +53,9 @@ defmodule HelloNetwork.MixProject do
     [
       {:shoehorn, "~> 0.2"},
       {:nerves_runtime, "~> 0.4"},
-      {:nerves_network, "0.3.7-rc0"}
+      # Nerves Network 0.3.7 isn't published yet..
+      {:nerves_network, "0.3.7-rc0", override: true},
+      {:nerves_init_gadget, "~> 0.3.0"}
     ] ++ system(target)
   end
 
