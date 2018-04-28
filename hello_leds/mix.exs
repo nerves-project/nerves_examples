@@ -53,7 +53,8 @@ defmodule HelloLeds.MixProject do
     [
       {:shoehorn, "~> 0.2"},
       {:nerves_runtime, "~> 0.4"},
-      {:nerves_leds, "~> 0.7"}
+      {:nerves_leds, "~> 0.7"},
+      {:nerves_init_gadget, "~> 0.3.0"}
     ] ++ system(target)
   end
 
