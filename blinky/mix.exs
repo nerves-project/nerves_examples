@@ -53,7 +53,8 @@ defmodule Blinky.MixProject do
     [
       {:shoehorn, "~> 0.2"},
       {:nerves_runtime, "~> 0.4"},
-      {:nerves_leds, "~> 0.8.0"}
+      {:nerves_leds, "~> 0.8.0"},
+      {:nerves_init_gadget, "~> 0.3.0"}
     ] ++ system(target)
   end
 
