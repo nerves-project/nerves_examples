@@ -1,10 +1,12 @@
+version: 2
+
 elixir_version: &elixir_version
   ELIXIR_VERSION: 1.6.1
 
 defaults: &defaults
   working_directory: /nerves/build
   docker:
-    - image: nervesproject/nerves:0.17.0
+    - image: nervesproject/nerves:1.0.0
 
 install_elixir: &install_elixir
   run:
@@ -29,9 +31,17 @@ install_nerves_bootstrap: &install_nerves_bootstrap
       cd /tmp
       mix archive.install github nerves-project/nerves_bootstrap --force
 
+fake_ssh_keys: &fake_ssh_keys
+  run:
+    name: Generage bogus keys
+    command: |
+      rm -f ~/.ssh/id_rsa
+      ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+
 build: &build
   steps:
     - checkout
+    - <<: *fake_ssh_keys
     - <<: *install_elixir
     - <<: *install_hex_rebar
     - <<: *install_nerves_bootstrap
