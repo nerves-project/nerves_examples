@@ -82,6 +82,80 @@ iex(1)> HelloNetwork.test_dns()
  {:hostent, 'nerves-project.org', [], :inet, 4,
   [{192, 30, 252, 154}, {192, 30, 252, 153}]}}
 ```
+
+### Distributed tasks and Nerves
+
+The idea was to play around with Nerves and put in practice one of the features
+Elixir has out of the box: connecting to other existing VM instances, or "nodes".
+
+Here is the exercise I was completing:
+[Our first distributed code](https://elixir-lang.org/getting-started/mix-otp/distributed-tasks-and-configuration.html#our-first-distributed-code)
+
+Here are the steps I took to make the above work using Nerves (RPi3 and ethernet):
+
+1 - Use the boilerplate project here (HelloNetwork):
+  https://github.com/nerves-project/nerves_examples/tree/master/hello_network
+
+2 - Make the following edits:
+
+```
+  hello_network [master] :> git diff config/config.exs
+  diff --git a/hello_network/config/config.exs b/hello_network/config/config.exs
+  index 2601e7c..ef69705 100644
+  -  mdns_domain: "hello_network.local"
+  +  mdns_domain: "hello_network.local", # This needs a comma, I think the formatter removes it :)
+
+  -# address_method: :dhcp,
+  -# ifname: "eth0"
+  +  address_method: :dhcp,
+  +  ifname: "eth0"
+```
+
+3 - Continue to follow the steps on the readme for the boilerplate project
+
+``` bash
+mix firmware
+MIX_TARGET=rpi3 mix firmware.burn
+```
+
+4 - Then, thanks to @jschneck, use the following to create a named IEx session with the correct cookie:
+
+``` bash
+iex --name host@0.0.0.0 --cookie "y3//+WLM8CI7g082flQzSDrSFI72BPRDi69Z9rYthm0DtiiYHj7ioY46ibAQJ9+i"`
+```
+
+Your IEx prompt will look like this:
+```
+  iex(host@0.0.0.0)1>
+```
+
+Then, you can connect to the target node:
+
+```
+  iex(host@0.0.0.0)1> Node.connect(:"hello_network@hello_network.local")
+  true
+```
+
+And verify that you are connected:
+
+``` elixir
+  iex(host@0.0.0.0)2> Node.list
+  [:"hello_network@hello_network.local"]
+```
+
+Then you can have some fun by passing messages between the nodes.
+
+## Notes:
+
+- `hello_network@hello_network.local` comes from the below, in
+  [config/config.exs](https://github.com/nerves-project/nerves_examples/blob/master/hello_network/config/config.exs#L49-L52):
+
+```
+config :nerves_init_gadget,
+  node_name: :hello_network,
+  mdns_domain: "hello_network.local",
+```
+
 ## Learn More
 
   * Official docs: https://hexdocs.pm/nerves/getting-started.html
