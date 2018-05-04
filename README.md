@@ -2,16 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/nerves-project/nerves_examples.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_examples)
 
-## WARNING
-
-All of the examples in this repository require a 1.0.0 release candidate
-version of the `nerves_bootstrap` archive to build. Hex.pm installs earlier
-versions by default, so make sure to upgrade by running:
-
-```bash
-mix archive.install hex nerves_bootstrap "~> 1.0-rc"
-```
-
 Please see the main [Nerves installation docs](https://hexdocs.pm/nerves/installation.html)
 if you haven't used Nerves before.
 
