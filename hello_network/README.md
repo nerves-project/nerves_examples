@@ -83,78 +83,80 @@ iex(1)> HelloNetwork.test_dns()
   [{192, 30, 252, 154}, {192, 30, 252, 153}]}}
 ```
 
-### Distributed tasks and Nerves
+### Using Erlang Distribution
 
-The idea was to play around with Nerves and put in practice one of the features
-Elixir has out of the box: connecting to other existing VM instances, or "nodes".
+One of the exciting features that Erlang and Elixir provide out of the box is
+called Erlang Distribution. This gives you the ability the ability to easily
+make a connection between multiple running instances of the Erlang VM, called
+"nodes."
 
-Here is the exercise I was completing:
-[Our first distributed code](https://elixir-lang.org/getting-started/mix-otp/distributed-tasks-and-configuration.html#our-first-distributed-code)
-
-Here are the steps I took to make the above work using Nerves (RPi3 and ethernet):
-
-1 - Use the boilerplate project here (HelloNetwork):
-  https://github.com/nerves-project/nerves_examples/tree/master/hello_network
-
-2 - Make the following edits:
-
-```
-  hello_network [master] :> git diff config/config.exs
-  diff --git a/hello_network/config/config.exs b/hello_network/config/config.exs
-  index 2601e7c..ef69705 100644
-  -  mdns_domain: "hello_network.local"
-  +  mdns_domain: "hello_network.local", # This needs a comma, I think the formatter removes it :)
-
-  -# address_method: :dhcp,
-  -# ifname: "eth0"
-  +  address_method: :dhcp,
-  +  ifname: "eth0"
-```
-
-3 - Continue to follow the steps on the readme for the boilerplate project
-
-``` bash
-mix firmware
-MIX_TARGET=rpi3 mix firmware.burn
-```
-
-4 - Then, thanks to @jschneck, use the following to create a named IEx session with the correct cookie:
+Once you have your device running this `nerves_network` example project, you
+can use Erlang Distribution to connect to it using from your development host
+by starting an `iex` session using the appropriate "cookie" that matches the
+one configured on your device:
 
 ``` bash
 iex --name host@0.0.0.0 --cookie "y3//+WLM8CI7g082flQzSDrSFI72BPRDi69Z9rYthm0DtiiYHj7ioY46ibAQJ9+i"`
 ```
 
-Your IEx prompt will look like this:
-```
-  iex(host@0.0.0.0)1>
+This cookie is set in your project's `rel/vm.args` file, so you can look there
+to verify that you have the correct cookie or change the cookie that will be
+set in your project's firmware.
+
+Your `iex` prompt should look like this when you are running with distribution:
+
+``` elixir
+iex(host@0.0.0.0)1>
 ```
 
 Then, you can connect to the target node:
 
-```
-  iex(host@0.0.0.0)1> Node.connect(:"hello_network@hello_network.local")
-  true
+``` elixir
+iex(host@0.0.0.0)1> Node.connect(:"hello_network@hello_network.local")
+true
 ```
 
-And verify that you are connected:
+Note that the entire node name is an atom, due to the `:` in front of the
+string. You can verify and configure what this node name will be by looking for
+the `node_name` and `mdns_domain` settings in your `nerves_init_gadget`
+configuration.
 
 ``` elixir
-  iex(host@0.0.0.0)2> Node.list
-  [:"hello_network@hello_network.local"]
-```
+# hello_network/config/config.exs
 
-Then you can have some fun by passing messages between the nodes.
+# ...
 
-## Notes:
-
-- `hello_network@hello_network.local` comes from the below, in
-  [config/config.exs](https://github.com/nerves-project/nerves_examples/blob/master/hello_network/config/config.exs#L49-L52):
-
-```
+# Set a mdns domain and node_name to be able to remsh into the device.
 config :nerves_init_gadget,
   node_name: :hello_network,
-  mdns_domain: "hello_network.local",
+  mdns_domain: "hello_network.local"
+
+# ...
 ```
+
+There is also a short-cut way to start an `iex` session and automatically
+connect to a remote node (split over multiple lines with backslashes just to
+make it easier to read):
+
+``` bash
+iex --name host@0.0.0.0 \
+    --cookie "y3//+WLM8CI7g082flQzSDrSFI72BPRDi69Z9rYthm0DtiiYHj7ioY46ibAQJ9+i" \
+    --remsh hello_network@hello_network.local
+```
+
+Once connected, you can verify the list of nodes that are connected to the node
+running on your host machine.
+
+
+``` elixir
+iex(host@0.0.0.0)2> Node.list
+[:"hello_network@hello_network.local"]
+```
+
+Then you can have some fun by passing messages between the nodes as described
+in [the Elixir documentation][distribution].
+
+[distribution]: https://elixir-lang.org/getting-started/mix-otp/distributed-tasks-and-configuration.html#our-first-distributed-code
 
 ## Learn More
 
