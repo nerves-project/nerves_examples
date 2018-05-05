@@ -7,6 +7,8 @@ use Mix.Config
 
 config :logger, level: :debug
 
+# Uncomment the following line for the interface you intend to use,
+# if not the wired :eth0 interface.
 config :hello_network, interface: :eth0
 # config :hello_network, interface: :wlan0
 # config :hello_network, interface: :usb0
@@ -24,11 +26,13 @@ config :nerves_network, :default,
   ]
 
 # Customize the firmware. Uncomment all or parts of the following
-# to add files to the root filesystem or modify the firmware
-# archive.
+# to add files to the root filesystem or modify the firmware archive.
+# Make sure you have a comma between each of the options under each `config`
+# stanza.
 
-config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
-#   fwup_conf: "config/fwup.conf"
+config :nerves, :firmware,
+  rootfs_overlay: "rootfs_overlay"
+#  fwup_conf: "config/fwup.conf"
 
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
@@ -51,9 +55,12 @@ config :nerves_init_gadget,
   node_name: :hello_network,
   mdns_domain: "hello_network.local"
 
-# for Devices that don't support usb gadget such as raspberry pi 1, 2, and 3.
-# address_method: :dhcp,
-# ifname: "eth0"
+# For Devices that don't support USB gadget mode (such as Raspberry Pi 3),
+# you may want to change the primary network interface or IP address method:
+#
+#config :nerves_init_gadget,
+#  address_method: :dhcp,
+#  ifname: "eth0"
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
