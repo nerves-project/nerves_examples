@@ -8,10 +8,12 @@ defmodule HelloNetwork do
   alias Nerves.Network
 
   @interface Application.get_env(:hello_network, :interface, :eth0)
+  @interface_settings Application.get_env(:nerves_network, :default)
+                |> Keyword.get(@interface)
 
   @doc "Main entry point into the program. This is an OTP callback."
   def start(_type, _args) do
-    GenServer.start_link(__MODULE__, to_string(@interface), name: __MODULE__)
+    GenServer.start_link(__MODULE__, [to_string(@interface), @interface_settings], name: __MODULE__)
   end
 
   @doc "Are we connected to the internet?"
@@ -36,8 +38,8 @@ defmodule HelloNetwork do
 
   ## GenServer callbacks
 
-  def init(interface) do
-    Network.setup(interface)
+  def init([interface, interface_settings]) do
+    Network.setup(interface, interface_settings)
 
     SystemRegistry.register()
     {:ok, %{interface: interface, ip_address: nil, connected: false}}
