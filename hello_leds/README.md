@@ -1,6 +1,6 @@
 # Hello LEDs
 
-Functionally similar to `blinky`, but showing how the [Linux `/sys/class/leds` interface](http://elixir.free-electrons.com/source/Documentation/leds/leds-class.txt?v=4.10)
+Functionally similar to `blinky`, but showing how the [Linux `/sys/class/leds` interface](https://elixir.bootlin.com/linux/v4.10/source/Documentation/leds/leds-class.txt)
 can be used to blink the LED(s) instead of manually turning them on and off.
 
 - Boots to Elixir shell and blinks LEDs forever in background
