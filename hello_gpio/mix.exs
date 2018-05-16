@@ -44,7 +44,7 @@ defmodule HelloGpio.MixProject do
       {:shoehorn, "~> 0.2"},
       {:nerves_runtime, "~> 0.4"},
       {:elixir_ale, "~> 1.0"},
-      {:nerves_init_gadget, "~> 0.3.0"}
+      {:nerves_init_gadget, "~> 0.4.0"}
     ] ++ system(target)
   end
 
