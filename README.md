@@ -2,8 +2,15 @@
 
 [![CircleCI](https://circleci.com/gh/nerves-project/nerves_examples.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_examples)
 
+## Setup
 Please see the main [Nerves installation docs](https://hexdocs.pm/nerves/installation.html)
 if you haven't used Nerves before.
+
+You should also be using the following Elixir and Erlang versions:
+* Elixir 1.6.6
+* Erlang OTP 21
+
+See the [EmbeddedElixir post on using ASDF-VM](https://embedded-elixir.com/post/2017-05-23-using-asdf-vm/)
 
 This repository contains several Nerves example projects as sub-directories.
 Most of these projects should work on all of the [Nerves supported targets](https://hexdocs.pm/nerves/targets.html).
