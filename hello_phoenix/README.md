@@ -32,6 +32,8 @@ example.
 ``` bash
 cd firmware
 export MIX_TARGET=rpi3
+export NERVES_NETWORK_SSID=your_wifi_name
+export NERVES_NETWORK_PSK=your_wifi_password
 mix deps.get
 mix firmware
 mix firmware.burn
