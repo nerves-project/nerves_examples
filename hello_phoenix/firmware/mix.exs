@@ -47,7 +47,8 @@ defmodule Firmware.MixProject do
 
   defp deps(target) do
     [
-      {:nerves_runtime, "~> 0.4"}
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_init_gadget, "~> 0.3"},
     ] ++ system(target)
   end
 
