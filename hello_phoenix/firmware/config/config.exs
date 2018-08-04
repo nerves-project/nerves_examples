@@ -34,6 +34,18 @@ config :nerves_network, :default,
     ipv4_address_method: :dhcp
   ]
 
+config :ui, UiWeb.Endpoint,
+  url: [host: "localhost"],
+  http: [port: 80],
+  secret_key_base: "ZzL36EhVtO84rW4daeMWdXqodXkG63p02LpKms5selr8BgK4ud4N42B0YuOUx+LX",
+  root: Path.dirname(__DIR__),
+  server: true,
+  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Nerves.PubSub, adapter: Phoenix.PubSub.PG2],
+  code_reloader: false
+
+config :logger, level: :debug
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
