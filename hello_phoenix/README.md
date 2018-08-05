@@ -9,35 +9,66 @@ embedded-elixir blog post about [Poncho Projects].
 
 ## Hardware
 
-This example serves a Phoenix-based web page over the network using the target's
-Ethernet interface. By default, it will use DHCP to get an IP address on its
-`eth0` interface. For more information about how to configure the network
-settings for your environment, including WiFi settings, see the `hello_network`
-example.
+This example serves a Phoenix-based web page over the network. The steps below
+assume you are using a Raspberry Pi Zero, which allows you to connect a single
+USB cable to the port marked "USB" to get both network and serial console
+access to the device. By default, this example will use the virtual Ethernet
+interface provided by the USB cable, assign an IP address automatically, and
+make it discoverable using mDNS (Bonjour). For more information about how to
+configure the network settings for your environment, including WiFi settings,
+see the `hello_network` example.
 
 ## How to Use this Repository
 
-1.  Connect your target hardware to your network as described above
-2.  Change to the `firmware` app directory:
-3.  Specify your target with the `MIX_TARGET` environment variable
-4.  Get dependencies with `mix deps.get`
-5.  Create firmware with `mix firmware`
-6.  Burn firmware to an SD card with `mix firmware.burn`
-7.  Connect a monitor to the HDMI port on the board
-8.  Insert the SD card into your target board and power it on
-9.  After it finishes booting (about 5 seconds), check the console on the
-    monitor for messages about an IP address being assigned.
-10. Open a browser window on your host computer to `http://<IP address>/`
+1. Connect your target hardware to your host computer or network as described
+   above
+1. Prepate your Phoenix project to build JavaScript and CSS assets:
 
-``` bash
-cd firmware
-export MIX_TARGET=rpi3
-export NERVES_NETWORK_SSID=your_wifi_name
-export NERVES_NETWORK_PSK=your_wifi_password
-mix deps.get
-mix firmware
-mix firmware.burn
-```
+    ``` bash
+    # These steps only need to be done once.
+    cd ui
+    mix deps.get
+    cd assets
+    npm install
+    ```
+
+1. Build your assets and prepare them for deployment to the firmware:
+
+    ``` bash
+    # Still in ui/assets directory from the prior step.
+    # These steps need to be repeated when you change JS or CSS files.
+    node_modules/brunch/bin/brunch build --production
+    cd ../
+    mix phx.digest
+    ```
+
+1. Change to the `firmware` app directory
+
+    ``` bash
+    cd ../firmware
+    ```
+
+1. Specify your target and other environment variables as needed:
+
+    ``` bash
+    export MIX_TARGET=rpi0
+    # If you're using WiFi:
+    # export NERVES_NETWORK_SSID=your_wifi_name
+    # export NERVES_NETWORK_PSK=your_wifi_password
+    ```
+
+1. Get dependencies, build firmware, and burn it to an SD card:
+
+    ``` bash
+    mix deps.get
+    mix firmware
+    mix firmware.burn
+    ```
+
+1. Insert the SD card into your target board and connect the USB cable or otherwise power it on
+1. Wait for it to finish booting (5-10 seconds)
+1. Open a browser window on your host computer to `http://nerves.local/`
+1. You should see a "Welcome to Phoenix!" page
 
 [Phoenix Framework]: http://www.phoenixframework.org/
 [Poncho Projects]: http://embedded-elixir.com/post/2017-05-19-poncho-projects/
