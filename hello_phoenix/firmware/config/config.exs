@@ -17,10 +17,13 @@ config :shoehorn,
   app: Mix.Project.config()[:app]
 
 config :nerves_init_gadget,
-  node_name: :base_target,
-  mdns_domain: "nerves_base.local",
-  address_method: :dhcp,
-  ifname: "wlan0"
+  node_name: :nerves,
+  mdns_domain: "nerves.local"
+
+# For Devices that don't support usb gadget such as Raspberry Pi 1, 2, and 3:
+# config :nerves_init_gadget,
+#   address_method: :dhcp,
+#   ifname: "eth0"
 
 key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
 
@@ -44,6 +47,14 @@ config :ui, UiWeb.Endpoint,
   pubsub: [name: Nerves.PubSub, adapter: Phoenix.PubSub.PG2],
   code_reloader: false
 
+# Allows over the air updates via SSH.
+config :nerves_firmware_ssh,
+  authorized_keys: [
+    File.read!(Path.join(System.user_home!(), ".ssh/id_rsa.pub"))
+  ]
+
+# Allows for tailing of logs.
+config :logger, backends: [RingLogger]
 config :logger, level: :debug
 
 # Import target specific config. This must remain at the bottom
