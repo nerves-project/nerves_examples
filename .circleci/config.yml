@@ -1,7 +1,7 @@
 version: 2
 
 elixir_version: &elixir_version
-  ELIXIR_VERSION: 1.7.2-otp-21
+  ELIXIR_VERSION: 1.7.3-otp-21
 
 defaults: &defaults
   working_directory: /nerves/build
