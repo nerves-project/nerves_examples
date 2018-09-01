@@ -1,10 +1,11 @@
 # Hello GPIO
 
 This example demonstrates how to use General-Purpose Input/Output (GPIO) pins as
-digital inputs and outputs using the [`elixir_ale` library](https://github.com/fhunleth/elixir_ale).
-The example uses two separate circuits. The first circuit contains an LED that is turned
-on and off by Elixir controlling a GPIO pin. In the second
-circuit, Elixir monitors a GPIO pin and logs the changing state of a manual switch.
+digital inputs and outputs using the [`elixir_ale`
+library](https://github.com/fhunleth/elixir_ale).  The example uses two separate
+circuits. The first circuit contains an LED that is turned on and off by Elixir
+controlling a GPIO pin. In the second circuit, Elixir monitors a GPIO pin and
+logs the changing state of a manual switch.
 
 ## Hardware
 
@@ -15,10 +16,10 @@ kΩ pull-up resistor to a GPIO pin.
 ![GPIO schematic](assets/gpio.png)
 ![GPIO_schematic](assets/GPIO-input.png)
 
-The default configuration uses GPIO BCM pin 26 for output and GPIO BCM pin 20 for input.
-Note that you are using the labeled BCM pins
-as found on a Raspberry Pi using the following diagram from
-https://pinout.xyz and not the physical numbering of pins.
+The default configuration uses GPIO BCM pin 26 for output and GPIO BCM pin 20
+for input.  Note that you are using the labeled BCM pins as found on a Raspberry
+Pi using the following diagram from https://pinout.xyz and not the physical
+numbering of pins.
 
 ![Raspberry Pi pinout](https://pinout.xyz/resources/raspberry-pi-pinout.png)
 
@@ -33,9 +34,10 @@ https://pinout.xyz and not the physical numbering of pins.
 7. Connect a monitor to the HDMI port on the board
 8. Insert the SD card into your target board and power it on
 9. After about 5 seconds, the LED should start blinking
-10. Enter `RingLogger.attach` at the iex prompt in the console
-11. On the monitor you will see log entries showing the status of the LED. Pressing the switch button
-   will display entries showing the changing state of the switch
+10. Enter `RingLogger.attach` at the IEx prompt in the console
+11. On the monitor you will see log entries showing the status of the LED.
+    Pressing the switch button will display entries showing the changing state
+    of the switch
 
 ``` bash
 export MIX_TARGET=rpi3
