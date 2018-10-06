@@ -1,12 +1,11 @@
 use Mix.Releases.Config,
-    # This sets the default release built by `mix release`
-    default_release: :default,
-    # This sets the default environment used by `mix release`
-    default_environment: :dev
+  # This sets the default release built by `mix release`
+  default_release: :default,
+  # This sets the default environment used by `mix release`
+  default_environment: :dev
 
 # For a full list of config options for both releases
-# and environments, visit https://hexdocs.pm/distillery/configuration.html
-
+# and environments, visit https://hexdocs.pm/distillery/config/distillery.html
 
 # You may define one or more environments in this file,
 # an environment's settings will override those of a release
@@ -14,11 +13,11 @@ use Mix.Releases.Config,
 # and environment configuration is called a profile
 
 environment :dev do
-  set cookie: :"$CM[FBr09|)7z_g$pOxEN}T}*y(b8}V)jee.vJQezhNo4KN}g2?=jWM:E_qexjO?"
+  set(cookie: :"Unused with Nerves. See vm.args")
 end
 
 environment :prod do
-  set cookie: :"$CM[FBr09|)7z_g$pOxEN}T}*y(b8}V)jee.vJQezhNo4KN}g2?=jWM:E_qexjO?"
+  set(cookie: :"Unused with Nerves. See vm.args")
 end
 
 # You may define one or more releases in this file.
@@ -27,7 +26,7 @@ end
 # will be used by default
 
 release :hello_network do
-  set version: current_version(:hello_network)
-  plugin Shoehorn
-  plugin Nerves
+  set(version: current_version(:hello_network))
+  plugin(Nerves)
+  plugin(Shoehorn)
 end
