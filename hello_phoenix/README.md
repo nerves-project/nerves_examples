@@ -22,9 +22,9 @@ see the `hello_network` example.
 
 1. Connect your target hardware to your host computer or network as described
    above
-1. Prepate your Phoenix project to build JavaScript and CSS assets:
+2. Prepare your Phoenix project to build JavaScript and CSS assets:
 
-    ``` bash
+    ```bash
     # These steps only need to be done once.
     cd ui
     mix deps.get
@@ -32,9 +32,9 @@ see the `hello_network` example.
     npm install
     ```
 
-1. Build your assets and prepare them for deployment to the firmware:
+3. Build your assets and prepare them for deployment to the firmware:
 
-    ``` bash
+    ```bash
     # Still in ui/assets directory from the prior step.
     # These steps need to be repeated when you change JS or CSS files.
     node_modules/brunch/bin/brunch build --production
@@ -42,40 +42,40 @@ see the `hello_network` example.
     mix phx.digest
     ```
 
-1. Change to the `firmware` app directory
+4. Change to the `firmware` app directory
 
-    ``` bash
+    ```bash
     cd ../firmware
     ```
 
-1. Specify your target and other environment variables as needed:
+5. Specify your target and other environment variables as needed:
 
-    ``` bash
+    ```bash
     export MIX_TARGET=rpi0
     # If you're using WiFi:
     # export NERVES_NETWORK_SSID=your_wifi_name
     # export NERVES_NETWORK_PSK=your_wifi_password
     ```
 
-1. Get dependencies, build firmware, and burn it to an SD card:
+6. Get dependencies, build firmware, and burn it to an SD card:
 
-    ``` bash
+    ```bash
     mix deps.get
     mix firmware
     mix firmware.burn
     ```
 
-1. Insert the SD card into your target board and connect the USB cable or otherwise power it on
-1. Wait for it to finish booting (5-10 seconds)
-1. Open a browser window on your host computer to `http://nerves.local/`
-1. You should see a "Welcome to Phoenix!" page
+7. Insert the SD card into your target board and connect the USB cable or otherwise power it on
+8. Wait for it to finish booting (5-10 seconds)
+9. Open a browser window on your host computer to `http://nerves.local/`
+10. You should see a "Welcome to Phoenix!" page
 
 [Phoenix Framework]: http://www.phoenixframework.org/
 [Poncho Projects]: http://embedded-elixir.com/post/2017-05-19-poncho-projects/
 
 ## Learn More
 
-  * Official docs: https://hexdocs.pm/nerves/getting-started.html
-  * Official website: http://www.nerves-project.org/
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
-  * Source: https://github.com/nerves-project/nerves
+* Official docs: https://hexdocs.pm/nerves/getting-started.html
+* Official website: http://www.nerves-project.org/
+* Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+* Source: https://github.com/nerves-project/nerves

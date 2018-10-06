@@ -3,10 +3,12 @@
 [![CircleCI](https://circleci.com/gh/nerves-project/nerves_examples.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_examples)
 
 ## Setup
+
 Please see the main [Nerves installation docs](https://hexdocs.pm/nerves/installation.html)
 if you haven't used Nerves before.
 
 You should also be using the following Elixir and Erlang versions:
+
 * Elixir 1.7.3
 * Erlang OTP 21
 
