@@ -96,7 +96,7 @@ by starting an `iex` session using the appropriate "cookie" that matches the
 one configured on your device:
 
 ``` bash
-iex --name host@0.0.0.0 --cookie "y3//+WLM8CI7g082flQzSDrSFI72BPRDi69Z9rYthm0DtiiYHj7ioY46ibAQJ9+i"
+iex --name host@0.0.0.0 --cookie chocolatechip
 ```
 
 This cookie is set in your project's `rel/vm.args` file, so you can look there
@@ -140,7 +140,7 @@ make it easier to read):
 
 ``` bash
 iex --name host@0.0.0.0 \
-    --cookie "y3//+WLM8CI7g082flQzSDrSFI72BPRDi69Z9rYthm0DtiiYHj7ioY46ibAQJ9+i" \
+    --cookie chocolatechip \
     --remsh hello_network@hello_network.local
 ```
 

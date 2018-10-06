@@ -5,7 +5,7 @@
 ##  for read only filesystem.
 
 # -name firmware@0.0.0.0
--setcookie dRBxXEZl/sBkx/BdI4rX7IXyQJwF0oLoR3PqIMq+8WFqy8PsThg9V1i97Jn6xdCT
+-setcookie chocolatechip
 
 ## Use Ctrl-C to interrupt the current shell rather than invoking the emulator's
 ## break handler and possibly exiting the VM.

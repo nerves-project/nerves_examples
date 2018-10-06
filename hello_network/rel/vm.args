@@ -5,7 +5,7 @@
 ##  for read only filesystem.
 
 # -name hello_network@0.0.0.0
--setcookie y3//+WLM8CI7g082flQzSDrSFI72BPRDi69Z9rYthm0DtiiYHj7ioY46ibAQJ9+i
+-setcookie chocolatechip
 
 ## Use Ctrl-C to interrupt the current shell rather than invoking the emulator's
 ## break handler and possibly exiting the VM.
