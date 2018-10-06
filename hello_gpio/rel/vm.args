@@ -5,7 +5,7 @@
 ##  for read only filesystem.
 
 # -name hello_gpio@0.0.0.0
--setcookie Koa+z6+Be8ZbTVbMBOUM/cEU+8Mns3Ec70CkYgPdi8d96CgkBCrvKc/+Ce1gewBo
+-setcookie chocolatechip
 
 ## Use Ctrl-C to interrupt the current shell rather than invoking the emulator's
 ## break handler and possibly exiting the VM.
