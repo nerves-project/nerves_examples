@@ -14,6 +14,7 @@ defmodule Blinky.MixProject do
       build_path: "_build/#{@target}",
       lockfile: "mix.lock.#{@target}",
       start_permanent: Mix.env() == :prod,
+      build_embedded: @target != "host",
       aliases: [loadconfig: [&bootstrap/1]],
       deps: deps()
     ]
@@ -33,7 +34,11 @@ defmodule Blinky.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:nerves, "~> 1.3", runtime: false}] ++ deps(@target)
+    [
+      {:nerves, "~> 1.3", runtime: false},
+      {:shoehorn, "~> 0.4"},
+      {:ring_logger, "~> 0.4"}
+    ] ++ deps(@target)
   end
 
   # Specify target specific dependencies
@@ -41,7 +46,6 @@ defmodule Blinky.MixProject do
 
   defp deps(target) do
     [
-      {:shoehorn, "~> 0.4"},
       {:nerves_runtime, "~> 0.6"},
       {:nerves_leds, "~> 0.8.0"},
       {:nerves_init_gadget, "~> 0.5"}
@@ -54,7 +58,6 @@ defmodule Blinky.MixProject do
   defp system("rpi3"), do: [{:nerves_system_rpi3, "~> 1.0", runtime: false}]
   defp system("bbb"), do: [{:nerves_system_bbb, "~> 1.0", runtime: false}]
   defp system("ev3"), do: [{:nerves_system_ev3, "~> 1.0", runtime: false}]
-  defp system("qemu_arm"), do: [{:nerves_system_qemu_arm, "~> 1.0", runtime: false}]
   defp system("x86_64"), do: [{:nerves_system_x86_64, "~> 1.0", runtime: false}]
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end

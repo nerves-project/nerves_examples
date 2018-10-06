@@ -1,0 +1,4 @@
+# Globally ignore lock files in this project since we aim to support the latest
+# and greatest released versions. If you notice an issue with a version, please
+# file an issue.
+mix.lock*
