@@ -43,7 +43,7 @@ defmodule HelloNetwork.MixProject do
     [
       {:shoehorn, "~> 0.4"},
       {:nerves_runtime, "~> 0.6"},
-      {:nerves_init_gadget, "~> 0.4.0"}
+      {:nerves_init_gadget, "~> 0.5"}
     ] ++ system(target)
   end
 
