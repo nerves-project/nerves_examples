@@ -46,7 +46,7 @@ defmodule Firmware.MixProject do
     [
       {:shoehorn, "~> 0.4"},
       {:nerves_runtime, "~> 0.6"},
-      {:nerves_init_gadget, "~> 0.4"},
+      {:nerves_init_gadget, "~> 0.5"},
       {:ui, path: "../ui"}
     ] ++ system(target)
   end
