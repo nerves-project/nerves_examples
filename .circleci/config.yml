@@ -93,14 +93,6 @@ jobs:
       MIX_TARGET: "bbb"
     <<: *build
 
-  blinky_ev3:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "blinky"
-      MIX_TARGET: "ev3"
-    <<: *build
-
   hello_gpio_rpi0:
     <<: *defaults
     environment:
@@ -229,14 +221,6 @@ jobs:
       MIX_TARGET: "x86_64"
     <<: *build
 
-  hello_network_ev3:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "ev3"
-    <<: *build
-
   hello_phoenix_rpi0:
     <<: *defaults
     environment:
@@ -285,14 +269,6 @@ jobs:
       MIX_TARGET: "x86_64"
     <<: *build
 
-  hello_phoenix_ev3:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_phoenix/firmware"
-      MIX_TARGET: "ev3"
-    <<: *build
-
 workflows:
   version: 2
   build:
@@ -306,8 +282,6 @@ workflows:
       - blinky_rpi3:
           context: org-global
       - blinky_bbb:
-          context: org-global
-      - blinky_ev3:
           context: org-global
       - hello_gpio_rpi0:
           context: org-global
@@ -341,8 +315,6 @@ workflows:
           context: org-global
       - hello_network_x86_64:
           context: org-global
-      - hello_network_ev3:
-          context: org-global
       - hello_phoenix_rpi0:
           context: org-global
       - hello_phoenix_rpi:
@@ -354,6 +326,4 @@ workflows:
       - hello_phoenix_bbb:
           context: org-global
       - hello_phoenix_x86_64:
-          context: org-global
-      - hello_phoenix_ev3:
           context: org-global
