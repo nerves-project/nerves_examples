@@ -147,7 +147,6 @@ iex --name host@0.0.0.0 \
 Once connected, you can verify the list of nodes that are connected to the node
 running on your host machine.
 
-
 ``` elixir
 iex(host@0.0.0.0)2> Node.list
 [:"hello_network@hello_network.local"]
@@ -160,7 +159,7 @@ in [the Elixir documentation][distribution].
 
 ## Learn More
 
-  * Official docs: https://hexdocs.pm/nerves/getting-started.html
-  * Official website: http://www.nerves-project.org/
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
-  * Source: https://github.com/nerves-project/nerves
+* Official docs: https://hexdocs.pm/nerves/getting-started.html
+* Official website: http://www.nerves-project.org/
+* Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+* Source: https://github.com/nerves-project/nerves

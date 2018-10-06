@@ -3,9 +3,9 @@
 Functionally similar to `blinky`, but showing how the [Linux `/sys/class/leds` interface](https://elixir.bootlin.com/linux/v4.10/source/Documentation/leds/leds-class.txt)
 can be used to blink the LED(s) instead of manually turning them on and off.
 
-- Boots to Elixir shell and blinks LEDs forever in background
-- Uses `Nerves.Leds` to manage named LEDs
-- Custom per-target configuration via `config/#{target}.exs`
+* Boots to Elixir shell and blinks LEDs forever in background
+* Uses `Nerves.Leds` to manage named LEDs
+* Custom per-target configuration via `config/#{target}.exs`
 
 ## Hardware
 
@@ -30,7 +30,7 @@ mix firmware.burn
 
 ## Learn More
 
-  * Official docs: https://hexdocs.pm/nerves/getting-started.html
-  * Official website: http://www.nerves-project.org/
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
-  * Source: https://github.com/nerves-project/nerves
+* Official docs: https://hexdocs.pm/nerves/getting-started.html
+* Official website: http://www.nerves-project.org/
+* Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+* Source: https://github.com/nerves-project/nerves

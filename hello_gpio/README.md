@@ -18,8 +18,7 @@ kΩ pull-up resistor to a GPIO pin.
 
 The default configuration uses GPIO BCM pin 26 for output and GPIO BCM pin 20
 for input.  Note that you are using the labeled BCM pins as found on a Raspberry
-Pi using the following diagram from https://pinout.xyz and not the physical
-numbering of pins.
+Pi as shown in the diagram at [pinout.xyz](https://pinout.xyz).
 
 ![Raspberry Pi pinout](https://pinout.xyz/resources/raspberry-pi-pinout.png)
 
@@ -39,7 +38,7 @@ numbering of pins.
     Pressing the switch button will display entries showing the changing state
     of the switch
 
-``` bash
+```bash
 export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
@@ -48,7 +47,7 @@ mix firmware.burn
 
 ## Learn More
 
-  * Official docs: https://hexdocs.pm/nerves/getting-started.html
-  * Official website: http://www.nerves-project.org/
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
-  * Source: https://github.com/nerves-project/nerves
+* Official docs: https://hexdocs.pm/nerves/getting-started.html
+* Official website: http://www.nerves-project.org/
+* Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+* Source: https://github.com/nerves-project/nerves

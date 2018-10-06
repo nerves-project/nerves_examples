@@ -2,9 +2,9 @@
 
 The "Hello World" of the embedded world... blinking an LED
 
-- Boots to Elixir `iex` shell and blinks LEDs forever in background
-- Uses `Nerves.Leds` to manage named LEDs
-- Custom per-target configuration via `config/#{target}.exs`
+* Boots to Elixir `iex` shell and blinks LEDs forever in background
+* Uses `Nerves.Leds` to manage named LEDs
+* Custom per-target configuration via `config/#{target}.exs`
 
 ## Hardware
 
@@ -20,7 +20,7 @@ The built-in user-controllable LEDs will blink, as configured for your target ha
 5. Insert the SD card into your target board and power it on
 6. After about 5 seconds, the configured LED(s) should start blinking
 
-``` bash
+```bash
 export MIX_TARGET=rpi3
 mix deps.get
 mix firmware
@@ -29,7 +29,7 @@ mix firmware.burn
 
 ## Learn More
 
-  * Official docs: https://hexdocs.pm/nerves/getting-started.html
-  * Official website: http://www.nerves-project.org/
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
-  * Source: https://github.com/nerves-project/nerves
+* Official docs: https://hexdocs.pm/nerves/getting-started.html
+* Official website: http://www.nerves-project.org/
+* Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+* Source: https://github.com/nerves-project/nerves
