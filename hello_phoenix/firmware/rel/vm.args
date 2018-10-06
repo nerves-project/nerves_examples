@@ -11,6 +11,10 @@
 ## break handler and possibly exiting the VM.
 +Bc
 
+## Load code at system startup
+## See http://erlang.org/doc/system_principles/system_principles.html#code-loading-strategy
+-mode embedded
+
 ## Save the shell history between reboots
 ## See http://erlang.org/doc/man/kernel_app.html for additional options
 -kernel shell_history enabled

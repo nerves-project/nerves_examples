@@ -11,6 +11,10 @@
 ## break handler and possibly exiting the VM.
 +Bc
 
+## Load code at system startup
+## See http://erlang.org/doc/system_principles/system_principles.html#code-loading-strategy
+-mode embedded
+
 ## Save the shell history between reboots
 ## See http://erlang.org/doc/man/kernel_app.html for additional options
 -kernel shell_history enabled
@@ -26,9 +30,9 @@
 ## Enable colors in the shell
 -elixir ansi_enabled true
 
-## Options added after -extra are interpreted as plain arguments and # can be
-## retrieved using :init.get_plain_arguments(). Options before # the "--" are
-## interpreted by Elixir and anything afterwards is left # around for other IEx
+## Options added after -extra are interpreted as plain arguments and can be
+## retrieved using :init.get_plain_arguments(). Options before the "--" are
+## interpreted by Elixir and anything afterwards is left around for other IEx
 ## and user applications.
 -extra --no-halt
 --

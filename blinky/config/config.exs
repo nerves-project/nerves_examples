@@ -5,27 +5,39 @@
 # is restricted to this project.
 use Mix.Config
 
-# Customize the firmware. Uncomment all or parts of the following
-# to add files to the root filesystem or modify the firmware
-# archive.
+# Customize non-Elixir parts of the firmware. See
+# https://hexdocs.pm/nerves/advanced-configuration.html for details.
 
 config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
-#   fwup_conf: "config/fwup.conf"
 
-config :logger, level: :debug
+# Use shoehorn to start the main application. See the shoehorn
+# docs for separating out critical OTP applications such as those
+# involved with firmware updates.
 
 config :shoehorn,
   init: [:nerves_runtime, :nerves_init_gadget],
   app: Mix.Project.config()[:app]
 
-# Allows over the air updates via SSH.
+# Use Ringlogger as the logger backend and remove :console.
+# See https://hexdocs.pm/ring_logger/readme.html for more information on
+# configuring ring_logger.
+
+config :logger, backends: [RingLogger]
+
+# Authorize the device to receive firmware using your public key.
+# See https://hexdocs.pm/nerves_firmware_ssh/readme.html for more information
+# on configuring nerves_firmware_ssh.
+
+key = Path.join(System.user_home!(), ".ssh/id_rsa.pub")
+unless File.exists?(key), do: Mix.raise("No SSH Keys found. Please generate an ssh key")
+
 config :nerves_firmware_ssh,
   authorized_keys: [
-    File.read!(Path.join(System.user_home!(), ".ssh/id_rsa.pub"))
+    File.read!(key)
   ]
 
-# Allows for tailing of logs.
-config :logger, backends: [RingLogger]
+# Configure nerves_init_gadget.
+# See https://hexdocs.pm/nerves_init_gadget/readme.html for more information.
 
 # Set a mdns domain and node_name to be able to remsh into the device.
 config :nerves_init_gadget,

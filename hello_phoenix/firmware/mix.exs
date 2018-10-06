@@ -36,7 +36,11 @@ defmodule Firmware.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:nerves, "~> 1.3", runtime: false}] ++ deps(@target)
+    [
+      {:nerves, "~> 1.3", runtime: false},
+      {:shoehorn, "~> 0.4"},
+      {:ring_logger, "~> 0.4"}
+    ] ++ deps(@target)
   end
 
   # Specify target specific dependencies
@@ -44,7 +48,6 @@ defmodule Firmware.MixProject do
 
   defp deps(target) do
     [
-      {:shoehorn, "~> 0.4"},
       {:nerves_runtime, "~> 0.6"},
       {:nerves_init_gadget, "~> 0.5"},
       {:ui, path: "../ui"}
@@ -57,7 +60,6 @@ defmodule Firmware.MixProject do
   defp system("rpi3"), do: [{:nerves_system_rpi3, "~> 1.2", runtime: false}]
   defp system("bbb"), do: [{:nerves_system_bbb, "~> 1.2", runtime: false}]
   defp system("ev3"), do: [{:nerves_system_ev3, "~> 1.2", runtime: false}]
-  defp system("qemu_arm"), do: [{:nerves_system_qemu_arm, "~> 1.0", runtime: false}]
   defp system("x86_64"), do: [{:nerves_system_x86_64, "~> 1.2", runtime: false}]
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end

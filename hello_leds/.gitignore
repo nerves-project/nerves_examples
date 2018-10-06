@@ -1,24 +1,17 @@
-# App artifacts
-/_build
-/db
-/deps
-/*.ez
-mix.lock
-mix.lock.*
-
-# Nerves images
-/_images
-
-# Generate on crash by the VM
-erl_crash.dump
-
-# Where 3rd-party dependencies like ExDoc output generated docs.
-/doc
+# The directory Mix will write compiled artifacts to.
+/_build/
 
 # If you run "mix test --cover", coverage assets end up here.
-/cover
+/cover/
 
-# ignore everything in rel/ except config files
-rel/*
-!rel/config.exs
-!rel/vm.args
+# The directory Mix downloads your dependencies sources to.
+/deps/
+
+# Where 3rd-party dependencies like ExDoc output generated docs.
+/doc/
+
+# Ignore .fetch files in case you like to edit your project deps locally.
+/.fetch
+
+# If the VM crashes, it generates a dump, let's ignore it too.
+erl_crash.dump
