@@ -16,7 +16,7 @@
 -kernel shell_history enabled
 
 ## Enable heartbeat monitoring of the Erlang runtime system
-#-heart -env HEART_BEAT_TIMEOUT 30
+-heart -env HEART_BEAT_TIMEOUT 30
 
 ## Start the Elixir shell
 
