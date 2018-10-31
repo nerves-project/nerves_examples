@@ -3,8 +3,8 @@
 This example shows how to connect your Nerves device to the network using wired
 or wireless Ethernet. By default, the configuration assumes that you'll be
 connecting using the wired Ethernet interface `eth0`, but you can change the
-`:interface` option in `config/config.exs` to choose another interface (such as
-`:wlan0` for WiFi or `:usb0` for USB gadget-mode Ethernet). The targets with
+`:ifname` option in `config/config.exs` to choose another interface (such as
+`"wlan0"` for WiFi or `"usb0"` for USB gadget-mode Ethernet). The targets with
 built-in WiFi hardware (such as `rpi3` and `rpi0` on a Zero W) will work with
 their built in WiFi, but you can also use a variety of popular USB WiFi dongles
 on other targets.
@@ -28,17 +28,20 @@ mix firmware.burn
 
 ### How to Use the WiFi Interface
 
-Configure the application settings to use your WiFi interface (`:wlan0`) instead
-of your wired interface (`:eth0`):
+Configure the application settings to use your WiFi interface (`"wlan0"`) instead
+of your wired interface (`"eth0"`):
 
 ```elixir
 # config/config.exs
 
 # ...
 
-#config :hello_network, interface: :eth0
-config :hello_network, interface: :wlan0
-#config :hello_network, interface: :usb0
+config :nerves_init_gadget,
+  node_name: :hello_network,
+  mdns_domain: "hello_network.local",
+  address_method: :dhcp,
+  # ifname: "eth0"
+  ifname: "wlan0"
 
 key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
 
@@ -47,9 +50,6 @@ config :nerves_network, :default,
     ssid: System.get_env("NERVES_NETWORK_SSID"),
     psk: System.get_env("NERVES_NETWORK_PSK"),
     key_mgmt: String.to_atom(key_mgmt)
-  ],
-  eth0: [
-    ipv4_address_method: :dhcp
   ]
 
 # ...

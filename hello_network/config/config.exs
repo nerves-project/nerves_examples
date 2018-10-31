@@ -10,11 +10,22 @@ use Mix.Config
 
 config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
-# Uncomment the following line for the interface you intend to use,
-# if not the wired :eth0 interface.
-config :hello_network, interface: :eth0
-# config :hello_network, interface: :wlan0
-# config :hello_network, interface: :usb0
+# Configure nerves_init_gadget for the interface you intend to use
+# See https://hexdocs.pm/nerves_init_gadget/readme.html for more information.
+
+# Set a mdns domain and node_name to be able to remsh into the device.
+config :nerves_init_gadget,
+  node_name: :hello_network,
+  mdns_domain: "hello_network.local",
+  address_method: :dhcp,
+  ifname: "eth0"
+  # ifname: "wlan0"
+
+  # To use USB gadget mode on supported devices:
+  # ifname: "usb0",
+  # address_method: :dhcpd
+
+# Configure wireless settings
 
 key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
 
@@ -23,9 +34,6 @@ config :nerves_network, :default,
     ssid: System.get_env("NERVES_NETWORK_SSID"),
     psk: System.get_env("NERVES_NETWORK_PSK"),
     key_mgmt: String.to_atom(key_mgmt)
-  ],
-  eth0: [
-    ipv4_address_method: :dhcp
   ]
 
 # Use shoehorn to start the main application. See the shoehorn
@@ -53,23 +61,6 @@ config :nerves_firmware_ssh,
   authorized_keys: [
     File.read!(key)
   ]
-
-# Configure nerves_init_gadget.
-# See https://hexdocs.pm/nerves_init_gadget/readme.html for more information.
-
-# Set a mdns domain and node_name to be able to remsh into the device.
-config :nerves_init_gadget,
-  node_name: :hello_network,
-  mdns_domain: "hello_network.local",
-  ifname: "usb0",
-  address_method: :dhcpd
-
-# For Devices that don't support USB gadget mode (such as Raspberry Pi 3),
-# you may want to change the primary network interface or IP address method:
-#
-# config :nerves_init_gadget,
-#  address_method: :dhcp,
-#  ifname: "eth0"
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
