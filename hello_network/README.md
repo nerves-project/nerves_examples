@@ -69,12 +69,12 @@ mix firmware
 mix firmware.burn
 ```
 
-### Tips for Debugging
-*Note* key_mgmt setting MUST be an atom
+#### WiFi Troubleshooting Tips
 
-If you cannot get a connection, but you can get to the IEx prompt, a good way to debug is by checking the current status:
+If you cannot get a network connection, but you can get to the IEx prompt, you
+can check the interface status:
 
-```
+```elixir
 iex> Nerves.Network.status("wlan0")
 %{
   domain: "",
@@ -90,13 +90,18 @@ iex> Nerves.Network.status("wlan0")
 }
 ```
 
-A bad password would normally return some logs as such:
+If it does not have an IP address listed or `is_up` is false, that confirms
+that your interface is not connecting properly.
+
+An incorrect WiFi password would normally generate a log message like:
+
 ```
 00:00:21.986 [info]  WiFiManager(wlan0): ignoring event: {:error, :psk, :FAIL}
 ```
 
-Checking the status would show the status is down:
-```
+Checking the status would show the `operstate` is down:
+
+```elixir
 iex> Nerves.Network.status("wlan0")
 %{
   ifname: "wlan0",
@@ -108,29 +113,29 @@ iex> Nerves.Network.status("wlan0")
 }
 ```
 
-Using RingLogger would be the best way to test your settings and connecting to different wifi along with trying to setup the WiFi:
+To rule out configuration issues, you can try setting up the connection
+manually and watch the log messages that get generated.
+
+> *Note*: The `key_mgmt` setting must be an atom. This is done for you when
+> using `config.exs`, but you need to be sure to do it yourself when testing
+> manually.
+
 ```
 iex> Nerves.Network.setup("wlan0", [ssid: "Good-Network", psk: "good-pass", key_mgmt: :"WPA-PSK"])
 ...
 00:00:42.132 [info]  Register Nerves.WpaSupplicant "wlan0"
-
 00:00:42.135 [info]  Nerves.WpaSupplicant: sending 'REMOVE_NETWORK all'
-
 00:00:42.148 [info]  Nerves.WpaSupplicant: sending 'ADD_NETWORK'
-
 00:00:42.167 [info]  Nerves.WpaSupplicant: sending 'SET_NETWORK 0 key_mgmt WPA-PSK'
-
 00:00:42.177 [info]  Nerves.WpaSupplicant: sending 'SET_NETWORK 0 psk "goodpass"'
-
 00:00:42.197 [info]  Nerves.WpaSupplicant: sending 'SET_NETWORK 0 ssid "Good-Network"'
-
 00:00:42.353 [info]  Nerves.WpaSupplicant: sending 'SELECT_NETWORK 0'
-...
 00:00:43.141 [info]  WiFiManager(wlan0) wpa_supplicant wifi_connected
 ...
 ```
 
-If your network isn't hidden, it's also a good idea to actually try to scan for the network to see if you can see it:
+If your network isn't hidden, you can try to `scan` and see if you can see it:
+
 ```
 iex> Nerves.Network.scan("wlan0")
 [
