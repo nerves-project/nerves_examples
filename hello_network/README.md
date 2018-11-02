@@ -159,9 +159,8 @@ iex(1)> HelloNetwork.test_dns()
 ### Using Erlang Distribution
 
 One of the exciting features that Erlang and Elixir provide out of the box is
-called Erlang Distribution. This gives you the ability the ability to easily
-make a connection between multiple running instances of the Erlang VM, called
-"nodes."
+called Erlang Distribution. This gives you the ability to easily make a
+connection between multiple running instances of the Erlang VM, called "nodes."
 
 Once you have your device running this `nerves_network` example project, you
 can use Erlang Distribution to connect to it using from your development host
