@@ -1,8 +1,8 @@
 # Hello GPIO
 
 This example demonstrates how to use General-Purpose Input/Output (GPIO) pins as
-digital inputs and outputs using the [`elixir_ale`
-library](https://github.com/fhunleth/elixir_ale).  The example uses two separate
+digital inputs and outputs using the [`circuits_gpio`
+library](https://github.com/elixir-circuits/circuits_gpio).  The example uses two separate
 circuits. The first circuit contains an LED that is turned on and off by Elixir
 controlling a GPIO pin. In the second circuit, Elixir monitors a GPIO pin and
 logs the changing state of a manual switch.
