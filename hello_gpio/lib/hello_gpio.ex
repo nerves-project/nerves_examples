@@ -40,10 +40,10 @@ defmodule HelloGpio do
   defp listen_loop() do
     # Infinite loop receiving interrupts from gpio
     receive do
-      {:gpio, p, _timestamp, 1} ->
+      {:circuits_gpio, p, _timestamp, 1} ->
         Logger.debug("Received rising event on pin #{p}")
 
-      {:gpio, p, _timestamp, 0} ->
+      {:circuits_gpio, p, _timestamp, 0} ->
         Logger.debug("Received falling event on pin #{p}")
     end
 
