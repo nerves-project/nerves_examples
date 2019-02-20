@@ -18,7 +18,8 @@ The built-in user-controllable LEDs will blink, as configured for your target ha
 3. Create firmware with `mix firmware`
 4. Burn firmware to an SD card with `mix firmware.burn`
 5. Insert the SD card into your target board and power it on
-6. After about 5 seconds, the configured LED(s) should start blinking
+6. After about 10-30 seconds, the configured LED(s) should start blinking every 200ms
+  a. Note: during the boot process the LED may blink sporadically
 
 ```bash
 export MIX_TARGET=rpi3
