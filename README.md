@@ -9,7 +9,7 @@ if you haven't used Nerves before.
 
 You should also be using the following Elixir and Erlang versions:
 
-* Elixir 1.7.3
+* Elixir 1.8
 * Erlang OTP 21
 
 See the [EmbeddedElixir post on using ASDF-VM](https://embedded-elixir.com/post/2017-05-23-using-asdf-vm/)
