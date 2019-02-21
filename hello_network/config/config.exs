@@ -21,12 +21,12 @@ config :nerves_init_gadget,
   mdns_domain: "hello_network.local",
   node_name: node_name,
   node_host: :mdns_domain,
-  ifname: "eth0",
-  address_method: :dhcp
+  ifname: "usb0",
+  address_method: :dhcpd
 
-  # To use USB gadget mode on supported devices:
-  # ifname: "usb0",
-  # address_method: :dhcpd
+  # To use wired Ethernet:
+  # ifname: "eth0",
+  # address_method: :dhcp
 
   # To use WiFi:
   # ifname: "wlan0",
