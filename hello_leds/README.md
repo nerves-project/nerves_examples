@@ -22,7 +22,7 @@ The built-in user-controllable LEDs will blink, as configured for your target ha
 6. After about 5 seconds, the configured LED(s) should start blinking
 
 ``` bash
-export MIX_TARGET=rpi3
+export MIX_TARGET=rpi0
 mix deps.get
 mix firmware
 mix firmware.burn
