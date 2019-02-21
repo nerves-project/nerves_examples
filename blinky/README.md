@@ -22,7 +22,7 @@ The built-in user-controllable LEDs will blink, as configured for your target ha
   a. Note: during the boot process the LED may blink sporadically
 
 ```bash
-export MIX_TARGET=rpi3
+export MIX_TARGET=rpi0
 mix deps.get
 mix firmware
 mix firmware.burn

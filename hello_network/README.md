@@ -2,11 +2,11 @@
 
 This example shows how to connect your Nerves device to the network using wired
 or wireless Ethernet. By default, the configuration assumes that you'll be
-connecting using the wired Ethernet interface `eth0`, but you can change the
+connecting using the USB gadget interface `usb0`, but you can change the
 `:ifname` option in `config/config.exs` to choose another interface (such as
-`"wlan0"` for WiFi or `"usb0"` for USB gadget-mode Ethernet). The targets with
+`"wlan0"` for WiFi or `"eth00"` for wired Ethernet). The targets with
 built-in WiFi hardware (such as `rpi3` and `rpi0` on a Zero W) will work with
-their built in WiFi, but you can also use a variety of popular USB WiFi dongles
+their built in-WiFi, but you can also use a variety of popular USB WiFi dongles
 on other targets.
 
 ## How to Use the Code in this Repository
@@ -20,16 +20,18 @@ on other targets.
 7. After about 5 seconds, you should see messages on the console
 
 ``` bash
-export MIX_TARGET=rpi3
+export MIX_TARGET=rpi0
 mix deps.get
 mix firmware
 mix firmware.burn
 ```
 
-### How to Use the WiFi Interface
+### How to Use the WiFi and Wired Interfaces
 
-Configure the application settings to use your WiFi interface (`"wlan0"`) instead
-of your wired interface (`"eth0"`):
+Configure the application settings to use the WiFi interface (`"wlan0"`) or
+wired interface (`"eth0"`) instead of the USB gadget Ethernet interface
+(`"usb0"`). Also be sure to switch from `:dhcpd` (DHCP server mode) to `:dhcp`
+(DHCP client mode) as appropriate for the interface.
 
 ```elixir
 # config/config.exs
@@ -37,11 +39,21 @@ of your wired interface (`"eth0"`):
 # ...
 
 config :nerves_init_gadget,
-  node_name: :hello_network,
   mdns_domain: "hello_network.local",
-  address_method: :dhcp,
-  # ifname: "eth0"
-  ifname: "wlan0"
+  node_name: node_name,
+  node_host: :mdns_domain,
+  # ifname: "usb0",
+  # address_method: :dhcpd
+
+  # To use wired Ethernet:
+  # ifname: "eth0",
+  # address_method: :dhcp
+
+  # To use WiFi:
+  ifname: "wlan0",
+  address_method: :dhcp
+
+# Configure wireless settings
 
 key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
 
@@ -63,7 +75,7 @@ Specify your WiFi settings using the `NERVES_NETWORK_SSID` and
 ``` bash
 export NERVES_NETWORK_SSID=my_accesspoint_name
 export NERVES_NETWORK_PSK=secret
-export MIX_TARGET=rpi3
+export MIX_TARGET=rpi0
 mix deps.get
 mix firmware
 mix firmware.burn
@@ -203,9 +215,12 @@ configuration.
 
 # ...
 
-# Set a mdns domain and node_name to be able to remsh into the device.
+# Setting the node_name will enable Erlang Distribution.
+# Only enable this for prod if you understand the risks.
+node_name = if Mix.env() != :prod, do: "hello_network"
+
 config :nerves_init_gadget,
-  node_name: :hello_network,
+  node_name: node_name,
   mdns_domain: "hello_network.local"
 
 # ...

@@ -39,7 +39,7 @@ Pi as shown in the diagram at [pinout.xyz](https://pinout.xyz).
     of the switch
 
 ```bash
-export MIX_TARGET=rpi3
+export MIX_TARGET=rpi0
 mix deps.get
 mix firmware
 mix firmware.burn
