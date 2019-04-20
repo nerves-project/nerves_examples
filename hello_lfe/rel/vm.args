@@ -1,0 +1,40 @@
+## Add custom options here
+
+## Distributed Erlang Options
+##  The cookie needs to be configured prior to vm boot for
+##  for read only filesystem.
+
+# -name hello_lfe@0.0.0.0
+-setcookie chocolatechip
+
+## Use Ctrl-C to interrupt the current shell rather than invoking the emulator's
+## break handler and possibly exiting the VM.
++Bc
+
+# Allow time warps so that the Erlang system time can more closely match the
+# OS system time.
++C multi_time_warp
+
+## Load code at system startup
+## See http://erlang.org/doc/system_principles/system_principles.html#code-loading-strategy
+
+# NOTE: LFE doesn't like embedded mode. If you enable, you'll get this:
+#
+# lfe> (help)
+# exception error: no function clause matching
+#   in (lfe_macro : format_error undef)
+#   in lfe_shell:-list_ews/2-fun-0-/2 (src/lfe_shell.erl, line 441)
+#   in lists:foreach/2 (lists.erl, line 1338)
+
+#-mode embedded
+
+## Save the shell history between reboots
+## See http://erlang.org/doc/man/kernel_app.html for additional options
+-kernel shell_history enabled
+
+## Enable heartbeat monitoring of the Erlang runtime system
+-heart -env HEART_BEAT_TIMEOUT 30
+
+## Start the LFE shell
+-user lfe_init
+
