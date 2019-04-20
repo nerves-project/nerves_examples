@@ -323,6 +323,54 @@ jobs:
       MIX_TARGET: "x86_64"
     <<: *build
 
+  hello_erlang_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  hello_erlang_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  hello_erlang_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  hello_erlang_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "rpi3"
+    <<: *build
+
+  hello_erlang_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "bbb"
+    <<: *build
+
+  hello_erlang_x86_64:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "x86_64"
+    <<: *build
+
 workflows:
   version: 2
   build:
@@ -392,4 +440,16 @@ workflows:
       - hello_lfe_bbb:
           context: org-global
       - hello_lfe_x86_64:
+          context: org-global
+      - hello_erlang_rpi0:
+          context: org-global
+      - hello_erlang_rpi:
+          context: org-global
+      - hello_erlang_rpi2:
+          context: org-global
+      - hello_erlang_rpi3:
+          context: org-global
+      - hello_erlang_bbb:
+          context: org-global
+      - hello_erlang_x86_64:
           context: org-global
