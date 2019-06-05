@@ -6,7 +6,7 @@ elixir_version: &elixir_version
 defaults: &defaults
   working_directory: /nerves/build
   docker:
-    - image: nervesproject/nerves_system_br:latest
+    - image: nervesproject/nerves_system_br:1.7.2
 
 install_elixir: &install_elixir
   run:
