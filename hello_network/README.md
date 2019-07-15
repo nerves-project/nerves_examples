@@ -185,7 +185,7 @@ by starting an `iex` session using the appropriate "cookie" that matches the
 one configured on your device:
 
 ``` bash
-iex --name host@0.0.0.0 --cookie chocolatechip
+iex --name host@0.0.0.0 --cookie hello_network_cookie
 ```
 
 This cookie is set in your project's `rel/vm.args` file, so you can look there

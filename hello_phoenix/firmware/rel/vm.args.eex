@@ -4,12 +4,15 @@
 ##  The cookie needs to be configured prior to vm boot for
 ##  for read only filesystem.
 
-# -name firmware@0.0.0.0
--setcookie chocolatechip
+-setcookie <%= @release.options[:cookie] %>
 
 ## Use Ctrl-C to interrupt the current shell rather than invoking the emulator's
 ## break handler and possibly exiting the VM.
 +Bc
+
+# Allow time warps so that the Erlang system time can more closely match the
+# OS system time.
++C multi_time_warp
 
 ## Load code at system startup
 ## See http://erlang.org/doc/system_principles/system_principles.html#code-loading-strategy
