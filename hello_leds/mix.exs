@@ -65,7 +65,8 @@ defmodule HelloLeds.MixProject do
       overwrite: true,
       cookie: "#{@app}_cookie",
       include_erts: &Nerves.Release.erts/0,
-      steps: [&Nerves.Release.init/1, :assemble]
+      steps: [&Nerves.Release.init/1, :assemble],
+      strip_beams: Mix.env() == :prod
     ]
   end
 end
