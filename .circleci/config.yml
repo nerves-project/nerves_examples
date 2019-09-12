@@ -91,6 +91,14 @@ jobs:
       MIX_TARGET: "rpi3"
     <<: *build
 
+  blinky_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "blinky"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
   blinky_rpi4:
     <<: *defaults
     environment:
@@ -313,6 +321,14 @@ jobs:
       <<: *elixir_version
       MIX_PROJECT: "hello_phoenix/firmware"
       MIX_TARGET: "rpi3"
+    <<: *build
+
+  hello_phoenix_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_phoenix/firmware"
+      MIX_TARGET: "rpi3a"
     <<: *build
 
   hello_phoenix_rpi4:
