@@ -5,7 +5,7 @@ defmodule UiWeb.ChannelCase do
 
   Such tests rely on `Phoenix.ChannelTest` and also
   import other functionality to make it easier
-  to build common datastructures and query the data layer.
+  to build common data structures and query the data layer.
 
   Finally, if the test case interacts with the database,
   it cannot be async. For this reason, every test runs
@@ -25,9 +25,7 @@ defmodule UiWeb.ChannelCase do
     end
   end
 
-
   setup _tags do
     :ok
   end
-
 end
