@@ -139,6 +139,22 @@ jobs:
       MIX_TARGET: "rpi3"
     <<: *build
 
+  hello_gpio_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_gpio"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
+  hello_gpio_rpi4:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_gpio"
+      MIX_TARGET: "rpi4"
+    <<: *build
+
   hello_gpio_bbb:
     <<: *defaults
     environment:
@@ -179,6 +195,22 @@ jobs:
       MIX_TARGET: "rpi3"
     <<: *build
 
+  hello_leds_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_leds"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
+  hello_leds_rpi4:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_leds"
+      MIX_TARGET: "rpi4"
+    <<: *build
+
   hello_leds_bbb:
     <<: *defaults
     environment:
@@ -217,6 +249,22 @@ jobs:
       <<: *elixir_version
       MIX_PROJECT: "hello_network"
       MIX_TARGET: "rpi3"
+    <<: *build
+
+  hello_network_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
+  hello_network_rpi4:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_network"
+      MIX_TARGET: "rpi4"
     <<: *build
 
   hello_network_bbb:
@@ -323,6 +371,22 @@ jobs:
       MIX_TARGET: "rpi3"
     <<: *build
 
+  hello_lfe_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_lfe"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
+  hello_lfe_rpi4:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_lfe"
+      MIX_TARGET: "rpi4"
+    <<: *build
+
   hello_lfe_bbb:
     <<: *defaults
     environment:
@@ -371,6 +435,22 @@ jobs:
       MIX_TARGET: "rpi3"
     <<: *build
 
+  hello_erlang_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
+  hello_erlang_rpi4:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_erlang"
+      MIX_TARGET: "rpi4"
+    <<: *build
+
   hello_erlang_bbb:
     <<: *defaults
     environment:
@@ -399,6 +479,10 @@ workflows:
           context: org-global
       - blinky_rpi3:
           context: org-global
+      - blinky_rpi3a:
+          context: org-global
+      - blinky_rpi4:
+          context: org-global
       - blinky_bbb:
           context: org-global
       - hello_gpio_rpi0:
@@ -408,6 +492,10 @@ workflows:
       - hello_gpio_rpi2:
           context: org-global
       - hello_gpio_rpi3:
+          context: org-global
+      - hello_gpio_rpi3a:
+          context: org-global
+      - hello_gpio_rpi4:
           context: org-global
       - hello_gpio_bbb:
           context: org-global
@@ -419,6 +507,10 @@ workflows:
           context: org-global
       - hello_leds_rpi3:
           context: org-global
+      - hello_leds_rpi3a:
+          context: org-global
+      - hello_leds_rpi4:
+          context: org-global
       - hello_leds_bbb:
           context: org-global
       - hello_network_rpi0:
@@ -428,6 +520,10 @@ workflows:
       - hello_network_rpi2:
           context: org-global
       - hello_network_rpi3:
+          context: org-global
+      - hello_network_rpi3a:
+          context: org-global
+      - hello_network_rpi4:
           context: org-global
       - hello_network_bbb:
           context: org-global
@@ -441,6 +537,10 @@ workflows:
           context: org-global
       - hello_phoenix_rpi3:
           context: org-global
+      - hello_phoenix_rpi3a:
+          context: org-global
+      - hello_phoenix_rpi4:
+          context: org-global
       - hello_phoenix_bbb:
           context: org-global
       - hello_phoenix_x86_64:
@@ -453,6 +553,10 @@ workflows:
           context: org-global
       - hello_lfe_rpi3:
           context: org-global
+      - hello_lfe_rpi3a:
+          context: org-global
+      - hello_lfe_rpi4:
+          context: org-global
       - hello_lfe_bbb:
           context: org-global
       - hello_lfe_x86_64:
@@ -464,6 +568,10 @@ workflows:
       - hello_erlang_rpi2:
           context: org-global
       - hello_erlang_rpi3:
+          context: org-global
+      - hello_erlang_rpi3a:
+          context: org-global
+      - hello_erlang_rpi4:
           context: org-global
       - hello_erlang_bbb:
           context: org-global
