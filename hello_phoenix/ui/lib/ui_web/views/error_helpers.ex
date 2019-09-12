@@ -9,8 +9,8 @@ defmodule UiWeb.ErrorHelpers do
   Generates tag for inlined form input errors.
   """
   def error_tag(form, field) do
-    Enum.map(Keyword.get_values(form.errors, field), fn (error) ->
-      content_tag :span, translate_error(error), class: "help-block"
+    Enum.map(Keyword.get_values(form.errors, field), fn error ->
+      content_tag(:span, translate_error(error), class: "help-block")
     end)
   end
 
@@ -22,10 +22,10 @@ defmodule UiWeb.ErrorHelpers do
     # to translate as a static argument:
     #
     #     # Translate "is invalid" in the "errors" domain
-    #     dgettext "errors", "is invalid"
+    #     dgettext("errors", "is invalid")
     #
     #     # Translate the number of files with plural rules
-    #     dngettext "errors", "1 file", "%{count} files", count
+    #     dngettext("errors", "1 file", "%{count} files", count)
     #
     # Because the error messages we show in our forms and APIs
     # are defined inside Ecto, we need to translate them dynamically.
