@@ -37,7 +37,7 @@ see the `hello_network` example.
     ```bash
     # Still in ui/assets directory from the prior step.
     # These steps need to be repeated when you change JS or CSS files.
-    node_modules/brunch/bin/brunch build --production
+    node node_modules/webpack/bin/webpack.js --mode production
     cd ../
     mix phx.digest
     ```
