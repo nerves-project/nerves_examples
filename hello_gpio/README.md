@@ -14,7 +14,7 @@ with a 270 Ω resistor. The resistor prevents the LED from drawing too much
 current and burning up your LED.
 As an experiment, you can increase the value of the resistor, and you will
 notice that the LED will be dimmer than before, as the current will be reduced.
-If you do not see the light turning on and off it is likely that you have plugged
+If you do not see the light turning on and off, it is likely that you have plugged
 the LED in backwards. The LED only allows current to flow in one direction.
 For the input pin, connect a 4-pin push-button with a 10
 kΩ pull-up resistor to a GPIO pin.
