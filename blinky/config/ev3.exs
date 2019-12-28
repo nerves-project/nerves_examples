@@ -1,5 +1,5 @@
 # Configuration for the Lego Mindstorms EV3 brick (target ev3)
-use Mix.Config
+import Config
 
 config :blinky, led_list: [:led0, :led1, :led2, :led3]
 

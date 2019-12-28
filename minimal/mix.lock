@@ -19,6 +19,5 @@
   "ring_logger": {:hex, :ring_logger, "0.8.0", "b1baddc269099b2afe2ea3a87b8e2b71e57331c0000038ae55090068aac679db", [:mix], [], "hexpm"},
   "shoehorn": {:hex, :shoehorn, "0.6.0", "f9a1b7d6212cf18ba91c4f71c26076059df33cea4db2eb3c098bfa6673349412", [:mix], [{:distillery, "~> 2.1", [hex: :distillery, repo: "hexpm", optional: true]}], "hexpm"},
   "system_registry": {:hex, :system_registry, "0.8.2", "df791dc276652fcfb53be4dab823e05f8269b96ac57c26f86a67838dbc0eefe7", [:mix], [], "hexpm"},
-  "toolshed": {:hex, :toolshed, "0.2.11", "0cd5312bd6a48f5b654b6ffa9239a63af9f3d200da414790fe25f066e14842a9", [:mix], [{:nerves_runtime, "~> 0.8", [hex: :nerves_runtime, repo: "hexpm", optional: true]}], "hexpm"},
   "uboot_env": {:hex, :uboot_env, "0.1.1", "b01e3ec0973e99473234f27839e29e63b5b81eba6a136a18a78d049d4813d6c5", [:mix], [], "hexpm"},
 }
