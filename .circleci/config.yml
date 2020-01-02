@@ -164,34 +164,6 @@ collect_stats: &collect_stats
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
-        name: hello_network
-        command: echo "hello_network" > .project
-    - run: echo "rpi0" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi2" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi3" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi3a" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi4" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "bbb" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "x86_64" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-
-    - run:
         name: hello_lfe
         command: echo "hello_lfe" > .project
     - run: echo "rpi0" > .target
@@ -487,70 +459,6 @@ jobs:
       <<: *elixir_version
       MIX_PROJECT: "hello_leds"
       MIX_TARGET: "bbb"
-    <<: *build
-
-  hello_network_rpi0:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "rpi0"
-    <<: *build
-
-  hello_network_rpi:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "rpi"
-    <<: *build
-
-  hello_network_rpi2:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "rpi2"
-    <<: *build
-
-  hello_network_rpi3:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "rpi3"
-    <<: *build
-
-  hello_network_rpi3a:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "rpi3a"
-    <<: *build
-
-  hello_network_rpi4:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "rpi4"
-    <<: *build
-
-  hello_network_bbb:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "bbb"
-    <<: *build
-
-  hello_network_x86_64:
-    <<: *defaults
-    environment:
-      <<: *elixir_version
-      MIX_PROJECT: "hello_network"
-      MIX_TARGET: "x86_64"
     <<: *build
 
   hello_phoenix_rpi0:
@@ -863,22 +771,6 @@ workflows:
           <<: *context
       - hello_leds_bbb:
           <<: *context
-      - hello_network_rpi0:
-          <<: *context
-      - hello_network_rpi:
-          <<: *context
-      - hello_network_rpi2:
-          <<: *context
-      - hello_network_rpi3:
-          <<: *context
-      - hello_network_rpi3a:
-          <<: *context
-      - hello_network_rpi4:
-          <<: *context
-      - hello_network_bbb:
-          <<: *context
-      - hello_network_x86_64:
-          <<: *context
       - hello_phoenix_rpi0:
           <<: *context
       - hello_phoenix_rpi:
@@ -971,14 +863,6 @@ workflows:
             - hello_leds_rpi3a
             - hello_leds_rpi4
             - hello_leds_bbb
-            - hello_network_rpi0
-            - hello_network_rpi
-            - hello_network_rpi2
-            - hello_network_rpi3
-            - hello_network_rpi3a
-            - hello_network_rpi4
-            - hello_network_bbb
-            - hello_network_x86_64
             - hello_phoenix_rpi0
             - hello_phoenix_rpi
             - hello_phoenix_rpi2

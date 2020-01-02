@@ -16,7 +16,7 @@ access to the device. By default, this example will use the virtual Ethernet
 interface provided by the USB cable, assign an IP address automatically, and
 make it discoverable using mDNS (Bonjour). For more information about how to
 configure the network settings for your environment, including WiFi settings,
-see the `hello_network` example.
+see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
 
 ## How to Use this Repository
 
