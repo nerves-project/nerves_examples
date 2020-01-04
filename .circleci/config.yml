@@ -64,15 +64,19 @@ build: &build
             echo "Error while fetching deps. Retrying in 5 seconds"
             sleep 5
           done
-          mix firmware
+          MIX_ENV=dev mix firmware
+          MIX_ENV=prod mix firmware
     - run:
         name: Create stats dir
         command: mkdir -p /home/nerves/stats
     - run:
         name: Collect stats
         command: |
-          size=$(stat -c %s $MIX_PROJECT/_build/${MIX_TARGET}_dev/nerves/images/*.fw)
-          echo "$CIRCLE_BUILD_NUM,$(date +%s),$CIRCLE_BRANCH,$CIRCLE_SHA1,$MIX_PROJECT,$MIX_TARGET,$size" > /home/nerves/stats/$CIRCLE_BUILD_NUM.csv
+          dev_size=$(stat -c %s $MIX_PROJECT/_build/${MIX_TARGET}_dev/nerves/images/*.fw)
+          prod_size=$(stat -c %s $MIX_PROJECT/_build/${MIX_TARGET}_prod/nerves/images/*.fw)
+          timestamp=$(date +%s)
+          echo "$CIRCLE_BUILD_NUM,$timestamp,$CIRCLE_BRANCH,$CIRCLE_SHA1,$MIX_PROJECT,$MIX_TARGET,dev,$dev_size" > /home/nerves/stats/$CIRCLE_BUILD_NUM.csv
+          echo "$CIRCLE_BUILD_NUM,$timestamp,$CIRCLE_BRANCH,$CIRCLE_SHA1,$MIX_PROJECT,$MIX_TARGET,prod,$prod_size" >> /home/nerves/stats/$CIRCLE_BUILD_NUM.csv
     - store_artifacts:
         path: /home/nerves/stats
         destination: stats
