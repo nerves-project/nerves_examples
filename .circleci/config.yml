@@ -272,6 +272,34 @@ collect_stats: &collect_stats
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
+        name: minimal
+        command: echo "minimal" > .project
+    - run: echo "rpi0" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi3" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi3a" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi4" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "bbb" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "x86_64" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+
+    - run:
         name: Clone the stats branch
         command: |
           git clone --branch stats git@github.com:nerves-project/nerves_examples.git stats
@@ -713,6 +741,71 @@ jobs:
       MIX_TARGET: "x86_64"
     <<: *build
 
+  minimal_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  minimal_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  minimal_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  minimal_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "rpi3"
+    <<: *build
+
+  minimal_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
+  minimal_rpi4:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "rpi4"
+    <<: *build
+
+  minimal_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "bbb"
+    <<: *build
+
+  minimal_x86_64:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "minimal"
+      MIX_TARGET: "x86_64"
+    <<: *build
+
+
   collect_stats:
     <<: *defaults
     environment:
@@ -830,6 +923,22 @@ workflows:
           <<: *context
       - hello_erlang_x86_64:
           <<: *context
+      - minimal_rpi0:
+          <<: *context
+      - minimal_rpi:
+          <<: *context
+      - minimal_rpi2:
+          <<: *context
+      - minimal_rpi3:
+          <<: *context
+      - minimal_rpi3a:
+          <<: *context
+      - minimal_rpi4:
+          <<: *context
+      - minimal_bbb:
+          <<: *context
+      - minimal_x86_64:
+          <<: *context
 
       #-------------------------------
       # Collect stats
@@ -890,3 +999,12 @@ workflows:
             - hello_erlang_rpi4
             - hello_erlang_bbb
             - hello_erlang_x86_64
+            - minimal_rpi0
+            - minimal_rpi
+            - minimal_rpi2
+            - minimal_rpi3
+            - minimal_rpi3a
+            - minimal_rpi4
+            - minimal_bbb
+            - minimal_x86_64
+
