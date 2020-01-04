@@ -1,3 +1,4 @@
+Build number,Timestamp,Branch,SHA,Project,Target,Firmware size
 6210,1578067675,implement-stats,f2ce156bcb4fcd71a7a20aacd8ec788c39758d55,hello_gpio,rpi0,30076313
 6211,1578067579,implement-stats,f2ce156bcb4fcd71a7a20aacd8ec788c39758d55,hello_gpio,rpi4,31147822
 6212,1578067710,implement-stats,f2ce156bcb4fcd71a7a20aacd8ec788c39758d55,hello_gpio,rpi3a,30086527
