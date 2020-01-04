@@ -245,7 +245,7 @@ collect_stats: &collect_stats
 
     - run:
         name: hello_phoenix
-        command: echo "hello_phoenix" > .project
+        command: echo "hello_phoenix/firmware" > .project
     - run: echo "rpi0" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
