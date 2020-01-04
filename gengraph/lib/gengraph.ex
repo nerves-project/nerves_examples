@@ -8,7 +8,7 @@ defmodule Gengraph do
   end
 
   defp projects() do
-    ["blinky", "hello_gpio", "hello_erlang", "hello_lfe", "hello_leds", "hello_phoenix"]
+    ["blinky", "hello_gpio", "hello_erlang", "hello_lfe", "hello_leds", "hello_phoenix/firmware"]
   end
 
   defp targets() do
@@ -22,7 +22,7 @@ defmodule Gengraph do
     Gnuplot.plot(
       [
         [:set, :term, :png, :size, '1024,768'],
-        [:set, :output, "firmware_sizes-#{project}.png"],
+        [:set, :output, output_filename(project)],
         [:set, :title, escape_name(project)],
         [:set, :format, :y, "%.0s%cB"],
         [
@@ -33,6 +33,19 @@ defmodule Gengraph do
       ],
       data
     )
+  end
+
+  defp output_filename(project) do
+    "firmware_sizes-#{safe_filename(project)}.png"
+  end
+
+  defp safe_filename(name) do
+    for <<c <- name>>, into: "" do
+      case c do
+        ?/ -> "_"
+        _ -> <<c>>
+      end
+    end
   end
 
   defp escape_name(name) do
