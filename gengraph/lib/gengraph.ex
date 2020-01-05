@@ -8,16 +8,33 @@ defmodule Gengraph do
   end
 
   defp projects() do
-    ["blinky", "hello_gpio", "hello_erlang", "hello_lfe", "hello_leds", "hello_phoenix/firmware"]
+    [
+      "blinky",
+      "hello_gpio",
+      "hello_erlang",
+      "hello_lfe",
+      "hello_leds",
+      "hello_phoenix/firmware",
+      "minimal"
+    ]
   end
 
   defp targets() do
     ["rpi", "rpi0", "rpi2", "rpi3", "rpi3a", "rpi4", "bbb", "x86_64"]
   end
 
+  defp mix_envs() do
+    ["dev", "prod"]
+  end
+
   defp plot_firmware_sizes(all_firmware_sizes, project) do
-    plot_specs = for target <- targets(), do: plot_spec(target)
-    data = for target <- targets(), do: firmware_size_by_sha(all_firmware_sizes, project, target)
+    plot_specs =
+      for target <- targets(), mix_env <- mix_envs(), do: plot_spec(target <> "/" <> mix_env)
+
+    data =
+      for target <- targets(),
+          mix_env <- mix_envs(),
+          do: firmware_size_by_sha(all_firmware_sizes, project, target, mix_env)
 
     Gnuplot.plot(
       [
@@ -61,9 +78,11 @@ defmodule Gengraph do
     ["-", :using, '1:2:xtic(3)', :title, escape_name(title), :with, :linespoints]
   end
 
-  def firmware_size_by_sha(all_firmware_sizes, project, target) do
+  def firmware_size_by_sha(all_firmware_sizes, project, target, mix_env) do
     all_firmware_sizes
-    |> Enum.filter(fn row -> row.project == project and row.target == target end)
+    |> Enum.filter(fn row ->
+      row.project == project and row.target == target and row.mix_env == mix_env
+    end)
     |> Enum.map(fn row -> [row.sha_order, row.firmware_size, pretty_date_sha(row)] end)
   end
 

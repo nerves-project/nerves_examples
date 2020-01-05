@@ -27,12 +27,19 @@ defmodule Gengraph.FirmwareSizes do
 
   defp load_raw_data(path) do
     File.stream!(path)
-    |> CSV.decode()
+    |> CSV.decode(validate_row_length: false)
     |> Stream.drop(1)
     |> Enum.map(&process_row/1)
   end
 
+  # Handle rows before mix_env was saved
   defp process_row({:ok, [build, timestamp, branch, sha1, project, target, firmware_size]}) do
+    process_row({:ok, [build, timestamp, branch, sha1, project, target, "dev", firmware_size]})
+  end
+
+  defp process_row(
+         {:ok, [build, timestamp, branch, sha1, project, target, mix_env, firmware_size]}
+       ) do
     %{
       build: parse_int(build),
       timestamp: DateTime.from_unix!(parse_int(timestamp)),
@@ -40,6 +47,7 @@ defmodule Gengraph.FirmwareSizes do
       sha: sha1,
       project: project,
       target: target,
+      mix_env: mix_env,
       firmware_size: parse_int(firmware_size)
     }
   end
