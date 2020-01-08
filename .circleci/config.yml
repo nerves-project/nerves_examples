@@ -248,6 +248,34 @@ collect_stats: &collect_stats
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
+        name: hello_wifi
+        command: echo "hello_wifi" > .project
+    - run: echo "rpi0" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi3" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi3a" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi4" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "bbb" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "x86_64" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+
+    - run:
         name: minimal
         command: echo "minimal" > .project
     - run: echo "rpi0" > .target
@@ -653,6 +681,70 @@ jobs:
       MIX_TARGET: "x86_64"
     <<: *build
 
+  hello_wifi_rpi0:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "rpi0"
+    <<: *build
+
+  hello_wifi_rpi:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "rpi"
+    <<: *build
+
+  hello_wifi_rpi2:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "rpi2"
+    <<: *build
+
+  hello_wifi_rpi3:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "rpi3"
+    <<: *build
+
+  hello_wifi_rpi3a:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "rpi3a"
+    <<: *build
+
+  hello_wifi_rpi4:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "rpi4"
+    <<: *build
+
+  hello_wifi_bbb:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "bbb"
+    <<: *build
+
+  hello_wifi_x86_64:
+    <<: *defaults
+    environment:
+      <<: *elixir_version
+      MIX_PROJECT: "hello_wifi"
+      MIX_TARGET: "x86_64"
+    <<: *build
+
   minimal_rpi0:
     <<: *defaults
     environment:
@@ -819,6 +911,22 @@ workflows:
           <<: *context
       - hello_erlang_x86_64:
           <<: *context
+      - hello_wifi_rpi0:
+          <<: *context
+      - hello_wifi_rpi:
+          <<: *context
+      - hello_wifi_rpi2:
+          <<: *context
+      - hello_wifi_rpi3:
+          <<: *context
+      - hello_wifi_rpi3a:
+          <<: *context
+      - hello_wifi_rpi4:
+          <<: *context
+      - hello_wifi_bbb:
+          <<: *context
+      - hello_wifi_x86_64:
+          <<: *context
       - minimal_rpi0:
           <<: *context
       - minimal_rpi:
@@ -887,6 +995,14 @@ workflows:
             - hello_erlang_rpi4
             - hello_erlang_bbb
             - hello_erlang_x86_64
+            - hello_wifi_rpi0
+            - hello_wifi_rpi
+            - hello_wifi_rpi2
+            - hello_wifi_rpi3
+            - hello_wifi_rpi3a
+            - hello_wifi_rpi4
+            - hello_wifi_bbb
+            - hello_wifi_x86_64
             - minimal_rpi0
             - minimal_rpi
             - minimal_rpi2
