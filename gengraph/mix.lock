@@ -1,5 +1,5 @@
 %{
-  "csv": {:hex, :csv, "2.3.1", "9ce11eff5a74a07baf3787b2b19dd798724d29a9c3a492a41df39f6af686da0e", [:mix], [{:parallel_stream, "~> 1.0.4", [hex: :parallel_stream, repo: "hexpm", optional: false]}], "hexpm"},
-  "gnuplot": {:hex, :gnuplot, "1.19.96", "8bdb733cd2d037593886c0962693f48d35baf62af193bdbb3395a0fbac17c2c5", [:mix], [], "hexpm"},
-  "parallel_stream": {:hex, :parallel_stream, "1.0.6", "b967be2b23f0f6787fab7ed681b4c45a215a81481fb62b01a5b750fa8f30f76c", [:mix], [], "hexpm"},
+  "csv": {:hex, :csv, "2.3.1", "9ce11eff5a74a07baf3787b2b19dd798724d29a9c3a492a41df39f6af686da0e", [:mix], [{:parallel_stream, "~> 1.0.4", [hex: :parallel_stream, repo: "hexpm", optional: false]}], "hexpm", "86626e1c89a4ad9a96d0d9c638f9e88c2346b89b4ba1611988594ebe72b5d5ee"},
+  "gnuplot": {:hex, :gnuplot, "1.19.96", "8bdb733cd2d037593886c0962693f48d35baf62af193bdbb3395a0fbac17c2c5", [:mix], [], "hexpm", "8e5bfc0f77d5a173e8099c56f0a3b6e9c0bb68a340fed69be2d0a0846ba00b65"},
+  "parallel_stream": {:hex, :parallel_stream, "1.0.6", "b967be2b23f0f6787fab7ed681b4c45a215a81481fb62b01a5b750fa8f30f76c", [:mix], [], "hexpm", "639b2e8749e11b87b9eb42f2ad325d161c170b39b288ac8d04c4f31f8f0823eb"},
 }
