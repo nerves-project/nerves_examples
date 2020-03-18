@@ -40,7 +40,7 @@ defmodule HelloWiFi.MixProject do
     [
       # Dependencies for all targets
       {:circuits_gpio, "~> 0.4"},
-      {:nerves, "~> 1.5.0", runtime: false},
+      {:nerves, "~> 1.6.0", runtime: false},
       {:shoehorn, "~> 0.6"},
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
@@ -51,14 +51,14 @@ defmodule HelloWiFi.MixProject do
       {:nerves_pack, "~> 0.2", targets: @all_targets},
 
       # Dependencies for specific targets
-      {:nerves_system_rpi, "~> 1.10", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.10", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi2, "~> 1.10", runtime: false, targets: :rpi2},
-      {:nerves_system_rpi3, "~> 1.10", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.10", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.10", runtime: false, targets: :rpi4},
-      {:nerves_system_bbb, "~> 2.5", runtime: false, targets: :bbb},
-      {:nerves_system_x86_64, "~> 1.10", runtime: false, targets: :x86_64}
+      {:nerves_system_rpi, "~> 1.11", runtime: false, targets: :rpi},
+      {:nerves_system_rpi0, "~> 1.11", runtime: false, targets: :rpi0},
+      {:nerves_system_rpi2, "~> 1.11", runtime: false, targets: :rpi2},
+      {:nerves_system_rpi3, "~> 1.11", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi3a, "~> 1.11", runtime: false, targets: :rpi3a},
+      {:nerves_system_rpi4, "~> 1.11", runtime: false, targets: :rpi4},
+      {:nerves_system_bbb, "~> 2.6", runtime: false, targets: :bbb},
+      {:nerves_system_x86_64, "~> 1.11", runtime: false, targets: :x86_64}
     ]
   end
 
