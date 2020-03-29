@@ -38,10 +38,10 @@ defmodule HelloWiFi do
     # WiFi wizard on startup. Comment/remove the function below
     # if you want a more typical experience skipping the wizard
     # after it has been configured once.
-    VintageNetWizard.run_wizard(on_exit: {HelloWiFi, :on_wizard_exit, []})
+    VintageNetWizard.run_wizard(on_exit: {__MODULE__, :on_wizard_exit, []})
   end
 
   defp maybe_start_wifi_wizard(_wifi_not_configured) do
-    VintageNetWizard.run_wizard(on_exit: {HelloWiFi, :on_wizard_exit, []})
+    VintageNetWizard.run_wizard(on_exit: {__MODULE__, :on_wizard_exit, []})
   end
 end
