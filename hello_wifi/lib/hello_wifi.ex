@@ -5,8 +5,9 @@ defmodule HelloWiFi do
 
   @spec start(Application.start_type(), any()) :: {:error, any} | {:ok, pid()}
   def start(_type, _args) do
-    VintageNet.configured_interfaces()
-    |> Enum.any?(&(&1 =~ ~r/^wlan/))
+    VintageNet.configured_interfaces() 
+    |> Enum.filter(&(&1 =~ ~r/^wlan/)) 
+    |> Enum.any?(&(VintageNet.get_configuration(&1).vintage_net_wifi.networks != []))
     |> maybe_start_wifi_wizard()
 
     gpio_pin = Application.get_env(:hello_wifi, :button_pin, 17)
