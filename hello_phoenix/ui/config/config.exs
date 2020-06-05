@@ -10,9 +10,10 @@ import Config
 # Configures the endpoint
 config :ui, UiWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "sXlgjVd4kxCtbe/K01rO8S4SmgfsARUYOVvd2BrEvY3OaSjeJaZr9RK8jWKqNbBS",
-  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Ui.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "npT+uwWBFsGQp/jMXdMJAIPbJs7P9VALXqTkRpLqlquJC8EL+I26NzXgegasYOw+",
+  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Ui.PubSub,
+  live_view: [signing_salt: "4jVC64mw"]
 
 # Configures Elixir's Logger
 config :logger, :console,
