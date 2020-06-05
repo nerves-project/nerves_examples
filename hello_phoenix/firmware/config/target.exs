@@ -1,5 +1,17 @@
 import Config
 
+config :ui, UiWeb.Endpoint,
+  url: [host: "nerves.local"],
+  http: [port: 80],
+  secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
+  live_view: [signing_salt: "AAAABjEyERMkxgDh"],
+  check_origin: false,
+  root: Path.dirname(__DIR__),
+  server: true,
+  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json)],
+  pubsub_server: Ui.PubSub,
+  code_reloader: false
+
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.

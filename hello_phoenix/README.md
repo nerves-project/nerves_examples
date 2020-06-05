@@ -28,17 +28,16 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
     # These steps only need to be done once.
     cd ui
     mix deps.get
-    cd assets
-    npm install
+    npm install --prefix assets
     ```
 
 3. Build your assets and prepare them for deployment to the firmware:
 
     ```bash
-    # Still in ui/assets directory from the prior step.
+    # Still in ui directory from the prior step.
     # These steps need to be repeated when you change JS or CSS files.
     node node_modules/webpack/bin/webpack.js --mode production
-    cd ../
+    npm run deploy --prefix assets
     mix phx.digest
     ```
 

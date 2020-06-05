@@ -1,4 +1,4 @@
-import Config
+import Mix.Config
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -51,7 +51,7 @@ config :ui, UiWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/ui_web/{live,views}/.*(ex)$",
+      ~r"lib/ui_web/(live|views)/.*(ex)$",
       ~r"lib/ui_web/templates/.*(eex)$"
     ]
   ]
