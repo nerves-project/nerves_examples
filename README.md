@@ -10,8 +10,8 @@ before.
 
 You should also be using the following Elixir and Erlang versions:
 
-* Elixir 1.9
-* Erlang OTP 22
+* Elixir 1.10
+* Erlang OTP 23
 
 See the [EmbeddedElixir post on using
 ASDF-VM](https://embedded-elixir.com/post/2017-05-23-using-asdf-vm/)
