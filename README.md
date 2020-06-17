@@ -23,14 +23,14 @@ targets](https://hexdocs.pm/nerves/targets.html).
 For detailed information on how to build an example, see the `README.md` in each
 application's root directory.
 
-* [`blinky`](https://github.com/nerves-project/nerves-examples/blob/master/blinky/README.md)
-* [`hello_erlang`](https://github.com/nerves-project/nerves-examples/blob/master/hello_erlang/README.md)
-* [`hello_gpio`](https://github.com/nerves-project/nerves-examples/blob/master/hello_gpio/README.md)
-* [`hello_leds`](https://github.com/nerves-project/nerves-examples/blob/master/hello_leds/README.md)
-* [`hello_lfe`](https://github.com/nerves-project/nerves-examples/blob/master/hello_lfe/README.md)
-* [`hello_phoenix`](https://github.com/nerves-project/nerves-examples/blob/master/hello_phoenix/README.md)
-* [`hello_wifi`](https://github.com/nerves-project/nerves-examples/blob/master/hello_wifi/README.md)
-* [`minimal`](https://github.com/nerves-project/nerves-examples/blob/master/minimal/README.md)
+* [`blinky`](https://github.com/nerves-project/nerves-examples/blob/main/blinky/README.md)
+* [`hello_erlang`](https://github.com/nerves-project/nerves-examples/blob/main/hello_erlang/README.md)
+* [`hello_gpio`](https://github.com/nerves-project/nerves-examples/blob/main/hello_gpio/README.md)
+* [`hello_leds`](https://github.com/nerves-project/nerves-examples/blob/main/hello_leds/README.md)
+* [`hello_lfe`](https://github.com/nerves-project/nerves-examples/blob/main/hello_lfe/README.md)
+* [`hello_phoenix`](https://github.com/nerves-project/nerves-examples/blob/main/hello_phoenix/README.md)
+* [`hello_wifi`](https://github.com/nerves-project/nerves-examples/blob/main/hello_wifi/README.md)
+* [`minimal`](https://github.com/nerves-project/nerves-examples/blob/main/minimal/README.md)
 
 ## Other examples
 
