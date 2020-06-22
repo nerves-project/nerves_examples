@@ -8,6 +8,19 @@ embdedded elixir module.
 Notably, no configuration is necessary to get proper cross-compilation between
 host and target architectures.
 
+The only thing you need to activate zigler is the dependency in your `mix.exs`:
+
+```
+{:zigler, "~> 0.3.1", runtime: false}
+```
+
+You might want to use Zig for any of the following things:
+
+- low level code that requires interaction with OS syscalls not available
+  directly through the BEAM.
+- performance-sensitive code which requires numerical computation
+- wrapping an existing C ABI `.so` or `.a` library.
+
 ## Hardware
 
 The example below assumes a Raspberry Pi 3, connected over the Wifi.  Other ARM-
