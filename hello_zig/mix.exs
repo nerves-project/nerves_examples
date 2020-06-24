@@ -64,7 +64,7 @@ defmodule HelloZig.MixProject do
       {:nerves_system_x86_64, "~> 1.11", runtime: false, targets: :x86_64},
 
       # support for embedded zig
-      {:zigler, "~> 0.3.1", runtime: false}
+      {:zigler, "~> 0.3.2", runtime: false}
     ]
   end
 
