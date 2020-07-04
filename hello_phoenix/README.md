@@ -36,7 +36,9 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
     ```bash
     # Still in ui directory from the prior step.
     # These steps need to be repeated when you change JS or CSS files.
+    cd assets
     node node_modules/webpack/bin/webpack.js --mode production
+    cd ..
     npm run deploy --prefix assets
     mix phx.digest
     ```
