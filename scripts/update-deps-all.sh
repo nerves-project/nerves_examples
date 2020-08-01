@@ -20,6 +20,7 @@ find . -name mix.lock -delete
 for project in $PROJECTS; do
     update_deps $project
 done
+update_deps hello_phoenix/ui
 
 echo "Success"
 
