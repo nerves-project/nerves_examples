@@ -23,8 +23,6 @@ config :nerves, source_date_epoch: "1591379755"
 
 config :logger, backends: [RingLogger]
 
-config :phoenix, :json_library, Jason
-
 if Mix.target() != :host do
   import_config "target.exs"
 end
