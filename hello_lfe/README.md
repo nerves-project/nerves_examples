@@ -59,8 +59,8 @@ And then burn an SD card using `mix firmware.burn`.
 
 ## Using
 
-The images pull in the standard `nerves_init_gadget` infrastructure for bringing
-up networking and other initialization steps. See the `config/config.exs` for
+The images pull in the standard `nerves_pack` infrastructure for bringing up
+networking and other initialization steps. See the `config/config.exs` for
 network parameters and other configuration.
 
 ## Running
