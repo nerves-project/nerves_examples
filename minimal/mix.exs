@@ -39,7 +39,7 @@ defmodule Minimal.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.6.3", runtime: false},
+      {:nerves, "~> 1.7.0", runtime: false},
       {:shoehorn, "~> 0.6.0"},
       {:ring_logger, "~> 0.8.1"},
 
@@ -54,7 +54,7 @@ defmodule Minimal.MixProject do
       {:nerves_system_rpi3a, "~> 1.12", runtime: false, targets: :rpi3a},
       {:nerves_system_rpi4, "~> 1.12", runtime: false, targets: :rpi4},
       {:nerves_system_bbb, "~> 2.7", runtime: false, targets: :bbb},
-      {:nerves_system_x86_64, "~> 1.12", runtime: false, targets: :x86_64},
+      {:nerves_system_x86_64, "~> 1.12", runtime: false, targets: :x86_64}
     ]
   end
 
