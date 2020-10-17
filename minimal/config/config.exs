@@ -5,6 +5,9 @@
 # is restricted to this project.
 import Config
 
+# Enable the Nerves integration with Mix
+Application.start(:nerves_bootstrap)
+
 config :minimal, target: Mix.target()
 
 # Customize non-Elixir parts of the firmware. See
@@ -16,14 +19,6 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # See https://reproducible-builds.org/docs/source-date-epoch/ for more information
 
 config :nerves, source_date_epoch: "1578177235"
-
-# Use shoehorn to start the main application. See the shoehorn
-# docs for separating out critical OTP applications such as those
-# involved with firmware updates.
-
-config :shoehorn,
-  init: [:nerves_runtime],
-  app: Mix.Project.config()[:app]
 
 # Use Ringlogger as the logger backend and remove :console.
 # See https://hexdocs.pm/ring_logger/readme.html for more information on
