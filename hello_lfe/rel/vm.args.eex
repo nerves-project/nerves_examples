@@ -26,6 +26,11 @@
 #   in lists:foreach/2 (lists.erl, line 1338)
 
 #-mode embedded
+## Disable scheduler busy wait to reduce idle CPU usage and avoid delaying
+## other OS processes. See http://erlang.org/doc/man/erl.html#+sbwt
++sbwt none
++sbwtdcpu none
++sbwtdio none
 
 ## Save the shell history between reboots
 ## See http://erlang.org/doc/man/kernel_app.html for additional options
