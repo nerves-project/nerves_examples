@@ -10,7 +10,7 @@ defmodule Blinky.MixProject do
       app: @app,
       version: @version,
       elixir: "~> 1.9",
-      archives: [nerves_bootstrap: "~> 1.10"],
+      archives: [nerves_bootstrap: "~> 1.9"],
       start_permanent: Mix.env() == :prod,
       build_embedded: true,
       deps: deps(),
