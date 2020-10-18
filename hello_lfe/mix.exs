@@ -3,29 +3,21 @@ defmodule HelloLfe.MixProject do
 
   @app :hello_lfe
   @version "0.1.0"
-  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :x86_64]
+  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64]
 
   def project do
     [
       app: @app,
       version: @version,
       elixir: "~> 1.9",
-      archives: [nerves_bootstrap: "~> 1.9"],
+      archives: [nerves_bootstrap: "~> 1.10"],
       start_permanent: Mix.env() == :prod,
       compilers: Mix.compilers() ++ [:lfe],
       build_embedded: true,
-      aliases: [loadconfig: [&bootstrap/1]],
       deps: deps(),
       releases: [{@app, release()}],
       preferred_cli_target: [run: :host, test: :host]
     ]
-  end
-
-  # Starting nerves_bootstrap adds the required aliases to Mix.Project.config()
-  # Aliases are only added if MIX_TARGET is set.
-  def bootstrap(args) do
-    Application.start(:nerves_bootstrap)
-    Mix.Task.run("loadconfig", args)
   end
 
   # Run "mix help compile.app" to learn about applications.
@@ -41,7 +33,7 @@ defmodule HelloLfe.MixProject do
     [
       # Dependencies for all targets
       {:nerves, "~> 1.7.0", runtime: false},
-      {:shoehorn, "~> 0.6.0"},
+      {:shoehorn, "~> 0.7.0"},
       {:ring_logger, "~> 0.8.1"},
       {:lfe, github: "rvirding/lfe", branch: "develop", compile: "make"},
 
@@ -50,14 +42,15 @@ defmodule HelloLfe.MixProject do
       {:nerves_pack, "~> 0.4.0", targets: @all_targets},
 
       # Dependencies for specific targets
-      {:nerves_system_rpi, "~> 1.12", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.12", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi2, "~> 1.12", runtime: false, targets: :rpi2},
-      {:nerves_system_rpi3, "~> 1.12", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.12", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.12", runtime: false, targets: :rpi4},
-      {:nerves_system_bbb, "~> 2.7", runtime: false, targets: :bbb},
-      {:nerves_system_x86_64, "~> 1.12", runtime: false, targets: :x86_64}
+      {:nerves_system_rpi, "~> 1.13", runtime: false, targets: :rpi},
+      {:nerves_system_rpi0, "~> 1.13", runtime: false, targets: :rpi0},
+      {:nerves_system_rpi2, "~> 1.13", runtime: false, targets: :rpi2},
+      {:nerves_system_rpi3, "~> 1.13", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi3a, "~> 1.13", runtime: false, targets: :rpi3a},
+      {:nerves_system_rpi4, "~> 1.13", runtime: false, targets: :rpi4},
+      {:nerves_system_bbb, "~> 2.8", runtime: false, targets: :bbb},
+      {:nerves_system_osd32mp1, "~> 0.4", runtime: false, targets: :osd32mp1},
+      {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64}
     ]
   end
 
