@@ -1,7 +1,7 @@
-defmodule HelloErlang.MixProject do
+defmodule Template.MixProject do
   use Mix.Project
 
-  @app :hello_erlang
+  @app :template
   @version "0.1.0"
   @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64]
 
@@ -22,7 +22,7 @@ defmodule HelloErlang.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {:hello_erlang_app, []},
+      mod: {Template.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -34,6 +34,7 @@ defmodule HelloErlang.MixProject do
       {:nerves, "~> 1.7.0", runtime: false},
       {:shoehorn, "~> 0.7.0"},
       {:ring_logger, "~> 0.8.1"},
+      {:toolshed, "~> 0.2.13"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
