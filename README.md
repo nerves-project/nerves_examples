@@ -10,7 +10,7 @@ before.
 
 You should also be using the following Elixir and Erlang versions:
 
-* Elixir 1.10
+* Elixir 1.10 or Elixir 1.11.2 or later
 * Erlang OTP 23
 
 See the [EmbeddedElixir post on using
