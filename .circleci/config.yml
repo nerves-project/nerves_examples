@@ -1,12 +1,12 @@
 version: 2
 
 elixir_version: &elixir_version
-  ELIXIR_VERSION: 1.10.4-otp-23
+  ELIXIR_VERSION: 1.11.2-otp-23
 
 defaults: &defaults
   working_directory: /nerves/build
   docker:
-    - image: nervesproject/nerves_system_br:1.13.0
+    - image: nervesproject/nerves_system_br:1.13.4
 
 context: &context
   context: "org-global"
