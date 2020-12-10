@@ -26,6 +26,8 @@ config :nerves, source_date_epoch: "1578177235"
 
 config :logger, backends: [RingLogger]
 
-if Mix.target() != :host do
+if Mix.target() == :host or Mix.target() == :"" do
+  import_config "host.exs"
+else
   import_config "target.exs"
 end

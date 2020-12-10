@@ -2,7 +2,7 @@
 use Toolshed
 
 if RingLogger in Application.get_env(:logger, :backends, []) do
-  IO.puts """
+  IO.puts("""
   RingLogger is collecting log messages from Elixir and Linux. To see the
   messages, either attach the current IEx session to the logger:
 
@@ -11,5 +11,5 @@ if RingLogger in Application.get_env(:logger, :backends, []) do
   or print the next messages in the log:
 
     RingLogger.next
-  """
+  """)
 end
