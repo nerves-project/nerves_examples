@@ -2,4 +2,3 @@
 import Config
 
 config :hello_leds, led_list: []
-config :nerves_leds, names: []
