@@ -2,29 +2,27 @@
 
 This example demonstrates how to use General-Purpose Input/Output (GPIO) pins as
 digital inputs and outputs using the [`circuits_gpio`
-library](https://github.com/elixir-circuits/circuits_gpio).  The example uses two separate
-circuits. The first circuit contains an LED (Light-Emitting Diode) that is turned on and off by Elixir
-controlling a GPIO pin. In the second circuit, Elixir monitors a GPIO pin and
-logs the changing state of a manual switch.
+library](https://github.com/elixir-circuits/circuits_gpio).  
+
+The example uses two separate circuits:
+
+* The first circuit contains an LED (Light-Emitting Diode) that is turned on and off by Elixir controlling a GPIO pin. 
+* In the second circuit, Elixir monitors a GPIO pin and logs the changing state of a manual switch.
 
 ## Hardware
 
-For the output pin, you will need a single LED connected to GND and a GPIO pin
-with a 270 Ω resistor. The resistor prevents the LED from drawing too much
-current and burning up your LED.
-As an experiment, you can increase the value of the resistor, and you will
-notice that the LED will be dimmer than before, as the current will be reduced.
-If you do not see the light turning on and off, it is likely that you have plugged
-the LED in backwards. The LED only allows current to flow in one direction.
-For the input pin, connect a 4-pin push-button with a 10
-kΩ pull-up resistor to a GPIO pin.
-The pull up resistor prevents you from entering a floating state (not knowing
-if the button has been pressed or not)
-When the button is not pressed, the GPIO will register a high value, (close to 5V).
-When the button is pressed, the current will flow from
-5V to ground, and the GPIO will register a low value, (close to 0V).
+For the output pin, you will need a single LED connected to GND and a GPIO pin with a 270 Ω resistor. 
+* The resistor prevents the LED from drawing too much current and burning up your LED.
+* As an experiment, you can increase the value of the resistor, and you will notice that the LED will be dimmer than before, as the current will be reduced.
+* If you do not see the light turning on and off, it is likely that you have plugged the LED in backwards. The LED only allows current to flow in one direction.
 
 ![GPIO schematic](assets/gpio.png)
+
+For the input pin, connect a 4-pin push-button with a 10 kΩ pull-up resistor to a GPIO pin.
+* The pull up resistor prevents you from entering a floating state (not knowing if the button has been pressed or not)
+* When the button is not pressed, the GPIO will register a high value (close to 5V).
+* When the button is pressed, the current will flow from 5V to ground, and the GPIO will register a low value (close to 0V).
+
 ![GPIO_schematic](assets/GPIO-input.png)
 
 The default configuration uses GPIO BCM pin 26 for output and GPIO BCM pin 20
