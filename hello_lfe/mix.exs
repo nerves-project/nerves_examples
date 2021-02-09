@@ -32,7 +32,7 @@ defmodule HelloLfe.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.7.0", runtime: false},
+      {:nerves, "~> 1.7.4", runtime: false},
       {:shoehorn, "~> 0.7.0"},
       {:ring_logger, "~> 0.8.1"},
       {:lfe, github: "rvirding/lfe", branch: "develop", compile: "make"},
