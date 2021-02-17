@@ -1,63 +1,62 @@
 # Hello Zig
 
 This example demonstrates a basic project for using the `Zigler` library to
-write low-level NIFs for a Nerves device.  This project demonstrates zig code
-embedded into an elixir module and how to call out to a zig code file *external*
-to the embdedded elixir module.
+write low-level NIFs for a Nerves device.  This project demonstrates
+[Zig](https://ziglang.org) code embedded into an Elixir module and how to call
+out to a zig code file *external* to the embedded Elixir module.
 
 Notably, no configuration is necessary to get proper cross-compilation between
 host and target architectures.
 
-The only thing you need to activate zigler is the dependency in your `mix.exs`:
+The only thing you need to activate `zigler` is the dependency in your
+`mix.exs`:
 
-```
+```elixir
 {:zigler, "~> 0.7.3", runtime: false}
 ```
 
 You might want to use Zig for any of the following things:
 
-- low level code that requires interaction with OS syscalls not available
+* Low-level code that requires interaction with OS syscalls not available
   directly through the BEAM.
-- performance-sensitive code which requires numerical computation
-- wrapping an existing C ABI `.so` or `.a` library.
+* Performance-sensitive code which requires numerical computation
+* Wrapping an existing C ABI `.so` or `.a` library.
 
 ## Hardware
 
-The example below assumes a Raspberry Pi 3, connected over the Wifi.  Other ARM-
-targets may work, but have not necessarily been tested yet.  Please post
-cross-compilation bug reports to the issue tracker here:
+The example below assumes a Raspberry Pi 3 connected over the Wifi. Other
+official and many unofficial Nerves targets work as well. Please post
+cross-compilation bug reports to the [zigler issue
+tracker](https://github.com/ityonemo/zigler/issues).
 
-https://github.com/ityonemo/zigler/issues
+## How to use this repository
 
-## How to Use this Repository
-
-0. Go to the app directory
+0. Go to the `hello_zig` directory
 
 1. Set up your build environment
 
-```shell
-export MIX_TARGET=rpi3 # substitute with your target
-export NERVES_NETWORK_SSID=your_wifi_name
-export NERVES_NETWORK_PSK=your_wifi_password
-```
+   ```shell
+   # Specify the target hardware. See the mix.exs for options
+   export MIX_TARGET=rpi3
+
+   # If using WiFi, you can set the SSID and password here
+   export NERVES_NETWORK_SSID=your_wifi_name
+   export NERVES_NETWORK_PSK=your_wifi_password
+   ```
 
 2. Get dependencies, build firmware, and burn it to an SD card
 
-```shell
-mix deps.get
-mix firmware
-mix firmware.burn
-```
+   ```shell
+   mix deps.get
+   mix firmware
+   mix firmware.burn
+   ```
 
 3. Insert the SD card into your target board and power up
 
 4. Wait to finish booting.
 
-  If you don't know what the ip address of your board is (if it's the first
-  time it's being assigned an ip), you might find out what it is using
-  `arp-scan`.
-
-5. SSH into the board
+5. SSH into the board: `ssh nerves.local`
 
 6. Execute `HelloZig.hello()`
 
