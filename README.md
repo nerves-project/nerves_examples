@@ -30,6 +30,7 @@ application's root directory.
 * [`hello_lfe`](https://github.com/nerves-project/nerves-examples/blob/main/hello_lfe/README.md)
 * [`hello_phoenix`](https://github.com/nerves-project/nerves-examples/blob/main/hello_phoenix/README.md)
 * [`hello_wifi`](https://github.com/nerves-project/nerves-examples/blob/main/hello_wifi/README.md)
+* [`hello_sqlite`](https://github.com/nerves-project/nerves-examples/blob/main/hello_sqlite/README.md)
 * [`minimal`](https://github.com/nerves-project/nerves-examples/blob/main/minimal/README.md)
 
 ## Other examples
