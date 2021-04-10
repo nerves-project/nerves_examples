@@ -18,11 +18,12 @@ official and many unofficial Nerves targets work as well.
 
    ```shell
    # Specify the target hardware. See the mix.exs for options
-   export MIX_TARGET=rpi3
+   export MIX_TARGET=rpi0
 
-   # If using WiFi, you can set the SSID and password here
-   export NERVES_NETWORK_SSID=your_wifi_name
-   export NERVES_NETWORK_PSK=your_wifi_password
+   # To hard-code WiFi credentials in the firmware, you can set
+   # the SSID and optionally a password here
+   export WIFI_SSID=your_wifi_name
+   export WIFI_PASSPHRASE=your_wifi_password
    ```
 
 2. Get dependencies, build firmware, and burn it to an SD card
@@ -43,7 +44,7 @@ official and many unofficial Nerves targets work as well.
 
   ```elixir
   # Get 5 entries from the SchedulerUsage table and print them out
-  HelloSqlite.SchedulerUsagePoller.print_recent(5)
+  HelloSqlite.print_recent(5)
    +------------------------------------------------------+
    |                   Scheduler Usage                    |
    +---------------------+---------+----------------------+

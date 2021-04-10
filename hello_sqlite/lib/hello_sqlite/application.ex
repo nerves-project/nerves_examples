@@ -12,12 +12,10 @@ defmodule HelloSqlite.Application do
 
     children =
       [
+        # Children for all targets
         HelloSqlite.Repo,
         {Task, &HelloSqlite.MigrationHelpers.migrate/0},
         HelloSqlite.SchedulerUsagePoller
-        # Children for all targets
-        # Starts a worker by calling: HelloSqlite.Worker.start_link(arg)
-        # {HelloSqlite.Worker, arg},
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)
@@ -27,16 +25,12 @@ defmodule HelloSqlite.Application do
   def children(:host) do
     [
       # Children that only run on the host
-      # Starts a worker by calling: HelloSqlite.Worker.start_link(arg)
-      # {HelloSqlite.Worker, arg},
     ]
   end
 
   def children(_target) do
     [
       # Children for all targets except host
-      # Starts a worker by calling: HelloSqlite.Worker.start_link(arg)
-      # {HelloSqlite.Worker, arg},
     ]
   end
 

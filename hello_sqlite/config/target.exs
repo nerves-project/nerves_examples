@@ -47,7 +47,44 @@ if keys == [],
 config :nerves_ssh,
   authorized_keys: Enum.map(keys, &File.read!/1)
 
-key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "wpa_psk"
+# Check for hard-coded WiFi credentials. See
+# https://hexdocs.pm/vintage_net/cookbook.html#wifi for common configurations.
+# WiFi can also be configured at runtime using `VintageNet.configure` or the
+# `VintageNetWiFi.quick_configure` helpers.
+wlan0_config =
+  case {System.get_env("WIFI_SSID"), System.get_env("WIFI_PASSPHRASE")} do
+    {nil, nil} ->
+      %{type: VintageNetWiFi}
+
+    {ssid, nil} ->
+      %{
+        type: VintageNetWiFi,
+        vintage_net_wifi: %{
+          networks: [
+            %{
+              key_mgmt: :none,
+              ssid: ssid
+            }
+          ]
+        },
+        ipv4: %{method: :dhcp}
+      }
+
+    {ssid, passphrase} ->
+      %{
+        type: VintageNetWiFi,
+        vintage_net_wifi: %{
+          networks: [
+            %{
+              key_mgmt: :wpa_psk,
+              ssid: ssid,
+              psk: passphrase
+            }
+          ]
+        },
+        ipv4: %{method: :dhcp}
+      }
+  end
 
 # Configure the network using vintage_net
 # See https://github.com/nerves-networking/vintage_net for more information
@@ -60,20 +97,7 @@ config :vintage_net,
        type: VintageNetEthernet,
        ipv4: %{method: :dhcp}
      }},
-    {"wlan0",
-     %{
-       type: VintageNetWiFi,
-       vintage_net_wifi: %{
-         networks: [
-           %{
-             key_mgmt: String.to_atom(key_mgmt),
-             ssid: System.get_env("NERVES_NETWORK_SSID"),
-             psk: System.get_env("NERVES_NETWORK_PSK")
-           }
-         ]
-       },
-       ipv4: %{method: :dhcp}
-     }}
+    {"wlan0", wlan0_config}
   ]
 
 config :mdns_lite,
@@ -114,7 +138,7 @@ config :hello_sqlite,
 # See https://hexdocs.pm/ecto_sqlite3/Ecto.Adapters.SQLite3.html#module-provided-options
 # for description of these configuration values
 config :hello_sqlite, HelloSqlite.Repo,
-  database: "/data/database.db",
+  database: "/data/hello_sqlite.db",
   show_sensitive_data_on_connection_error: false,
   journal_mode: :wal,
   cache_size: -64000,

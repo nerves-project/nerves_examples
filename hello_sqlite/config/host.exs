@@ -6,7 +6,7 @@ config :hello_sqlite,
   ecto_repos: [HelloSqlite.Repo]
 
 config :hello_sqlite, HelloSqlite.Repo,
-  database: "/tmp/database.db",
+  database: "/tmp/hello_sqlite.db",
   show_sensitive_data_on_connection_error: false,
   journal_mode: :wal,
   cache_size: -64000,
