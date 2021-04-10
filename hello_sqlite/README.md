@@ -3,6 +3,8 @@
 This example demonstrates a basic project for using the
 [Ecto SQLite Adapter](https://github.com/elixir-sqlite/ecto_sqlite3).
 
+See [scheduler_usage_poller.ex](hello_sqlite/lib/hello_sqlite/scheduler_usage_poller.ex) for an example of Sqlite being used.
+
 ## Hardware
 
 The example below assumes a Raspberry Pi 0 connected over the USB. Other
