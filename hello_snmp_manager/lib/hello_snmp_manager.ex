@@ -47,7 +47,7 @@ defmodule HelloSnmpManager do
 
     Logger.debug("SNMP Response Succesful")
     Logger.debug("System Name: #{system_name}")
-    Logger.debug("System Name: #{system_description}")
+    Logger.debug("System Description: #{system_description}")
   end
 
   defp parse_response({:error, _, _} = _snmp_response) do
