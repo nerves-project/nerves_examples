@@ -10,31 +10,38 @@ defmodule HelloSnmpManager do
 
   See README.md for build instructions.
   """
-  use Application
+  use GenServer
 
   require Logger
 
   # Durations are in milliseconds
-  @polling_interval 5_000
+  @polling_interval 10_000
 
-  def start(_type, _args) do
-    Logger.debug("Starting SNMP Poller")
-    spawn(fn -> polling_loop() end)
-    {:ok, self()}
+  @spec start_link(keyword()) :: GenServer.on_start()
+  def start_link(init_args) do
+    GenServer.start_link(__MODULE__, init_args)
   end
 
-  defp polling_loop() do
+  @impl GenServer
+  def init(_init_args) do
+    Logger.debug("Starting SNMP Poller")
+    _ = :timer.send_interval(@polling_interval, :tick)
+    {:ok, :no_state}
+  end
+
+  @impl GenServer
+  def handle_info(:tick, state) do
     Logger.debug("Sending SNMP Request for System Information")
+
     :snmpm.sync_get('default_user', 'default_agent', [
       # OID for sysDescr
-      [1,3,6,1,2,1,1,1,0],
+      [1, 3, 6, 1, 2, 1, 1, 1, 0],
       # OID for sysName
-      [1,3,6,1,2,1,1,5,0],
+      [1, 3, 6, 1, 2, 1, 1, 5, 0]
     ])
     |> parse_response()
 
-    Process.sleep(@polling_interval)
-    polling_loop()
+    {:noreply, state}
   end
 
   defp parse_response({:ok, _, _} = snmp_response) do
@@ -45,7 +52,7 @@ defmodule HelloSnmpManager do
         {_, _, _, system_name, _}
       ]}, _} = snmp_response
 
-    Logger.debug("SNMP Response Succesful")
+    Logger.debug("SNMP Response Successful")
     Logger.debug("System Name: #{system_name}")
     Logger.debug("System Description: #{system_description}")
   end

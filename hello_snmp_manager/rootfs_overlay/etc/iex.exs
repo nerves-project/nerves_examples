@@ -19,5 +19,9 @@ if RingLogger in Application.get_env(:logger, :backends, []) do
   or print the next messages in the log:
 
     RingLogger.next
+
+  SNMP reports are sent to the logger, so use one of the commands above
+  to see them. If this doesn't work, check the settings in
+  rootfs_overlay/agent.conf.
   """)
 end
