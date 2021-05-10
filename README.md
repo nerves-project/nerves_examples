@@ -10,7 +10,7 @@ before.
 
 You should also be using the following Elixir and Erlang versions:
 
-* Elixir 1.10 or Elixir 1.11.2 or later
+* Elixir 1.11.2 or later
 * Erlang OTP 23
 
 See the [EmbeddedElixir post on using
@@ -38,10 +38,10 @@ application's root directory.
 
 The Nerves community has additional projects that may be useful. Here are a few:
 
+* [Nerves Livebook](https://github.com/fhunleth/nerves_livebook) -
+  Learn Nerves using the new [Elixir Livebook application](https://github.com/elixir-nx/livebook)
 * [Elixir Circuits](https://github.com/elixir-circuits/circuits_quickstart) -
   Experiment with hardware I/O with a pre-built firmware image
-* [Harald Quickstart](https://github.com/verypossible/harald_quickstart) - Low
-  level Bluetooth support
 * [NervesKey Quickstart](https://github.com/nerves-hub/nerves_key_quickstart) -
   Basic provisioning of an IoT authentication device
 
