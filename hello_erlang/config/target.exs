@@ -45,7 +45,9 @@ if keys == [],
     """)
 
 config :nerves_ssh,
-  authorized_keys: Enum.map(keys, &File.read!/1)
+  authorized_keys: Enum.map(keys, &File.read!/1),
+  shell: :erlang,
+  exec: :erlang
 
 # Configure the network using vintage_net
 # See https://github.com/nerves-networking/vintage_net for more information
