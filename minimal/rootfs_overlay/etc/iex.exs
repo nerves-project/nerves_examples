@@ -6,9 +6,6 @@ IO.puts("""
 \e[34m███▌    \e[36m▀▜████\e[0m
 """)
 
-# Add Toolshed helpers to the IEx session
-use Toolshed
-
 if RingLogger in Application.get_env(:logger, :backends, []) do
   IO.puts("""
   RingLogger is collecting log messages from Elixir and Linux. To see the
