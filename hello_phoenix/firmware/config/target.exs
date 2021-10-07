@@ -3,14 +3,19 @@ import Config
 config :ui, UiWeb.Endpoint,
   url: [host: "nerves.local"],
   http: [port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
   live_view: [signing_salt: "AAAABjEyERMkxgDh"],
   check_origin: false,
-  root: Path.dirname(__DIR__),
+  # Start the server since we're running in a release instead of through `mix`
   server: true,
-  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Ui.PubSub,
+  # Nerves root filesystem is read-only, so disable the code reloader
   code_reloader: false
+
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
 
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
@@ -59,8 +64,6 @@ if keys == [],
 config :nerves_ssh,
   authorized_keys: Enum.map(keys, &File.read!/1)
 
-key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "wpa_psk"
-
 # Configure the network using vintage_net
 # See https://github.com/nerves-networking/vintage_net for more information
 config :vintage_net,
@@ -78,7 +81,7 @@ config :vintage_net,
        vintage_net_wifi: %{
          networks: [
            %{
-             key_mgmt: String.to_atom(key_mgmt),
+             key_mgmt: :wpa_psk,
              ssid: System.get_env("NERVES_NETWORK_SSID"),
              psk: System.get_env("NERVES_NETWORK_PSK")
            }

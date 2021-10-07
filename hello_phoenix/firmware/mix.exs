@@ -41,7 +41,7 @@ defmodule Firmware.MixProject do
       {:nerves_pack, "~> 0.6.0", targets: @all_targets},
 
       # Poncho dependencies
-      # See https://hexdocs.pm/nerves/user-interfaces.html#phoenix-web-interfaces
+      # See https://embedded-elixir.com/post/2017-05-19-poncho-projects
       {:ui, path: "../ui", targets: @all_targets, env: Mix.env()},
 
       # Dependencies for specific targets
