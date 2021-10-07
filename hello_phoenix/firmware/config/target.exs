@@ -78,9 +78,9 @@ config :vintage_net,
        vintage_net_wifi: %{
          networks: [
            %{
-              key_mgmt: String.to_atom(key_mgmt),
-              ssid: System.get_env("NERVES_NETWORK_SSID"),
-              psk: System.get_env("NERVES_NETWORK_PSK")
+             key_mgmt: String.to_atom(key_mgmt),
+             ssid: System.get_env("NERVES_NETWORK_SSID"),
+             psk: System.get_env("NERVES_NETWORK_PSK")
            }
          ]
        },
@@ -101,19 +101,16 @@ config :mdns_lite,
   # Advertise the following services over mDNS.
   services: [
     %{
-      name: "SSH Remote Login Protocol",
       protocol: "ssh",
       transport: "tcp",
       port: 22
     },
     %{
-      name: "Secure File Transfer Protocol over SSH",
       protocol: "sftp-ssh",
       transport: "tcp",
       port: 22
     },
     %{
-      name: "Erlang Port Mapper Daemon",
       protocol: "epmd",
       transport: "tcp",
       port: 4369
