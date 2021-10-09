@@ -25,20 +25,18 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
 2. Prepare your Phoenix project to build JavaScript and CSS assets:
 
     ```bash
-    # These steps only need to be done once.
     cd ui
+
+    # This needs to be repeated when you change dependencies for the UI.
     mix deps.get
-    npm install --prefix assets
     ```
 
 3. Build your assets and prepare them for deployment to the firmware:
 
     ```bash
     # Still in ui directory from the prior step.
-    # These steps need to be repeated when you change JS or CSS files.
-    npm install --prefix assets --production
-    npm run deploy --prefix assets
-    mix phx.digest
+    # This needs to be repeated when you change JS or CSS files.
+    mix assets.deploy
     ```
 
 4. Change to the `firmware` app directory
@@ -51,9 +49,11 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
 
     ```bash
     export MIX_TARGET=rpi0
+
     # If you're using WiFi:
-    # export NERVES_NETWORK_SSID=your_wifi_name
-    # export NERVES_NETWORK_PSK=your_wifi_password
+    #
+    #   export NERVES_NETWORK_SSID=your_wifi_name
+    #   export NERVES_NETWORK_PSK=your_wifi_password
     ```
 
 6. Get dependencies, build firmware, and burn it to an SD card:
