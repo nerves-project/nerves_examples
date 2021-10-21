@@ -1,0 +1,33 @@
+MY-MIB DEFINITIONS ::= BEGIN
+ 
+          IMPORTS
+                  experimental   FROM RFC1155-SMI
+                  OBJECT-TYPE    FROM RFC-1212
+                  ;
+ 
+          someObject                      OBJECT IDENTIFIER ::= { experimental 17 }
+ 
+          someObjectIFOutput OBJECT-TYPE
+              SYNTAX                INTEGER
+                                    {
+                                    off(0),
+                                    on(1)
+                                    }
+              ACCESS                read-write
+              STATUS                mandatory
+              DESCRIPTION           "IF Output, where:
+                                        0) 'Off'
+                                        1) 'On'
+                                    "
+              ::= { someObject 1 }
+              
+          someObjectIFLevel OBJECT-TYPE
+              SYNTAX                INTEGER
+              ACCESS                read-write
+              STATUS                mandatory
+              DESCRIPTION           "IF Level in 0.01 dBm increments
+                                    "
+              ::= { someObject 2 }
+              
+ 
+END
