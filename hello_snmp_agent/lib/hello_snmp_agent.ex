@@ -24,7 +24,7 @@ defmodule HelloSnmpAgent do
 
   """
   def copy_conf() do
-    priv_dir = "lib/hello_snmp_agent-0.1.0/priv/"
+    priv_dir = "lib/hello_snmp_agent-0.1.0/priv/conf"
     {:ok, files} = File.ls(priv_dir)
 
     for file <- files, Path.extname(file) == ".conf",

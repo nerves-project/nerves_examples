@@ -41,6 +41,7 @@ Relevant configuration lines for this application may be found in:
 **config/host.exs**
 ```
 config :hello_snmp_agent, HelloSnmpAgent.Agent,
+  dir: './priv/',
   versions: [:v1, :v2, :v3],
   port: "SNMP_PORT" |> System.get_env("161") |> String.to_integer(),
   transports: ["127.0.0.1"],
@@ -93,16 +94,15 @@ from the command line:
 Remember that you should have `WIFI_PSK`, `WIFI_SSID`, `REG_DOM`, and
 `MIX_TARGET` (as your `target`, not `host`) set already. Copy generated files to
 `hello_snmp_agent/priv` in step 9 below:\
-9. `cp -r _build/dev/lib/hello_snmp_agent/priv/snmp/agent/conf/*.conf priv/.`\
-10. Insert SD card into `host` machine and `mix firmware.burn`\
-11. Insert SD card into your `target` device, power it on.\
+9. Insert SD card into `host` machine and `mix firmware.burn`\
+10. Insert SD card into your `target` device, power it on.\
 We will now need to move the files that you copied to `/priv` on your `host` to
 where the application expects them to be on the `target`. At least some of these
 files are not `readonly` which is why we didn't just put them into
 `/rootfs_overlay`, steps 11-12 move the files.\
-12. `ssh nerves.local`\
-13. `HelloSnmpAgent.copy_conf()`\
-14. `ls "/root"`\
+11. `ssh nerves.local`\
+12. `HelloSnmpAgent.copy_conf()`\
+13. `ls "/root"`\
   Verify the following files exist:
     - `agent.conf`
     - `community.conf`
@@ -116,39 +116,38 @@ files are not `readonly` which is why we didn't just put them into
   If they aren't there in `/root` now, just find them and move them to `/root`.
   `HelloSnmpAgent.copy_conf/0` was added as convenience for this `README` and it
   may not always work as expected (filepaths change, etc).
-15. Optionally restart your application or your `target` device (works without a
+14. Optionally restart your application or your `target` device (works without a
 restart), but if step 15 doesn't work for you try a restart.\
-16. `snmpwalk -c public nerves.local .1.3.6.1.3.17`
+15. `snmpwalk -c public nerves.local .1.3.6.1.3.17`
   You should see:
     ```
     SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1
     SNMPv2-SMI::experimental.17.2.0 = INTEGER: 123
     SNMPv2-SMI::experimental.17.2.0 = No more variables left in this MIB View (It is past the end of the MIB tree)
     ```\
-17. In `lib/hello_snmp_agent/snmp/mib/my_mib.ex`, we defined
+16. In `lib/hello_snmp_agent/snmp/mib/my_mib.ex`, we defined
   `someObjectIFOutput` to be able to read and write pin 26. Our
   `hello_snmp_agent/mibs/MY-MIB.mib` said the `oid` (`SNMP` identifier) for this
   is `.1.3.6.1.3.17.1.0` and that valid values are `0` or `1`. So, ssh to your
   target and get the value for pin 26 (steps 17-19):\
-18. `ssh nerves.local`\
-19. ```
+17. `ssh nerves.local`\
+18. ```
     {:ok, gpio} = Circuits.GPIO.open(26, :input)
     Circuits.GPIO.read(gpio)
     0
     ```
 Now issue an snmpset command from any machine on your network that has snmp
 tools installed:\
-20. `snmpset -c public nerves.local .1.3.6.1.3.17.1.0 i 1`\
+19. `snmpset -c public nerves.local .1.3.6.1.3.17.1.0 i 1`\
   You should see: `SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1`\
-21. Verify in your `target` device that the pin 26 was updated:
+20. Verify in your `target` device that the pin 26 was updated:
   ```
   Circuits.GPIO.read(gpio)
   1
   ```
 
 Going forward, just remember that when you update SNMP-related files, you may
-need to `cp -r _build/dev/lib/hello_snmp_agent/priv/snmp/agent/conf/*.conf priv/.`
-again and move the files to the intended place on the `target` again.
+need to move the files to the intended place on the `target` again.
 
 ## Learn More
 

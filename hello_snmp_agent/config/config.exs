@@ -27,6 +27,7 @@ config :nerves, source_date_epoch: "1634820789"
 config :logger, backends: [RingLogger]
 
 config :hello_snmp_agent, HelloSnmpAgent.Agent,
+  dir: './priv/',
   versions: [:v1, :v2, :v3],
   port: "SNMP_PORT" |> System.get_env("161") |> String.to_integer(),
   transports: ["127.0.0.1"],
