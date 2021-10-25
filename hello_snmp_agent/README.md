@@ -101,7 +101,7 @@ echo $MIX_TARGET
   `someObjectIFOutput` to be able to read and write pin 26. Our
   `hello_snmp_agent/mibs/MY-MIB.mib` said the `oid` (`SNMP` identifier) for this
   is `.1.3.6.1.3.17.1.0` and that valid values are `0` or `1`. So, ssh to your
-  target and get the value for pin 26 (steps 13-16):
+  target and get the value for pin 26 (steps 15-18):
 15. `ssh nerves.local`
 16. ```
     {:ok, gpio} = Circuits.GPIO.open(26, :input)
