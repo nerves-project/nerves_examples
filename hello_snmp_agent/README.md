@@ -78,40 +78,40 @@ from the command line with `IEx` still running:
     SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1
     SNMPv2-SMI::experimental.17.2.0 = INTEGER: 123
     SNMPv2-SMI::experimental.17.2.0 = No more variables left in this MIB View (It is past the end of the MIB tree)
-    ```\
+    ```
 9.Remember that you should have `WIFI_PSK`, `WIFI_SSID`, `REG_DOM`, and
-`MIX_TARGET` (as your `target`, not `host`) set already. Confirm with:\
+`MIX_TARGET` (as your `target`, not `host`) set already. Confirm with:
 ```
 echo $WIFI_PSK
 echo $WIFI_SSID
 echo $REG_DOM
 echo $MIX_TARGET
-```\
-9. Insert SD card into your `host` machine\
-10. `mix firmware.burn`\
-10. Insert SD card into your `target` device, power it on, wait a few seconds.\
+```
+9. Insert SD card into your `host` machine
+10. `mix firmware.burn`
+10. Insert SD card into your `target` device, power it on, wait a few seconds.
 11. `snmpwalk -c public nerves.local .1.3.6.1.3.17`
   You should see:
     ```
     SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1
     SNMPv2-SMI::experimental.17.2.0 = INTEGER: 123
     SNMPv2-SMI::experimental.17.2.0 = No more variables left in this MIB View (It is past the end of the MIB tree)
-    ```\
+    ```
 12. In `lib/hello_snmp_agent/snmp/mib/my_mib.ex`, we defined
   `someObjectIFOutput` to be able to read and write pin 26. Our
   `hello_snmp_agent/mibs/MY-MIB.mib` said the `oid` (`SNMP` identifier) for this
   is `.1.3.6.1.3.17.1.0` and that valid values are `0` or `1`. So, ssh to your
-  target and get the value for pin 26 (steps 13-16):\
-13. `ssh nerves.local`\
+  target and get the value for pin 26 (steps 13-16):
+13. `ssh nerves.local`
 14. ```
     {:ok, gpio} = Circuits.GPIO.open(26, :input)
     Circuits.GPIO.read(gpio)
     0
     ```
 Now issue an snmpset command from any machine on your network that has snmp
-tools installed:\
-15. `snmpset -c public nerves.local .1.3.6.1.3.17.1.0 i 1`\
-  You should see: `SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1`\
+tools installed:
+15. `snmpset -c public nerves.local .1.3.6.1.3.17.1.0 i 1`
+  You should see: `SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1`
 16. Verify in your `target` device that the pin 26 was updated:
   ```
   Circuits.GPIO.read(gpio)
