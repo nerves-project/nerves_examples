@@ -49,7 +49,6 @@ config :hello_snmp_agent, HelloSnmpAgent.Agent,
 **config/target.exs**  
 ```
 config :hello_snmp_agent, HelloSnmpAgent.Agent,
-  db_dir: '/tmp/',
   dir: '/root/'
 ```
 
