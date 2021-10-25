@@ -91,7 +91,7 @@ echo $MIX_TARGET
 11. `mix firmware.burn`
 12. Insert SD card into your `target` device, power it on, wait a few seconds.
 13. `snmpwalk -c public nerves.local .1.3.6.1.3.17`
-  You should see:
+  You should see (**if you do not then wait a few more seconds and try again**):
     ```
     SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1
     SNMPv2-SMI::experimental.17.2.0 = INTEGER: 123
@@ -108,10 +108,10 @@ echo $MIX_TARGET
     Circuits.GPIO.read(gpio)
     0
     ```
-Now issue an snmpset command from any machine on your network that has snmp
-tools installed:
-17. `snmpset -c public nerves.local .1.3.6.1.3.17.1.0 i 1`
-  You should see: `SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1`
+17. Now issue an snmpset command from any machine on your network that has snmp
+tools installed: `snmpset -c public nerves.local .1.3.6.1.3.17.1.0 i 1`. You
+should see `SNMPv2-SMI::experimental.17.1.0 = INTEGER: 1`, **if you do not, then
+just wait a few seconds and try again.**
 18. Verify in your `target` device that the pin 26 was updated:
   ```
   Circuits.GPIO.read(gpio)
