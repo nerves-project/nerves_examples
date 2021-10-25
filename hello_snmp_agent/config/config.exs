@@ -36,7 +36,6 @@ config :hello_snmp_agent, HelloSnmpAgent.Agent,
     [user: "admin", password: "adminpassword", access: [:public, :secure]]
   ]
 
-
 if Mix.target() == :host or Mix.target() == :"" do
   import_config "host.exs"
 else

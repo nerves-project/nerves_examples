@@ -12,6 +12,7 @@ defmodule HelloSnmpAgent.MixProject do
       elixir: "~> 1.9",
       archives: [nerves_bootstrap: "~> 1.10"],
       start_permanent: Mix.env() == :prod,
+      compilers: [:mib | Mix.compilers()],
       build_embedded: true,
       deps: deps(),
       releases: [{@app, release()}],
