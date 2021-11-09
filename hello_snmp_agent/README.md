@@ -115,7 +115,7 @@ from the command line with `IEx` still running:
 16. Run the following at the IEx prompt:
 
     ```elixir
-    {:ok, gpio} = Circuits.GPIO.open(26, :input)
+    {:ok, gpio} = Circuits.GPIO.open(26, :output)
     Circuits.GPIO.read(gpio)
     0
     ```

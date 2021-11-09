@@ -15,3 +15,6 @@
 
 # If the VM crashes, it generates a dump, let's ignore it too.
 erl_crash.dump
+
+# SNMP generated files are placed here
+/priv/
