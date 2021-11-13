@@ -8,10 +8,12 @@ Please see the main [Nerves installation
 docs](https://hexdocs.pm/nerves/installation.html) if you haven't used Nerves
 before.
 
-You should also be using the following Elixir and Erlang versions:
+Nerves can work with quite a few Elixir and Erlang versions, but we recommend
+using the following versions for the examples. These are used on our CI and
+should be easier for us to support.
 
-* Elixir 1.12.1 or later
-* Erlang OTP 24
+* Elixir 1.12.3 or later
+* Erlang OTP 24.1 or later
 
 See the [EmbeddedElixir post on using
 ASDF-VM](https://embedded-elixir.com/post/2017-05-23-using-asdf-vm/)
@@ -31,6 +33,7 @@ application's root directory.
 * [`hello_phoenix`](https://github.com/nerves-project/nerves-examples/blob/main/hello_phoenix/README.md)
 * [`hello_wifi`](https://github.com/nerves-project/nerves-examples/blob/main/hello_wifi/README.md)
 * [`hello_sqlite`](https://github.com/nerves-project/nerves-examples/blob/main/hello_sqlite/README.md)
+* [`hello_snmp_agent`](https://github.com/nerves-project/nerves-examples/blob/main/hello_snmp_agent/README.md)
 * [`hello_snmp_manager`](https://github.com/nerves-project/nerves-examples/blob/main/hello_snmp_manager/README.md)
 * [`minimal`](https://github.com/nerves-project/nerves-examples/blob/main/minimal/README.md)
 
