@@ -14,6 +14,11 @@ config :ui, UiWeb.Endpoint,
   # Nerves root filesystem is read-only, so disable the code reloader
   code_reloader: false
 
+config :ui, Ui.Repo,
+  database: "/data/hello_phoenix/hello_phoenix_ui.db",
+  pool_size: 5,
+  show_sensitive_data_on_connection_error: true
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 

@@ -1,0 +1,27 @@
+<h1>Show User</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal UiWeb.UserLive.FormComponent,
+    id: @user.id,
+    title: @page_title,
+    action: @live_action,
+    user: @user,
+    return_to: Routes.user_show_path(@socket, :show, @user) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
+    <strong>Age:</strong>
+    <%= @user.age %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.user_show_path(@socket, :edit, @user), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.user_index_path(@socket, :index) %></span>
