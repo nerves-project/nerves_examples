@@ -5,7 +5,8 @@ Framework]-based application to a Nerves device. A "poncho project" is similar
 to an umbrella project except that it's actually multiple separate-but-related
 Elixir apps that use `path` dependencies instead of `in_umbrella` dependencies.
 You can read more about the motivations behind this concept on the
-embedded-elixir blog post about [Poncho Projects].
+embedded-elixir blog post about [Poncho Projects]. The steps for creating this
+example source are in [User Interfaces].
 
 ## Hardware
 
@@ -71,6 +72,7 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
 
 [Phoenix Framework]: http://www.phoenixframework.org/
 [Poncho Projects]: http://embedded-elixir.com/post/2017-05-19-poncho-projects/
+[User Interfaces]: https://hexdocs.pm/nerves/user-interfaces.html
 
 ## Learn More
 
