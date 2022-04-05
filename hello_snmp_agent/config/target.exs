@@ -6,9 +6,7 @@ config :hello_snmp_agent, HelloSnmpAgent.Agent, dir: '/root/'
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
 
-config :shoehorn,
-  init: [:nerves_runtime, :nerves_pack],
-  app: Mix.Project.config()[:app]
+config :shoehorn, init: [:nerves_runtime, :nerves_pack]
 
 # Nerves Runtime can enumerate hardware devices and send notifications via
 # SystemRegistry. This slows down startup and not many programs make use of

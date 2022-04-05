@@ -33,7 +33,7 @@ defmodule HelloSnmpAgent.MixProject do
     [
       # Dependencies for all targets
       {:nerves, "~> 1.7.4", runtime: false},
-      {:shoehorn, "~> 0.8.0"},
+      {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
       {:circuits_gpio, "~> 1.0"},
