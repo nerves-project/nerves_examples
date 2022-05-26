@@ -4,7 +4,7 @@ import Config
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
 
-config :shoehorn, init: [:nerves_runtime, :nerves_pack]
+config :shoehorn, init: [:nerves_runtime]
 
 # Nerves Runtime can enumerate hardware devices and send notifications via
 # SystemRegistry. This slows down startup and not many programs make use of
