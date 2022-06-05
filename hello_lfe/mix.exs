@@ -38,7 +38,7 @@ defmodule HelloLfe.MixProject do
       {:lfe, "~> 2.0", compile: "make"},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
+      {:nerves_runtime, "~> 0.12.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7", targets: @all_targets},
       {:nerves_ssh, "~> 0.3", targets: @all_targets},
 

@@ -28,12 +28,6 @@ config :phoenix, :json_library, Jason
 
 config :shoehorn, init: [:nerves_runtime, :nerves_pack]
 
-# Nerves Runtime can enumerate hardware devices and send notifications via
-# SystemRegistry. This slows down startup and not many programs make use of
-# this feature.
-
-config :nerves_runtime, :kernel, use_system_registry: false
-
 # Erlinit can be configured without a rootfs_overlay. See
 # https://github.com/nerves-project/erlinit/ for more information on
 # configuring erlinit.
