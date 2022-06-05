@@ -37,7 +37,7 @@ defmodule Blinky.MixProject do
       {:toolshed, "~> 0.2.13"},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
+      {:nerves_runtime, "~> 0.12.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
       {:nerves_leds, "~> 0.8", targets: @all_targets},
 
