@@ -112,6 +112,9 @@ collect_stats: &collect_stats
     - run: echo "bbb" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
         name: hello_gpio
@@ -137,6 +140,9 @@ collect_stats: &collect_stats
     - run: echo "bbb" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
         name: hello_leds
@@ -160,6 +166,9 @@ collect_stats: &collect_stats
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
     - run: echo "bbb" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
@@ -190,6 +199,9 @@ collect_stats: &collect_stats
     - run: echo "x86_64" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
         name: hello_erlang
@@ -216,6 +228,9 @@ collect_stats: &collect_stats
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
     - run: echo "x86_64" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
@@ -246,6 +261,9 @@ collect_stats: &collect_stats
     - run: echo "x86_64" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
         name: hello_wifi
@@ -272,6 +290,9 @@ collect_stats: &collect_stats
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
     - run: echo "x86_64" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
@@ -302,6 +323,9 @@ collect_stats: &collect_stats
     - run: echo "x86_64" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
         name: hello_zig
@@ -328,6 +352,9 @@ collect_stats: &collect_stats
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
     - run: echo "x86_64" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
@@ -358,6 +385,9 @@ collect_stats: &collect_stats
     - run: echo "x86_64" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
         name: hello_snmp_agent
@@ -384,6 +414,9 @@ collect_stats: &collect_stats
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
     - run: echo "x86_64" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
     - restore_cache:
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
@@ -433,7 +466,7 @@ workflows:
           <<: *context
           matrix:
             parameters:
-              target: [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64]
+              target: [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2]
               example: [blinky, hello_gpio, hello_phoenix/firmware, hello_lfe, hello_erlang, hello_wifi, minimal, hello_zig, hello_sqlite, hello_snmp_agent, hello_snmp_manager]
             exclude:
               - target: x86_64

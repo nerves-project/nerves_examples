@@ -3,7 +3,7 @@ defmodule HelloZig.MixProject do
 
   @app :hello_zig
   @version "0.1.0"
-  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64]
+  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64, :grisp2]
 
   def project do
     [
@@ -50,7 +50,8 @@ defmodule HelloZig.MixProject do
       {:nerves_system_rpi4, "~> 1.14", runtime: false, targets: :rpi4},
       {:nerves_system_bbb, "~> 2.9", runtime: false, targets: :bbb},
       {:nerves_system_osd32mp1, "~> 0.5", runtime: false, targets: :osd32mp1},
-      {:nerves_system_x86_64, "~> 1.14", runtime: false, targets: :x86_64}
+      {:nerves_system_x86_64, "~> 1.14", runtime: false, targets: :x86_64},
+      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2}
     ]
   end
 
