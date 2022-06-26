@@ -1,5 +1,5 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Mix.Config module.
+# This file is responsible for configuring your application and its
+# dependencies.
 #
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
@@ -29,7 +29,7 @@ config :logger, backends: [RingLogger]
 config :ui,
   ecto_repos: [Ui.Repo]
 
-if Mix.target() == :host or Mix.target() == :"" do
+if Mix.target() == :host do
   import_config "host.exs"
 else
   import_config "target.exs"
