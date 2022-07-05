@@ -37,7 +37,7 @@ defmodule Firmware.MixProject do
       {:toolshed, "~> 0.2.13"},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.12.0", targets: @all_targets},
+      {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
 
       # Poncho dependencies
