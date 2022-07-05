@@ -38,7 +38,7 @@ defmodule HelloZig.MixProject do
       {:zigler, "~> 0.8.0", runtime: false},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.12.0", targets: @all_targets},
+      {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
 
       # Dependencies for specific targets

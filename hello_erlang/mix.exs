@@ -36,7 +36,7 @@ defmodule HelloErlang.MixProject do
       {:ring_logger, "~> 0.8.1"},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.12.0", targets: @all_targets},
+      {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
 
       # Dependencies for specific targets
