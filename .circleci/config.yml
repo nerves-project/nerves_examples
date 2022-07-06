@@ -35,7 +35,7 @@ install_nerves_bootstrap: &install_nerves_bootstrap
     name: Install nerves_bootstrap
     command: |
       cd /tmp
-      mix archive.install hex nerves_bootstrap "~> 1.0" --force
+      mix archive.install hex nerves_bootstrap --force
 
 fake_ssh_keys: &fake_ssh_keys
   run:
