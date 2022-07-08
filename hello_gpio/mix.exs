@@ -32,7 +32,7 @@ defmodule HelloGpio.MixProject do
     [
       # Dependencies for all targets
       {:circuits_gpio, "~> 1.0"},
-      {:nerves, "~> 1.7.4", runtime: false},
+      {:nerves, "~> 1.8.0", runtime: false},
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
