@@ -33,7 +33,6 @@ defmodule Minimal.MixProject do
       # Dependencies for all targets
       {:nerves, "~> 1.8.0", runtime: false},
       {:shoehorn, "~> 0.9.0"},
-      {:ring_logger, "~> 0.8.1"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
