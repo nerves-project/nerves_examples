@@ -1,12 +1,14 @@
 # Configuration for the Lego Mindstorms EV3 brick (target ev3)
 import Config
 
-config :blinky, led_list: [:led0, :led1, :led2, :led3]
-
-config :nerves_leds,
-  names: [
-    led0: "ev3:left:green:ev3dev",
-    led1: "ev3:right:green:ev3dev",
-    led2: "ev3:left:red:ev3dev",
-    led3: "ev3:right:red:ev3dev"
-  ]
+config :blinky,
+  indicators: %{
+    default: %{
+      red: "ev3:left:red:ev3dev",
+      green: "ev3:left:green:ev3dev"
+    },
+    right_led: %{
+      red: "ev3:right:red:ev3dev",
+      green: "ev3:right:green:ev3dev"
+    }
+  }

@@ -22,7 +22,7 @@ defmodule Blinky.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Blinky, []},
+      mod: {Blinky.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -39,7 +39,7 @@ defmodule Blinky.MixProject do
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
-      {:nerves_leds, "~> 0.8", targets: @all_targets},
+      {:delux, "~> 0.4.1", targets: @all_targets},
 
       # Dependencies for specific targets
       {:nerves_system_rpi, "~> 1.13", runtime: false, targets: :rpi},
