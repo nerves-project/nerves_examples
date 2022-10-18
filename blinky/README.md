@@ -1,10 +1,14 @@
 # Blinky
 
-The "Hello World" of the embedded world... blinking an LED
+The "Hello World" of the embedded world... blinking an on-board LED
 
 * Boots to Elixir `iex` shell and blinks LEDs forever in background
 * Uses [Delux](https://hexdocs.pm/delux/readme.html) to control the LEDs
 * Custom per-[target] configuration via `config/#{target}.exs`
+
+[![Raspberry Pi Zero W onboard LED](assets/rpi0-onboard-led.jpg)](https://www.raspberrypi.com/products/raspberry-pi-zero)
+
+[Image credit](https://www.raspberrypi.com/products/raspberry-pi-zero)
 
 ## Hardware
 
