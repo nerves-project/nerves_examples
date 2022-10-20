@@ -145,34 +145,6 @@ collect_stats: &collect_stats
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
-        name: hello_leds
-        command: echo "hello_leds" > .project
-    - run: echo "rpi0" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi2" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi3" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi3a" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "rpi4" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "bbb" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-    - run: echo "grisp2" > .target
-    - restore_cache:
-        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
-
-    - run:
         name: hello_lfe
         command: echo "hello_lfe" > .project
     - run: echo "rpi0" > .target
