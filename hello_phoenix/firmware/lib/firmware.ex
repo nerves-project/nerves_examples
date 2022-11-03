@@ -15,4 +15,7 @@ defmodule Firmware do
   def hello do
     :world
   end
+
+  defdelegate hello_ui, to: Ui, as: :hello
+  defdelegate list_users, to: Ui.Accounts
 end

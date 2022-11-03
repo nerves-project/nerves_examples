@@ -19,9 +19,6 @@ config :ui, Ui.Repo,
   pool_size: 5,
   show_sensitive_data_on_connection_error: true
 
-# Use Jason for JSON parsing in Phoenix
-config :phoenix, :json_library, Jason
-
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
