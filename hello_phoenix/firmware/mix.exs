@@ -42,7 +42,7 @@ defmodule Firmware.MixProject do
 
       # Poncho dependencies
       # See https://embedded-elixir.com/post/2017-05-19-poncho-projects
-      {:ui, path: "../ui", targets: @all_targets, env: Mix.env()},
+      {:ui, path: "../ui", env: Mix.env()},
 
       # Dependencies for specific targets
       # NOTE: It's generally low risk and recommended to follow minor version

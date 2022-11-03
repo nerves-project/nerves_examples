@@ -29,6 +29,9 @@ config :logger, backends: [RingLogger]
 config :ui,
   ecto_repos: [Ui.Repo]
 
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
 if Mix.target() == :host do
   import_config "host.exs"
 else
