@@ -1,12 +1,46 @@
 # Hello Phoenix
 
-This example demonstrates a basic poncho project for deploying a [Phoenix
-Framework]-based application to a Nerves device. A "poncho project" is similar
-to an umbrella project except that it's actually multiple separate-but-related
-Elixir apps that use `path` dependencies instead of `in_umbrella` dependencies.
-You can read more about the motivations behind this concept on the
-embedded-elixir blog post about [Poncho Projects]. The steps for creating this
-example source are in [User Interfaces].
+This example demonstrates designing and building a firmware with integrated
+Phoenix web pages. It is an alternative to "poncho" style projects in that
+all code is organized until the same Mix project and designed to be run on
+host and on device. In other words, this is a typical Phoenix app most are
+used to seeing (with database, contexts, views, etc), but with slightly
+altered configuration files and the release step bundles the phoenix app as
+part of the firmware.
+
+```
+hello_phoenix
+├── .formatter.exs
+├── .gitignore
+├── README.md
+├── assets
+│   ├── css
+│   ├── js
+│   └── vendor
+├── config
+│   ├── config.exs
+│   ├── dev.exs
+│   ├── host.exs
+│   ├── prod.exs
+│   ├── runtime.exs
+│   ├── target.exs
+│   └── test.exs
+├── lib
+│   ├── hello_phoenix
+│   ├── hello_phoenix.ex
+│   ├── hello_phoenix_web
+│   └── hello_phoenix_web.ex
+├── mix.exs
+├── mix.lock
+├── priv
+│   ├── gettext
+│   ├── repo
+│   └── static
+├── rel
+│   └── vm.args.eex
+└── rootfs_overlay
+    └── etc
+```
 
 ## Hardware
 
@@ -21,32 +55,21 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
 
 ## How to Use this Repository
 
+### Development
+
+This is designed to run on host as well as firmware. You can use the same
+practices as your other Phoenix libs:
+
+```sh
+$ iex -S mix phx.server
+```
+
+### Building firmware
+
 1. Connect your target hardware to your host computer or network as described
    above
-2. Prepare your Phoenix project to build JavaScript and CSS assets:
 
-    ```bash
-    cd ui
-
-    # This needs to be repeated when you change dependencies for the UI.
-    mix deps.get
-    ```
-
-3. Build your assets and prepare them for deployment to the firmware:
-
-    ```bash
-    # Still in ui directory from the prior step.
-    # This needs to be repeated when you change JS or CSS files.
-    mix assets.deploy
-    ```
-
-4. Change to the `firmware` app directory
-
-    ```bash
-    cd ../firmware
-    ```
-
-5. Specify your target and other environment variables as needed:
+2. Specify your target and other environment variables as needed:
 
     ```bash
     export MIX_TARGET=rpi0
@@ -57,7 +80,7 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
     #   export NERVES_NETWORK_PSK=your_wifi_password
     ```
 
-6. Get dependencies, build firmware, and burn it to an SD card:
+3. Get dependencies, build firmware, and burn it to an SD card:
 
     ```bash
     mix deps.get
@@ -65,10 +88,10 @@ see the [`vintage_net` documentation](https://hexdocs.pm/vintage_net/).
     mix firmware.burn
     ```
 
-7. Insert the SD card into your target board and connect the USB cable or otherwise power it on
-8. Wait for it to finish booting (5-10 seconds)
-9. Open a browser window on your host computer to `http://nerves.local/`
-10. You should see a "Welcome to Phoenix!" page
+4. Insert the SD card into your target board and connect the USB cable or otherwise power it on
+5. Wait for it to finish booting (5-10 seconds)
+6. Open a browser window on your host computer to `http://nerves.local/`
+7. You should see a "Welcome to Phoenix!" page
 
 [Phoenix Framework]: http://www.phoenixframework.org/
 [Poncho Projects]: http://embedded-elixir.com/post/2017-05-19-poncho-projects/
