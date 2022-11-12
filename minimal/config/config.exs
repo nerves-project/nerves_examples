@@ -8,8 +8,6 @@ import Config
 # Enable the Nerves integration with Mix
 Application.start(:nerves_bootstrap)
 
-config :minimal, target: Mix.target()
-
 # Set the SOURCE_DATE_EPOCH date for reproducible builds.
 # See https://reproducible-builds.org/docs/source-date-epoch/ for more information
 
