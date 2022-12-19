@@ -35,7 +35,9 @@ defmodule HelloZig.MixProject do
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
-      {:zigler, "~> 0.8.0", runtime: false},
+      {:zigler, "~> 0.9.0", runtime: false},
+      # See https://github.com/ityonemo/zigler/issues/344
+      {:ex_doc, "~> 0.28.6", runtime: false},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
