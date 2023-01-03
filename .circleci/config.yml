@@ -238,6 +238,37 @@ collect_stats: &collect_stats
         key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
 
     - run:
+        name: hello_live_view
+        command: echo "hello_live_view/firmware" > .project
+    - run: echo "rpi0" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi3" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi3a" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "rpi4" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "bbb" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "x86_64" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+    - run: echo "grisp2" > .target
+    - restore_cache:
+        key: nerves/stats/{{ checksum ".project" }}/{{ checksum ".target" }}-{{ .Revision }}-{{ .Environment.CIRCLE_TAG }}
+
+    - run:
         name: hello_wifi
         command: echo "hello_wifi" > .project
     - run: echo "rpi0" > .target
@@ -439,7 +470,7 @@ workflows:
           matrix:
             parameters:
               target: [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2]
-              example: [blinky, hello_gpio, hello_phoenix/firmware, hello_lfe, hello_erlang, hello_wifi, minimal, hello_zig, hello_sqlite, hello_snmp_agent, hello_snmp_manager]
+              example: [blinky, hello_gpio, hello_live_view, hello_phoenix/firmware, hello_lfe, hello_erlang, hello_wifi, minimal, hello_zig, hello_sqlite, hello_snmp_agent, hello_snmp_manager]
             exclude:
               - target: x86_64
                 example: hello_zig
