@@ -10,10 +10,7 @@ config :shoehorn, init: [:nerves_runtime]
 # https://github.com/nerves-project/erlinit/ for more information on
 # configuring erlinit.
 
-config :nerves,
-  erlinit: [
-    hostname_pattern: "nerves-%s"
-  ]
+config :nerves, :erlinit, update_clock: true
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
