@@ -50,7 +50,7 @@ config :hello_live_view, HelloLiveViewWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/hello_live_view_web/(live|views/components)/.*(ex)$",
+      ~r"lib/hello_live_view_web/(live|views|components)/.*(ex)$",
       ~r"lib/hello_live_view_web/templates/.*(eex)$"
     ]
   ]
