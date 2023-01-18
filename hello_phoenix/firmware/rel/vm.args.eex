@@ -24,6 +24,10 @@
 ## See http://erlang.org/doc/system_principles/system_principles.html#code-loading-strategy
 -mode embedded
 
+# Load code as per the boot script since not using archives
+# See https://www.erlang.org/doc/man/init.html#command-line-flags
+-code_path_choice strict
+
 ## Disable scheduler busy wait to reduce idle CPU usage and avoid delaying
 ## other OS processes. See http://erlang.org/doc/man/erl.html#+sbwt
 +sbwt none
@@ -52,4 +56,3 @@
 -extra --no-halt
 --
 --dot-iex /etc/iex.exs
-
