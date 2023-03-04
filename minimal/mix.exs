@@ -31,7 +31,7 @@ defmodule Minimal.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.9.0", runtime: false},
+      {:nerves, "~> 1.10", runtime: false},
       {:shoehorn, "~> 0.9.0"},
 
       # Dependencies for all targets except :host
