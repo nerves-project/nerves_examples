@@ -6,7 +6,7 @@ elixir_version: &elixir_version
 defaults: &defaults
   working_directory: /nerves/build
   docker:
-    - image: nervesproject/nerves_system_br:1.22.1
+    - image: ghcr.io/nerves-project/nerves_system_br:1.22.5
 
 context: &context
   context: "org-global"
