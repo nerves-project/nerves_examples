@@ -11,6 +11,6 @@ defmodule FirmwareTest do
   end
 
   test "gets a list of users" do
-    assert Firmware.list_users == []
+    assert Firmware.list_users() == []
   end
 end

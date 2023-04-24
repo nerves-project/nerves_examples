@@ -3,7 +3,19 @@ defmodule HelloSnmpAgent.MixProject do
 
   @app :hello_snmp_agent
   @version "0.1.0"
-  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64, :grisp2]
+  @all_targets [
+    :rpi,
+    :rpi0,
+    :rpi2,
+    :rpi3,
+    :rpi3a,
+    :rpi4,
+    :bbb,
+    :osd32mp1,
+    :x86_64,
+    :grisp2,
+    :mangopi_mq_pro
+  ]
 
   def project do
     [
@@ -57,7 +69,8 @@ defmodule HelloSnmpAgent.MixProject do
       {:nerves_system_bbb, "~> 2.12", runtime: false, targets: :bbb},
       {:nerves_system_osd32mp1, "~> 0.8", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.17", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2}
+      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2},
+      {:nerves_system_mangopi_mq_pro, "~> 0.4", runtime: false, targets: :mangopi_mq_pro}
     ]
   end
 
