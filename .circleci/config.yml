@@ -67,7 +67,6 @@ jobs:
       MIX_TARGET: << parameters.target >>
     <<: *build
 
-
 workflows:
   build_collect:
     jobs:
@@ -76,4 +75,4 @@ workflows:
           <<: *context
           matrix:
             parameters:
-              target: [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2]
+              target: [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2, mangopi_mq_pro]
