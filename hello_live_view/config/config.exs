@@ -14,13 +14,16 @@ import Config
 # Configures the endpoint
 config :hello_live_view, HelloLiveViewWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: HelloLiveViewWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_erros: [
+    formats: [html: HelloLiveViewWeb.ErrorHTML, json: HelloLiveViewWeb.ErrorJSON],
+    layout: false
+  ],
   pubsub_server: HelloLiveView.PubSub,
   live_view: [signing_salt: "1g+qVw8s"]
 
 # Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.14.29",
+  version: "0.17.11",
   default: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
@@ -29,13 +32,13 @@ config :esbuild,
   ]
 
 config :tailwind,
-  version: "3.2.4",
+  version: "3.2.7",
   default: [
     args: ~w(
-    --config=tailwind.config.js
-    --input=css/app.css
-    --output=../priv/static/assets/app.css
-  ),
+      --config=tailwind.config.js
+      --input=css/app.css
+      --output=../priv/static/assets/app.css
+    ),
     cd: Path.expand("../assets", __DIR__)
   ]
 

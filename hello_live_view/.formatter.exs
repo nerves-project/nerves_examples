@@ -1,5 +1,5 @@
 [
   plugins: [Phoenix.LiveView.HTMLFormatter],
   import_deps: [:phoenix],
-  inputs: ["*.{ex,exs}", "{config,lib,test}/**/*.{ex,exs}"]
+  inputs: ["*.{heex,ex,exs}", "{config,lib,test}/**/*.{ex,exs}"]
 ]
