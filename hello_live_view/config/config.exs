@@ -14,7 +14,7 @@ import Config
 # Configures the endpoint
 config :hello_live_view, HelloLiveViewWeb.Endpoint,
   url: [host: "localhost"],
-  render_erros: [
+  render_errors: [
     formats: [html: HelloLiveViewWeb.ErrorHTML, json: HelloLiveViewWeb.ErrorJSON],
     layout: false
   ],
@@ -31,6 +31,7 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
+# Configure tailwind (the version is required)
 config :tailwind,
   version: "3.2.7",
   default: [
