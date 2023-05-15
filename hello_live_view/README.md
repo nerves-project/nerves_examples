@@ -2,16 +2,16 @@ Nerves + LiveView Example
 ===
 
 This example shows a Nerves Project with a Pheonix/LiveView server embedded in the same application.  In contrast to
-a [poncho project]{https://embedded-elixir.com/post/2017-05-19-poncho-projects/}, there is only one application
+a [poncho project](https://embedded-elixir.com/post/2017-05-19-poncho-projects/), there is only one application
 supervision tree containing the Phoenix Endpoint and any processes running on the device.  This example also includes 
 [Tailwind CSS](https://tailwindcss.com/) to give a starting point for styling and building components.
 
 Currently the versions included are:
 
-* `nerves`  - 1.9.1
-* `phoenix`  - 1.6.15
-* `phoenix_liveview` - 0.18.3
-* `tailwindcss` - 0.1.9
+* `nerves`  - 1.9.3
+* `phoenix`  - 1.7.2
+* `phoenix_liveview` - 0.18.18
+* `tailwindcss` - 0.2.0
 
 
 Configuration
