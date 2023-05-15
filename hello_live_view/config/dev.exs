@@ -15,7 +15,6 @@ config :hello_live_view, HelloLiveViewWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "sODMOCqDOBh6ykWCXcIW3Y19hDlM4b8Y99/ExyZPE6OeBEc7z+3FgbXlM/kqW2Vm",
   watchers: [
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
@@ -28,7 +27,6 @@ config :hello_live_view, HelloLiveViewWeb.Endpoint,
 #
 #     mix phx.gen.cert
 #
-# Note that this task requires Erlang/OTP 20 or later.
 # Run `mix help phx.gen.cert` for more information.
 #
 # The `http:` config above can be replaced with:
@@ -50,15 +48,15 @@ config :hello_live_view, HelloLiveViewWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/hello_live_view_web/(controllers|live|views|components)/.*(ex|heex)$",
-      ~r"lib/hello_live_view_web/templates/.*(eex)$"
+      ~r"lib/hello_live_view_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 
+# Enable dev routes for dashboard and mailbox
+config :hello_live_view, dev_routes: true
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
-
-config :hello_live_view, dev_routes: true
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.

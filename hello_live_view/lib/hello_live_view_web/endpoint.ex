@@ -7,7 +7,8 @@ defmodule HelloLiveViewWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_hello_live_view_key",
-    signing_salt: "jtTHK+Go"
+    signing_salt: "jtTHK+Go",
+    same_site: "Lax"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
