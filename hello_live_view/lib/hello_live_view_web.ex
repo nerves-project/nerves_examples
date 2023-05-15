@@ -17,6 +17,8 @@ defmodule HelloLiveViewWeb do
   and import those modules here.
   """
 
+  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
+
   def controller do
     quote do
       use Phoenix.Controller, namespace: HelloLiveViewWeb
@@ -24,6 +26,8 @@ defmodule HelloLiveViewWeb do
       import Plug.Conn
       import HelloLiveViewWeb.Gettext
       alias HelloLiveViewWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
     end
   end
 
@@ -101,6 +105,16 @@ defmodule HelloLiveViewWeb do
       import HelloLiveViewWeb.ErrorHelpers
       import HelloLiveViewWeb.Gettext
       alias HelloLiveViewWeb.Router.Helpers, as: Routes
+      unquote(verified_routes())
+    end
+  end
+
+  def verified_routes do
+    quote do
+      use Phoenix.VerifiedRoutes,
+        endpoint: HelloLiveViewWeb.Endpoint,
+        router: HelloLiveViewWeb.Router,
+        statics: HelloLiveViewWeb.static_paths()
     end
   end
 
