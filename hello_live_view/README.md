@@ -3,8 +3,7 @@ Nerves + LiveView Example
 
 This example shows a Nerves Project with a Pheonix/LiveView server embedded in the same application.  In contrast to
 a [poncho project](https://embedded-elixir.com/post/2017-05-19-poncho-projects/), there is only one application
-supervision tree containing the Phoenix Endpoint and any processes running on the device.  This example also includes 
-[Tailwind CSS](https://tailwindcss.com/) to give a starting point for styling and building components.
+supervision tree containing the Phoenix Endpoint and any processes running on the device.
 
 Currently the versions included are:
 
