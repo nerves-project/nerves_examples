@@ -33,8 +33,8 @@ defmodule HelloSqlite.MixProject do
       # Dependencies for all targets
       {:nerves, "~> 1.10", runtime: false},
       {:shoehorn, "~> 0.9.0"},
-      {:ring_logger, "~> 0.8.1"},
-      {:toolshed, "~> 0.2.13"},
+      {:ring_logger, "~> 0.10.2"},
+      {:toolshed, "~> 0.3.1"},
       {:ecto_sqlite3, "~> 0.5.0"},
       {:table_rex, "~> 2.0.0 or ~> 3.0"},
 
