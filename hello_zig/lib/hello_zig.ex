@@ -1,13 +1,12 @@
 defmodule HelloZig do
-  use Zig
+  use Zig, otp_app: :hello_zig
 
   ~Z"""
-  const world = @import("strings.zig").world;
+  const beam = @import("beam");
+  const strings = @import("strings.zig");
 
-  /// outputs "world" for hello!
-  /// nif: hello/0
-  fn hello(env: beam.env) beam.term {
-    return beam.make_atom(env, world);
+  pub fn hello(env: beam.env) beam.term {
+    return beam.make(env, .{.ok, strings.world}, .{});
   }
   """
 end
