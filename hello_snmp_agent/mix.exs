@@ -25,7 +25,6 @@ defmodule HelloSnmpAgent.MixProject do
       archives: [nerves_bootstrap: "~> 1.10"],
       start_permanent: Mix.env() == :prod,
       compilers: [:mib | Mix.compilers()],
-      build_embedded: true,
       deps: deps(),
       releases: [{@app, release()}],
       preferred_cli_target: [run: :host, test: :host]

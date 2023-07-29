@@ -1,10 +1,16 @@
-## Add custom options here
+## Customize flags given to the VM: http://erlang.org/doc/man/erl.html
 
-## Distributed Erlang Options
-##  The cookie needs to be configured prior to vm boot for
-##  for read only filesystem.
+## Do not set -name or -sname here. Prefer configuring them at runtime
+## Configure -setcookie in the mix.exs release section or at runtime
 
--setcookie <%= @release.options[:cookie] %>
+## Number of dirty schedulers doing IO work (file, sockets, and others)
+##+SDio 5
+
+## Increase number of concurrent ports/sockets
+##+Q 65536
+
+## Tweak GC to run more often
+##-env ERL_FULLSWEEP_AFTER 10
 
 ## Use Ctrl-C to interrupt the current shell rather than invoking the emulator's
 ## break handler and possibly exiting the VM.

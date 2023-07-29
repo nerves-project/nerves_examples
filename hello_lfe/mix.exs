@@ -25,7 +25,6 @@ defmodule HelloLfe.MixProject do
       archives: [nerves_bootstrap: "~> 1.9"],
       start_permanent: Mix.env() == :prod,
       compilers: Mix.compilers() ++ [:lfe],
-      build_embedded: true,
       deps: deps(),
       releases: [{@app, release()}],
       preferred_cli_target: [run: :host, test: :host]
