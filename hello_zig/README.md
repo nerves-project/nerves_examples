@@ -12,7 +12,7 @@ The only thing you need to activate `zigler` is the dependency in your
 `mix.exs`:
 
 ```elixir
-{:zigler, "~> 0.7.3", runtime: false}
+{:zigler, "~> 0.10.1", runtime: false}
 ```
 
 You might want to use Zig for any of the following things:
@@ -48,6 +48,7 @@ tracker](https://github.com/ityonemo/zigler/issues).
 
    ```shell
    mix deps.get
+   MIX_TARGET=host mix zig.get
    mix firmware
    mix firmware.burn
    ```
