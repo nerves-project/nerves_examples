@@ -1,18 +1,38 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
-source scripts/projects.sh
+if [ "$MIX_TARGET" = "" ]; then
+    echo "Set MIX_TARGET to the desired target"
+    echo "For example:"
+    echo
+    echo "export MIX_TARGET=rpi0"
+    echo "./build-all.sh"
+    exit 1
+fi
+
+. scripts/projects.sh
 
 build() {
-    echo "Building $2 for target $1..."
-    (cd $2 && MIX_TARGET=$1 mix do deps.update --all, firmware)
+    # Retry fetching dependencies since sometimes the network is flaky on CI
+    n=0
+    until [ $n -ge 5 ]; do
+        mix deps.get && break
+        n=$((n+1))
+        echo "Error while fetching deps. Retrying in 5 seconds"
+        sleep 5
+    done
+
+    if [ -e ".requires-zig" ]; then
+        MIX_TARGET=host mix zig.get
+    fi
+
+    mix firmware
 }
 
-for target in $TARGETS; do
-    for project in $PROJECTS; do
-        build $target $project
-    done
+for project in $PROJECTS; do
+    echo "===  $project  ==="
+    (cd $project && build)
 done
 
 echo "Success"
