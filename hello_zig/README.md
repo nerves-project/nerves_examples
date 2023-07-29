@@ -37,6 +37,7 @@ tracker](https://github.com/ityonemo/zigler/issues).
 
    ```shell
    # Specify the target hardware. See the mix.exs for options
+   # RISC-V targets like mangopi_mq_pro might not work.
    export MIX_TARGET=rpi3
 
    # If using WiFi, you can set the SSID and password here

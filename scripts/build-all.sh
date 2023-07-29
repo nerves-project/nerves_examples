@@ -14,6 +14,10 @@ fi
 . scripts/projects.sh
 
 build() {
+    if [ -e ".skip-$MIX_TARGET" ]; then
+        return
+    fi
+
     # Retry fetching dependencies since sometimes the network is flaky on CI
     n=0
     until [ $n -ge 5 ]; do
