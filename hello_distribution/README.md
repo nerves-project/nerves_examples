@@ -34,7 +34,7 @@ Once connected, you can use Phoenix PubSub to send messages back and forth on th
 on one device:
 
 ```elixir
-iex(hello@nerves-bea0.local)3> Phoenix.PubSub.subscribe(HelloDistribution.PubSub, "test-event") 
+iex(hello@nerves-bea0.local)3> Phoenix.PubSub.subscribe(HelloDistribution.PubSub, "test-event")
 ```
 
 and the other:

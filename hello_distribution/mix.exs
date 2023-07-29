@@ -3,7 +3,19 @@ defmodule HelloDistribution.MixProject do
 
   @app :hello_distribution
   @version "0.1.0"
-  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64]
+  @all_targets [
+    :rpi,
+    :rpi0,
+    :rpi2,
+    :rpi3,
+    :rpi3a,
+    :rpi4,
+    :bbb,
+    :osd32mp1,
+    :x86_64,
+    :grisp2,
+    :mangopi_mq_pro
+  ]
 
   def project do
     [
@@ -12,7 +24,6 @@ defmodule HelloDistribution.MixProject do
       elixir: "~> 1.9",
       archives: [nerves_bootstrap: "~> 1.10"],
       start_permanent: Mix.env() == :prod,
-      build_embedded: true,
       deps: deps(),
       releases: [{@app, release()}],
       preferred_cli_target: [run: :host, test: :host]
@@ -31,17 +42,17 @@ defmodule HelloDistribution.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.7.0", runtime: false},
-      {:shoehorn, "~> 0.7.0"},
-      {:ring_logger, "~> 0.8.1"},
-      {:toolshed, "~> 0.2.13"},
+      {:nerves, "~> 1.10", runtime: false},
+      {:shoehorn, "~> 0.9.0"},
+      {:ring_logger, "~> 0.10.2"},
+      {:toolshed, "~> 0.3.1"},
       {:phoenix_pubsub, "~> 2.0"},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
+      {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:vintage_net_wizard, "~> 0.2", targets: @all_targets},
-      {:nerves_pack, "~> 0.5.0", targets: @all_targets},
-      {:circuits_gpio, "~> 0.4.8", targets: @all_targets},
+      {:nerves_pack, "~> 0.7.0", targets: @all_targets},
+      {:circuits_gpio, "~> 1.0", targets: @all_targets},
       {:mdns_lite, "~> 0.8", targets: @all_targets},
 
       # Dependencies for specific targets
@@ -53,7 +64,9 @@ defmodule HelloDistribution.MixProject do
       {:nerves_system_rpi4, "~> 1.13", runtime: false, targets: :rpi4},
       {:nerves_system_bbb, "~> 2.8", runtime: false, targets: :bbb},
       {:nerves_system_osd32mp1, "~> 0.4", runtime: false, targets: :osd32mp1},
-      {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64}
+      {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64},
+      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2},
+      {:nerves_system_mangopi_mq_pro, "~> 0.4", runtime: false, targets: :mangopi_mq_pro}
     ]
   end
 
