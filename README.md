@@ -31,6 +31,7 @@ application's root directory.
 * [`hello_lfe`](https://github.com/nerves-project/nerves-examples/blob/main/hello_lfe/README.md)
 * [`hello_live_view`](https://github.com/nerves-project/nerves-examples/blob/main/hello_live_view/README.md)
 * [`hello_phoenix`](https://github.com/nerves-project/nerves-examples/blob/main/hello_phoenix/README.md)
+* [`hello_scenic`](https://github.com/nerves-project/nerves-examples/blob/main/hello_scenic/README.md)
 * [`hello_snmp_agent`](https://github.com/nerves-project/nerves-examples/blob/main/hello_snmp_agent/README.md)
 * [`hello_snmp_manager`](https://github.com/nerves-project/nerves-examples/blob/main/hello_snmp_manager/README.md)
 * [`hello_sqlite`](https://github.com/nerves-project/nerves-examples/blob/main/hello_sqlite/README.md)
