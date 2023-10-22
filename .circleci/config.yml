@@ -3,6 +3,9 @@ version: 2.1
 elixir_version: &elixir_version
   ELIXIR_VERSION: 1.15.6-otp-26
 
+targets: &targets
+  [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2, mangopi_mq_pro]
+
 defaults: &defaults
   working_directory: /nerves/build
   docker:
@@ -67,6 +70,25 @@ jobs:
       MIX_TARGET: << parameters.target >>
     <<: *build
 
+  automerge:
+    docker:
+        - image: alpine:3.18.4
+    <<: *defaults
+    steps:
+      - run:
+          name: Install GitHub CLI
+          command: apk add --no-cache build-base github-cli
+      - run:
+          name: Attempt PR automerge
+          command: |
+            author=$(gh pr view "${CIRCLE_PULL_REQUEST}" --json author --jq '.author.login' || true)
+
+            if [ "$author" = "app/dependabot" ]; then
+              gh pr merge "${CIRCLE_PULL_REQUEST}" --auto --rebase || echo "Failed trying to set automerge"
+            else
+              echo "Not a dependabot PR, skipping automerge"
+            fi
+
 workflows:
   build_collect:
     jobs:
@@ -75,4 +97,10 @@ workflows:
           <<: *context
           matrix:
             parameters:
-              target: [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2, mangopi_mq_pro]
+              target: *targets
+      - automerge:
+          requires: *targets
+          context: org-global
+          filters:
+            branches:
+              only: /^dependabot.*/
