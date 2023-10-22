@@ -68,10 +68,10 @@ defmodule HelloLiveView.MixProject do
       {:plug_cowboy, "~> 2.5"},
 
       # Dependencies for all targets
-      {:nerves, "~> 1.7.16 or ~> 1.8.0 or ~> 1.9.0", runtime: false},
+      {:nerves, "~> 1.7.16 or ~> 1.8.0 or ~> 1.9.0 or ~> 1.10.4", runtime: false},
       {:shoehorn, "~> 0.9.1"},
-      {:ring_logger, "~> 0.8.5"},
-      {:toolshed, "~> 0.2.26"},
+      {:ring_logger, "~> 0.10.5"},
+      {:toolshed, "~> 0.3.1"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
