@@ -1,0 +1,182 @@
+version: 2
+
+updates:
+  - package-ecosystem: mix
+    directory: "/blinky"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_erlang"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_gpio"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_lfe"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_live_view"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_phoenix"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_snmp_agent"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_snmp_manager"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_sqlite"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_wifi"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/hello_zig"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
+
+  - package-ecosystem: mix
+    directory: "/minimal"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      systems:
+        patterns:
+          - "nerves_system*"
+      deps:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "nerves_system*"
