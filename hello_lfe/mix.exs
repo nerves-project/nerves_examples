@@ -45,7 +45,7 @@ defmodule HelloLfe.MixProject do
       # Dependencies for all targets
       {:nerves, "~> 1.10", runtime: false},
       {:shoehorn, "~> 0.9.0"},
-      {:ring_logger, "~> 0.10.2"},
+      {:ring_logger, "~> 0.11.0"},
       {:lfe, "~> 2.0", compile: "make"},
 
       # Dependencies for all targets except :host
