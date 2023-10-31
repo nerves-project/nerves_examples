@@ -44,7 +44,7 @@ defmodule HelloSnmpManager.MixProject do
       # Dependencies for all targets
       {:nerves, "~> 1.10", runtime: false},
       {:shoehorn, "~> 0.9.0"},
-      {:ring_logger, "~> 0.10.2"},
+      {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.3.1"},
 
       # Dependencies for all targets except :host
