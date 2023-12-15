@@ -46,7 +46,7 @@ defmodule HelloSqlite.MixProject do
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.3.1"},
-      {:ecto_sqlite3, "~> 0.13.0"},
+      {:ecto_sqlite3, "~> 0.14.0"},
       {:table_rex, "~> 2.0.0 or ~> 3.0 or ~> 4.0"},
 
       # Dependencies for all targets except :host
