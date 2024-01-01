@@ -12,7 +12,7 @@ Nerves can work with quite a few Elixir and Erlang versions, but we recommend
 using the following versions for the examples. These are used on our CI and
 should be easier for us to support.
 
-* Elixir 1.15.7 or later
+* Elixir 1.16.0 or later
 * Erlang OTP 26.1.2 or later
 
 See the [EmbeddedElixir post on using
