@@ -47,7 +47,7 @@ defmodule HelloSnmpAgent.MixProject do
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.3.1"},
-      {:circuits_gpio, "~> 1.0"},
+      {:circuits_gpio, "~> 2.0"},
       {:elixir_snmp, "~> 0.2.1"},
 
       # Dependencies for all targets except :host
