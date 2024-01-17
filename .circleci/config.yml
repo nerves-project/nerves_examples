@@ -9,7 +9,7 @@ targets: &targets
 defaults: &defaults
   working_directory: /nerves/build
   docker:
-    - image: ghcr.io/nerves-project/nerves_system_br:1.25.2
+    - image: ghcr.io/nerves-project/nerves_system_br:1.25.3
 
 context: &context
   context: "org-global"

@@ -13,7 +13,7 @@ using the following versions for the examples. These are used on our CI and
 should be easier for us to support.
 
 * Elixir 1.16.0 or later
-* Erlang OTP 26.1.2 or later
+* Erlang OTP 26.2.1 or later
 
 See the [EmbeddedElixir post on using
 ASDF-VM](https://embedded-elixir.com/post/2017-05-23-using-asdf-vm/)
