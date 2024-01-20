@@ -1,5 +1,10 @@
 import Config
 
+config :hello_live_view, HelloLiveViewWeb.Endpoint,
+  # Code Reloader and watchers cannot be used on target
+  code_reloader: false,
+  watchers: []
+
 # Use Ringlogger as the logger backend and remove :console.
 # See https://hexdocs.pm/ring_logger/readme.html for more information on
 # configuring ring_logger.

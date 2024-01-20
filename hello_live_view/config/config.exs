@@ -64,12 +64,6 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
 config :nerves, source_date_epoch: "1672328776"
 
-if Mix.target() == :host do
-  import_config "host.exs"
-else
-  import_config "target.exs"
-end
-
 ################################################################
 ## Common Config
 ################################################################
@@ -82,3 +76,9 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+if Mix.target() == :host do
+  import_config "host.exs"
+else
+  import_config "target.exs"
+end
