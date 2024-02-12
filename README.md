@@ -27,6 +27,7 @@ application's root directory.
 
 * [`blinky`](https://github.com/nerves-project/nerves-examples/blob/main/blinky/README.md)
 * [`hello_erlang`](https://github.com/nerves-project/nerves-examples/blob/main/hello_erlang/README.md)
+* [`hello_distribution`](https://github.com/nerves-project/nerves-examples/blob/main/hello_distribution/README.md)
 * [`hello_gpio`](https://github.com/nerves-project/nerves-examples/blob/main/hello_gpio/README.md)
 * [`hello_lfe`](https://github.com/nerves-project/nerves-examples/blob/main/hello_lfe/README.md)
 * [`hello_live_view`](https://github.com/nerves-project/nerves-examples/blob/main/hello_live_view/README.md)
