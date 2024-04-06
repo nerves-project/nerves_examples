@@ -1,7 +1,7 @@
 version: 2.1
 
 elixir_version: &elixir_version
-  ELIXIR_VERSION: 1.16.0-otp-26
+  ELIXIR_VERSION: 1.16.2-otp-26
 
 targets: &targets
   [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2, mangopi_mq_pro]
@@ -9,7 +9,7 @@ targets: &targets
 defaults: &defaults
   working_directory: /nerves/build
   docker:
-    - image: ghcr.io/nerves-project/nerves_system_br:1.25.3
+    - image: ghcr.io/nerves-project/nerves_system_br:1.27.0
 
 context: &context
   context: "org-global"
