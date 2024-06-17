@@ -45,7 +45,7 @@ defmodule HelloSqlite.MixProject do
       {:nerves, "~> 1.10", runtime: false},
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.11.0"},
-      {:toolshed, "~> 0.3.1"},
+      {:toolshed, "~> 0.4.0"},
       {:ecto_sqlite3, "~> 0.16.0"},
       {:table_rex, "~> 2.0.0 or ~> 3.0 or ~> 4.0"},
 
