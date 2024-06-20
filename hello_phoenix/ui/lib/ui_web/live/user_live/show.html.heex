@@ -1,27 +1,27 @@
-<h1>Show User</h1>
+<.header>
+  User <%= @user.id %>
+  <:subtitle>This is a user record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/users/#{@user}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit user</.button>
+    </.link>
+  </:actions>
+</.header>
 
-<%= if @live_action in [:edit] do %>
-  <%= live_modal UiWeb.UserLive.FormComponent,
-    id: @user.id,
-    title: @page_title,
-    action: @live_action,
-    user: @user,
-    return_to: Routes.user_show_path(@socket, :show, @user) %>
-<% end %>
+<.list>
+  <:item title="Name"><%= @user.name %></:item>
+  <:item title="Age"><%= @user.age %></:item>
+</.list>
 
-<ul>
+<.back navigate={~p"/users"}>Back to users</.back>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </li>
-
-  <li>
-    <strong>Age:</strong>
-    <%= @user.age %>
-  </li>
-
-</ul>
-
-<span><%= live_patch "Edit", to: Routes.user_show_path(@socket, :edit, @user), class: "button" %></span> |
-<span><%= live_redirect "Back", to: Routes.user_index_path(@socket, :index) %></span>
+<.modal :if={@live_action == :edit} id="user-modal" show on_cancel={JS.patch(~p"/users/#{@user}")}>
+  <.live_component
+    module={UiWeb.UserLive.FormComponent}
+    id={@user.id}
+    title={@page_title}
+    action={@live_action}
+    user={@user}
+    patch={~p"/users/#{@user}"}
+  />
+</.modal>
