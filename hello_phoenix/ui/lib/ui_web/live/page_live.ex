@@ -14,7 +14,7 @@ defmodule UiWeb.PageLive do
       schedule_refresh()
     end
 
-    {:ok, socket}
+    {:ok, socket, layout: false}
   end
 
   @impl Phoenix.LiveView
