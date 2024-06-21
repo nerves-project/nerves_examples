@@ -8,16 +8,14 @@ defmodule Ui.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Ui.Repo,
-      # Start the Telemetry supervisor
       UiWeb.Telemetry,
-      # Start the PubSub system
+      Ui.Repo,
+      {DNSCluster, query: Application.get_env(:ui, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Ui.PubSub},
-      # Start the Endpoint (http/https)
-      UiWeb.Endpoint
       # Start a worker by calling: Ui.Worker.start_link(arg)
-      # {Ui.Worker, arg}
+      # {Ui.Worker, arg},
+      # Start to serve requests, typically the last entry
+      UiWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
