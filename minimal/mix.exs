@@ -21,8 +21,8 @@ defmodule Minimal.MixProject do
     [
       app: @app,
       version: @version,
-      elixir: "~> 1.9",
-      archives: [nerves_bootstrap: "~> 1.9"],
+      elixir: "~> 1.16",
+      archives: [nerves_bootstrap: "~> 1.13"],
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       releases: [{@app, release()}],

@@ -21,9 +21,9 @@ defmodule HelloLiveView.MixProject do
     [
       app: @app,
       version: @version,
-      elixir: "~> 1.14",
+      elixir: "~> 1.16",
       elixirc_paths: elixirc_paths(Mix.env()),
-      archives: [nerves_bootstrap: "~> 1.11"],
+      archives: [nerves_bootstrap: "~> 1.13"],
       compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),

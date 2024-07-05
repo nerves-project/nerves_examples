@@ -21,8 +21,8 @@ defmodule HelloScenic.MixProject do
     [
       app: @app,
       version: @version,
-      elixir: "~> 1.11",
-      archives: [nerves_bootstrap: "~> 1.12.1"],
+      elixir: "~> 1.16",
+      archives: [nerves_bootstrap: "~> 1.13"],
       # build_embedded: true,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
