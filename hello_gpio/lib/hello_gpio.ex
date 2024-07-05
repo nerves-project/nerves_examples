@@ -5,8 +5,8 @@ defmodule HelloGpio do
 
   alias Circuits.GPIO
 
-  @output_pin Application.get_env(:hello_gpio, :output_pin, 26)
-  @input_pin Application.get_env(:hello_gpio, :input_pin, 20)
+  @output_pin Application.compile_env(:hello_gpio, :output_pin, 26)
+  @input_pin Application.compile_env(:hello_gpio, :input_pin, 20)
 
   def start(_type, _args) do
     Logger.info("Starting pin #{@output_pin} as output")
