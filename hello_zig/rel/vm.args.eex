@@ -45,7 +45,7 @@
 
 -noshell
 -user elixir
--run elixir start_iex
+-run elixir start_cli
 
 
 ## Enable colors in the shell

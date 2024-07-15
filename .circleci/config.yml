@@ -1,15 +1,11 @@
 version: 2.1
 
-elixir_version: &elixir_version
-  ELIXIR_VERSION: 1.16.3-otp-26
-
 targets: &targets
   [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2, mangopi_mq_pro]
 
 defaults: &defaults
-  working_directory: /nerves/build
   docker:
-    - image: ghcr.io/nerves-project/nerves_system_br:1.27.2
+    - image: hexpm/elixir:1.17.2-erlang-27.0-ubuntu-jammy-20240530
 
 context: &context
   context: "org-global"
@@ -17,28 +13,27 @@ context: &context
     branches:
       ignore: stats
 
-install_elixir: &install_elixir
-  run:
-    name: Install Elixir
-    command: |
-      wget https://repo.hex.pm/builds/elixir/v${ELIXIR_VERSION}.zip
-      unzip -d /usr/local/elixir v${ELIXIR_VERSION}.zip
-      echo 'export PATH=/usr/local/elixir/bin:$PATH' >> $BASH_ENV
-
 install_hex_rebar: &install_hex_rebar
   run:
     name: Install hex and rebar
     command: |
-      cd /tmp
       mix local.hex --force
       mix local.rebar --force
-
-install_nerves_bootstrap: &install_nerves_bootstrap
-  run:
-    name: Install nerves_bootstrap
-    command: |
-      cd /tmp
       mix archive.install hex nerves_bootstrap --force
+
+install_system_deps: &install_system_deps
+  run:
+    name: Install system dependencies
+    command: |
+      apt update
+      apt install -y build-essential squashfs-tools openssh-client wget pkg-config git file
+
+install_fwup: &install_fwup
+  run:
+    name: Install fwup
+    command: |
+      wget https://github.com/fwup-home/fwup/releases/download/v1.10.1/fwup_1.10.1_amd64.deb
+      dpkg -i fwup_1.10.1_amd64.deb
 
 fake_ssh_keys: &fake_ssh_keys
   run:
@@ -50,10 +45,10 @@ fake_ssh_keys: &fake_ssh_keys
 build: &build
   steps:
     - checkout
+    - <<: *install_system_deps
+    - <<: *install_fwup
     - <<: *fake_ssh_keys
-    - <<: *install_elixir
     - <<: *install_hex_rebar
-    - <<: *install_nerves_bootstrap
     - run:
         name: Build all projects
         command: |
@@ -66,7 +61,6 @@ jobs:
       target:
         type: string
     environment:
-      <<: *elixir_version
       MIX_TARGET: << parameters.target >>
     <<: *build
 
