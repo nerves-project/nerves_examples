@@ -5,7 +5,7 @@ targets: &targets
 
 defaults: &defaults
   docker:
-    - image: hexpm/elixir:1.17.2-erlang-27.0-ubuntu-jammy-20240530
+    - image: hexpm/elixir:1.17.2-erlang-27.0.1-ubuntu-jammy-20240808
 
 context: &context
   context: "org-global"
