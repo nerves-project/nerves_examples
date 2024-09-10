@@ -34,7 +34,7 @@ the Raspberry Pi Zero's configuration looks like:
 config :blinky,
   indicators: %{
     default: %{
-      green: "led0"
+      green: "ACT"
     }
   }
 ```
@@ -43,7 +43,7 @@ This provides configuration for the demo application, `:blinky`. The atom
 `:indicators` is used by Delux to group LEDs that are controlled together. The
 Normally this would be a red, green, and blue LED, but the Raspberry Pi just has
 a green LED. For convenience, we tell Delux that the `:default` indicator has a
-`:green` LED. It's known to Linux as `"led0"`. You can find the names by listing
+`:green` LED. It's known to Linux as `"ACT"`. You can find the names by listing
 the `/sys/class/leds` directory.
 
 The second part of the demo is to add `Delux` to this project's supervision
