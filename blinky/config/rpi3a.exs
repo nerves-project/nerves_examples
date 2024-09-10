@@ -4,6 +4,6 @@ import Config
 config :blinky,
   indicators: %{
     default: %{
-      green: "led0"
+      green: "ACT"
     }
   }
