@@ -78,18 +78,6 @@ To see log messages, run:
 
 ## Notes
 
-It's handy to have a version of LFE on your system that has the same version
-used with Nerves. The latest releases [don't
-compile](https://github.com/rvirding/lfe/issues/342), so I used the `develop`
-branch for this project. Installing the `develop` branch on your host isn't too
-bad and `asdf` can do it:
-
-```sh
-asdf plugin-add lfe
-asdf install lfe ref:develop
-asdf global lfe ref:develop
-```
-
 The [mix_lfe](https://github.com/meddle0x53/mix_lfe) was so close to working,
 but I had trouble with it. To work around the issue, I copied out the `mix`
 compiler from it. That's the code in `lib`.
