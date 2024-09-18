@@ -1,6 +1,6 @@
 import Config
 
-config :hello_snmp_agent, HelloSnmpAgent.Agent, dir: '/root/'
+config :hello_snmp_agent, HelloSnmpAgent.Agent, dir: ~c"/root/"
 
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
