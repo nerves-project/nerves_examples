@@ -20,12 +20,6 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
 config :nerves, source_date_epoch: "1619044926"
 
-# Use Ringlogger as the logger backend and remove :console.
-# See https://hexdocs.pm/ring_logger/readme.html for more information on
-# configuring ring_logger.
-
-config :logger, backends: [RingLogger]
-
 if Mix.target() == :host do
   import_config "host.exs"
 else

@@ -33,7 +33,7 @@ defmodule HelloSnmpManager do
   def handle_info(:tick, state) do
     Logger.debug("Sending SNMP Request for System Information")
 
-    :snmpm.sync_get('default_user', 'default_agent', [
+    :snmpm.sync_get2(~c"default_user", ~c"default_agent", [
       # OID for sysDescr
       [1, 3, 6, 1, 2, 1, 1, 1, 0],
       # OID for sysName
