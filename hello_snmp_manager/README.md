@@ -40,10 +40,10 @@ for most build targets that has read/write privileges for the Nerves application
 The relevant lines for these configuring these paths may be found in the two files:
 
 **config/host.exs**  
-```config :snmp, :manager, config: [dir: './rootfs_overlay/snmp', db_dir: '/tmp']```
+```config :snmp, :manager, config: [dir: ~c"./rootfs_overlay/snmp", db_dir: ~c"./tmp"]```
 
 **config/target.exs**  
-```config :snmp, :manager, config: [dir: '/snmp', db_dir: '/tmp']```
+```config :snmp, :manager, config: [dir: ~c"/snmp", db_dir: ~c"/tmp"]```
 
 Note the use of the relative path for the host environment while an absolute path
 is specified for the build target.

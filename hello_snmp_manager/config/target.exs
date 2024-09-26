@@ -1,5 +1,11 @@
 import Config
 
+# Use Ringlogger as the logger backend and remove :console.
+# See https://hexdocs.pm/ring_logger/readme.html for more information on
+# configuring ring_logger.
+
+config :logger, backends: [RingLogger]
+
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
@@ -83,7 +89,7 @@ config :mdns_lite,
   ]
 
 # SNMP Manager with absolute paths
-config :snmp, :manager, config: [dir: '/snmp', db_dir: '/tmp']
+config :snmp, :manager, config: [dir: ~c"/snmp", db_dir: ~c"/tmp"]
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

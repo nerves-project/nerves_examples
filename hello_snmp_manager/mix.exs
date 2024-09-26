@@ -10,6 +10,7 @@ defmodule HelloSnmpManager.MixProject do
     :rpi3,
     :rpi3a,
     :rpi4,
+    :rpi5,
     :bbb,
     :osd32mp1,
     :x86_64,
@@ -47,8 +48,11 @@ defmodule HelloSnmpManager.MixProject do
       {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.4.0"},
 
+      # Allow Nerves.Runtime on host to support development, testing and CI.
+      # See config/host.exs for usage.
+      {:nerves_runtime, "~> 0.13.0"},
+
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
 
       # Dependencies for specific targets
@@ -58,6 +62,7 @@ defmodule HelloSnmpManager.MixProject do
       {:nerves_system_rpi3, "~> 1.13", runtime: false, targets: :rpi3},
       {:nerves_system_rpi3a, "~> 1.13", runtime: false, targets: :rpi3a},
       {:nerves_system_rpi4, "~> 1.13", runtime: false, targets: :rpi4},
+      {:nerves_system_rpi5, "~> 0.3", runtime: false, targets: :rpi5},
       {:nerves_system_bbb, "~> 2.8", runtime: false, targets: :bbb},
       {:nerves_system_osd32mp1, "~> 0.4", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64},
