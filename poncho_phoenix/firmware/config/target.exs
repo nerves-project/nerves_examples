@@ -15,7 +15,7 @@ config :ui, UiWeb.Endpoint,
   code_reloader: false
 
 config :ui, Ui.Repo,
-  database: "/data/hello_phoenix/hello_phoenix_ui.db",
+  database: "/data/poncho_phoenix/poncho_phoenix_ui.db",
   pool_size: 5,
   show_sensitive_data_on_connection_error: true
 
