@@ -7,7 +7,6 @@ ELIXIR_PROJECTS="blinky \
     hello_phoenix/firmware \
     hello_live_view \
     hello_wifi \
-    hello_zig \
     hello_sqlite \
     hello_snmp_manager \
     hello_snmp_agent \
