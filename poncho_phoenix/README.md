@@ -1,4 +1,4 @@
-# Hello Phoenix
+# Poncho Phoenix
 
 This example demonstrates a basic poncho project for deploying a [Phoenix
 Framework]-based application to a Nerves device. A "poncho project" is similar
