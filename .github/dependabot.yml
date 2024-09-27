@@ -77,7 +77,7 @@ updates:
           - "nerves_system*"
 
   - package-ecosystem: mix
-    directory: "/hello_phoenix"
+    directory: "/poncho_phoenix"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
