@@ -8,6 +8,9 @@ You can read more about the motivations behind this concept on the
 embedded-elixir blog post about [Poncho Projects]. The steps for creating this
 example source are in [User Interfaces].
 
+See the `hello_live_view` for an all-in-one Phoenix/Nerves example that is much
+simpler to use for most people.
+
 ## Hardware
 
 This example serves a Phoenix-based web page over the network. The steps below
