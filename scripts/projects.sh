@@ -11,4 +11,4 @@ ELIXIR_PROJECTS="blinky \
     hello_snmp_manager \
     hello_snmp_agent \
     hello_scenic"
-PROJECTS="$ELIXIR_PROJECTS hello_erlang hello_lfe"
+PROJECTS="$ELIXIR_PROJECTS hello_erlang hello_gleam hello_lfe"

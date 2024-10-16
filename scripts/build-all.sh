@@ -31,6 +31,10 @@ build() {
         MIX_TARGET=host mix zig.get
     fi
 
+    if [ -e ".requires-gleam" ]; then
+        mix archive.install mix_gleam
+    fi
+
     mix firmware
 }
 
