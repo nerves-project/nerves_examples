@@ -18,7 +18,7 @@ the "normal" Elixir-based way using `mix nerves.new <project_name>`.
 The first step is to add LFE as a dependency in your `mix.exs`:
 
 ```elixir
-    {:lfe, github: "rvirding/lfe", branch: "develop", compile: "make"},
+    {:lfe, "~> 2.0", compile: "make"},
 ```
 
 I've found that it's easiest to have `mix` build LFE source files.  The
