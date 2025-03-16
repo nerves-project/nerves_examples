@@ -1,0 +1,27 @@
+version = 1
+
+[[annotations]]
+path = [
+ ".circleci/config.yml",
+ ".github/dependabot.yml",
+ ".tool-versions",
+ "blinky/**",
+ "minimal/**",
+ "hello_erlang/**",
+ "hello_gpio/**",
+ "hello_lfe/**",
+ "hello_live_view/**",
+ "poncho_phoenix/**",
+ "hello_scenic/**",
+ "hello_snmp_agent/**",
+ "hello_snmp_manager/**",
+ "hello_sqlite/**",
+ "hello_wifi/**",
+ "hello_zig/**",
+ "README.md",
+ "REUSE.toml",
+ "scripts/**",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "CC0-1.0"
