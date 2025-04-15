@@ -27,25 +27,23 @@ if config_env() == :prod do
   # to check this value into version control, so we use an environment
   # variable instead.
 
-
- config :hello_live_view, HelloLiveViewWeb.Endpoint,
-  url: [host: "hello_live_view.local"],
-  http: [
-    # Enable IPv6 and bind on all interfaces.
-    # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
-    # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
-    # for details about using IPv6 vs IPv4 and loopback vs public addresses.
-    ip: {0, 0, 0, 0, 0, 0, 0, 0},
-    port: 80
-  ],
-  secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
-  cache_static_manifest: "priv/static/cache_manifest.json",
-  check_origin: false,
-  # Start the server since we're running in a release instead of through `mix`
-  server: true,
-  # Nerves root filesystem is read-only, so disable the code reloader
-  code_reloader: false
-
+  config :hello_live_view, HelloLiveViewWeb.Endpoint,
+    url: [host: "hello_live_view.local"],
+    http: [
+      # Enable IPv6 and bind on all interfaces.
+      # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
+      # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
+      # for details about using IPv6 vs IPv4 and loopback vs public addresses.
+      ip: {0, 0, 0, 0, 0, 0, 0, 0},
+      port: 80
+    ],
+    secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
+    cache_static_manifest: "priv/static/cache_manifest.json",
+    check_origin: false,
+    # Start the server since we're running in a release instead of through `mix`
+    server: true,
+    # Nerves root filesystem is read-only, so disable the code reloader
+    code_reloader: false
 
   # ## SSL Support
   #
