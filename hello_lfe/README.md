@@ -29,7 +29,7 @@ the `lib` directory. It would be great if someone could work with the `mix_lfe`
 maintainer to split the project up so that the compiler piece can be used
 separately.
 
-The next step is to update the `rel/vm.args`. First disable `embedded` mode
+The next step is to update the `rel/vm.args.eex`. First disable `embedded` mode
 since it doesn't seem to work with LFE:
 
 ```sh

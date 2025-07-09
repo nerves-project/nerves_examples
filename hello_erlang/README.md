@@ -15,8 +15,8 @@ the "normal" Elixir-based way using `mix nerves.new <project_name>`.
 The first step is to delete the `lib` and `test` directories and all of the code
 inside of them. Didn't that feel good?
 
-The next step is to update the `rel/vm.args` and delete everything that starts
-the Elixir shell. Look for `-noshell` and delete from there to the end.
+The next step is to update the `rel/vm.args.eex` and delete everything that
+starts the Elixir shell. Look for `-noshell` and delete from there to the end.
 
 Finally, create a `src` directory and put your Erlang code in there like you
 would a normal Erlang project.
