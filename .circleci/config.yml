@@ -5,7 +5,7 @@ targets: &targets
 
 defaults: &defaults
   docker:
-    - image: hexpm/elixir:1.18.4-erlang-27.3.4.1-ubuntu-jammy-20250619
+    - image: hexpm/elixir:1.18.4-erlang-27.3.4.3-ubuntu-jammy-20250819
 
 context: &context
   context: "org-global"
@@ -32,8 +32,8 @@ install_fwup: &install_fwup
   run:
     name: Install fwup
     command: |
-      wget https://github.com/fwup-home/fwup/releases/download/v1.13.0/fwup_1.13.0_amd64.deb
-      dpkg -i fwup_1.13.0_amd64.deb
+      wget https://github.com/fwup-home/fwup/releases/download/v1.13.2/fwup_1.13.2_amd64.deb
+      dpkg -i fwup_1.13.2_amd64.deb
 
 fake_ssh_keys: &fake_ssh_keys
   run:
