@@ -21,7 +21,7 @@ ASDF-VM](https://embedded-elixir.com/post/2017-05-23-using-asdf-vm/)
 
 This repository contains several Nerves example projects as sub-directories.
 Most of these projects should work on all of the [Nerves supported
-targets](https://hexdocs.pm/nerves/targets.html).
+targets](https://hexdocs.pm/nerves/supported-targets.html).
 
 For detailed information on how to build an example, see the `README.md` in each
 application's root directory.
