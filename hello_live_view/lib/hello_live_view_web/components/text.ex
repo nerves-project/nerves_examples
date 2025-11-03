@@ -1,4 +1,4 @@
-defmodule HelloLiveViewWeb.Components.Text do
+defmodule HelloLiveViewWeb.TextComponents do
   use Phoenix.Component
 
   def page_title(assigns) do

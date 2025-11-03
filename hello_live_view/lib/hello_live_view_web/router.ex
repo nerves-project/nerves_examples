@@ -5,7 +5,7 @@ defmodule HelloLiveViewWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {HelloLiveViewWeb.Layouts, :root}
+    plug :put_root_layout, html: {HelloLiveViewWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -25,7 +25,7 @@ defmodule HelloLiveViewWeb.Router do
   #   pipe_through :api
   # end
 
-  # Enable LiveDashboard in development
+  # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:hello_live_view, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put
     # it behind authentication and allow only admins to access it.
