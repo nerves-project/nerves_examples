@@ -29,8 +29,7 @@ defmodule HelloLiveView.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
-      releases: [{@app, release()}],
-      preferred_cli_target: [run: :host, test: :host]
+      releases: [{@app, release()}]
     ]
   end
 
@@ -42,6 +41,10 @@ defmodule HelloLiveView.MixProject do
       mod: {HelloLiveView.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
+  end
+
+  def cli do
+    [preferred_targets: [run: :host, test: :host]]
   end
 
   # Specifies which paths to compile per environment.
@@ -76,7 +79,7 @@ defmodule HelloLiveView.MixProject do
       {:plug_cowboy, "~> 2.5"},
 
       # Dependencies for all targets
-      {:nerves, "~> 1.7.16 or ~> 1.8.0 or ~> 1.9.0 or ~> 1.10.4 or ~> 1.11.0 or ~> 1.12.0", runtime: false},
+      {:nerves, "~> 1.12", runtime: false},
       {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.4.0"},

@@ -53,9 +53,9 @@ config :ui, UiWeb.Endpoint,
 config :ui, UiWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/ui_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$"E,
+      ~r"priv/gettext/.*(po)$"E,
+      ~r"lib/ui_web/(controllers|live|components)/.*(ex|heex)$"E
     ]
   ]
 
