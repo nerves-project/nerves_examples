@@ -53,9 +53,10 @@ config :ui, UiWeb.Endpoint,
 config :ui, UiWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/ui_web/(controllers|live|components)/.*(ex|heex)$"
+# Temporarily disable for Erlang 28
+#      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
+#      ~r"priv/gettext/.*(po)$",
+#      ~r"lib/ui_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 

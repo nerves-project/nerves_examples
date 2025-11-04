@@ -46,9 +46,10 @@ config :hello_live_view, HelloLiveViewWeb.Endpoint,
 config :hello_live_view, HelloLiveViewWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/hello_live_view_web/(controllers|live|components)/.*(ex|heex)$"
+# Temporarily disable for Erlang 28
+#      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+#      ~r"priv/gettext/.*(po)$",
+#      ~r"lib/hello_live_view_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 
