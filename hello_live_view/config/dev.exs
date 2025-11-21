@@ -15,8 +15,8 @@ config :hello_live_view, HelloLiveViewWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "sODMOCqDOBh6ykWCXcIW3Y19hDlM4b8Y99/ExyZPE6OeBEc7z+3FgbXlM/kqW2Vm",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:hello_live_view, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:hello_live_view, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -45,10 +45,11 @@ config :hello_live_view, HelloLiveViewWeb.Endpoint,
 # Watch static and templates for browser reloading.
 config :hello_live_view, HelloLiveViewWeb.Endpoint,
   live_reload: [
+    web_console_logger: true,
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/hello_live_view_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/hello_live_view_web/(?:controllers|live|components|router)/?.*\.(ex|heex)$"
     ]
   ]
 
@@ -64,3 +65,11 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :phoenix_live_view,
+  # Include debug annotations and locations in rendered markup.
+  # Changing this configuration will require mix clean and a full recompile.
+  debug_heex_annotations: true,
+  debug_attributes: true,
+  # Enable helpful, but potentially expensive runtime checks
+  enable_expensive_runtime_checks: true
