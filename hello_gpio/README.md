@@ -21,7 +21,7 @@ For the output pin, you will need a single LED with it's catode (short leg) conn
 For the input pin, connect a 4-pin push-button to GPIO pin 27.
 * The pull up resistor prevents you from entering a floating state (not knowing if the button has been pressed or not)
 * When the button is not pressed, the GPIO will register a high value (close to 3.3V).
-* When the button is pressed, the current will flow from 5V to ground, and the GPIO will register a low value (close to 0V).
+* When the button is pressed, the current will flow from 3.3V to ground, and the GPIO will register a low value (close to 0V).
 
 ![Complete schematic](assets/nerves_led_and_switch.png)
 
