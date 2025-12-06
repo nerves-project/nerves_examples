@@ -23,6 +23,8 @@ For the input pin, connect a 4-pin push-button to GPIO pin 27.
 * When the button is not pressed, the GPIO will register a high value (close to 3.3V).
 * When the button is pressed, the current will flow from 5V to ground, and the GPIO will register a low value (close to 0V).
 
+![Complete schematic](assets/nerves_led_and_switch.png)
+
 The default configuration uses GPIO BCM pin 17 for output and GPIO BCM pin 27
 for input.  Note that you are using the labeled BCM pins as found on a Raspberry
 Pi as shown in the diagram at [pinout.xyz](https://pinout.xyz).
