@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: None
 # SPDX-License-Identifier: CC0-1.0
 
-erlang 27.3.4.3
-elixir 1.18.4-otp-27
-fwup 1.13.0
+erlang 28.3
+elixir 1.19.4-otp-28
+fwup 1.15.0
