@@ -25,10 +25,11 @@ defmodule HelloLiveView.MixProject do
       elixir: "~> 1.16",
       elixirc_paths: elixirc_paths(Mix.env()),
       archives: [nerves_bootstrap: "~> 1.13"],
-      compilers: Mix.compilers(),
+      compilers: [:phoenix_live_view] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
+      listeners: [Phoenix.CodeReloader],
       releases: [{@app, release()}],
       preferred_cli_target: [run: :host, test: :host]
     ]
@@ -54,26 +55,27 @@ defmodule HelloLiveView.MixProject do
   defp deps do
     [
       # Initial pheonix deps
-      {:phoenix, "~> 1.7.2"},
+      {:phoenix, "~> 1.8.1"},
       {:phoenix_html, "~> 4.1"},
-      {:phoenix_live_reload, "~> 1.6", only: :dev, targets: :host},
-      {:phoenix_live_view, "~> 1.0"},
-      {:floki, ">= 0.30.0", only: :test},
-      {:phoenix_live_dashboard, "~> 0.8"},
-      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.3.1", runtime: Mix.env() == :dev},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_view, "~> 1.1.0"},
+      {:lazy_html, ">= 0.1.0", only: :test},
+      {:phoenix_live_dashboard, "~> 0.8.3"},
+      {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
       {:heroicons,
        github: "tailwindlabs/heroicons",
-       tag: "v2.1.1",
+       tag: "v2.2.0",
        sparse: "optimized",
        app: false,
        compile: false,
        depth: 1},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
-      {:gettext, "~> 0.20"},
+      {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"},
+      {:dns_cluster, "~> 0.2.0"},
+      {:bandit, "~> 1.5"},
 
       # Dependencies for all targets
       {:nerves, "~> 1.7.16 or ~> 1.8.0 or ~> 1.9.0 or ~> 1.10.4 or ~> 1.11.0", runtime: false},
@@ -115,8 +117,12 @@ defmodule HelloLiveView.MixProject do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind default", "esbuild default"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.build": ["compile", "tailwind hello_live_view", "esbuild hello_live_view"],
+      "assets.deploy": [
+        "tailwind hello_live_view --minify",
+        "esbuild hello_live_view --minify",
+        "phx.digest"
+      ]
     ]
   end
 
