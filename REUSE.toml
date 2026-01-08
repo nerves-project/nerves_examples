@@ -2,9 +2,6 @@ version = 1
 
 [[annotations]]
 path = [
- ".circleci/config.yml",
- ".github/dependabot.yml",
- ".tool-versions",
  "blinky/**",
  "minimal/**",
  "hello_erlang/**",
@@ -18,7 +15,6 @@ path = [
  "hello_sqlite/**",
  "hello_wifi/**",
  "hello_zig/**",
- "README.md",
  "REUSE.toml",
  "scripts/**",
 ]

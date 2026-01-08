@@ -1,3 +1,7 @@
+<!--
+  SPDX-FileCopyrightText: None
+  SPDX-License-Identifier: CC0-1.0
+-->
 # Nerves Examples
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/nerves-project/nerves_examples/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nerves-project/nerves_examples/tree/main)
