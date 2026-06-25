@@ -64,7 +64,7 @@ defmodule HelloLiveView.MixProject do
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8"},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.4.1", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.5.1", runtime: Mix.env() == :dev},
       {:heroicons,
        github: "tailwindlabs/heroicons",
        tag: "v2.2.0",
@@ -82,7 +82,7 @@ defmodule HelloLiveView.MixProject do
       {:nerves, "~> 1.12", runtime: false},
       {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.11.0"},
-      {:toolshed, "~> 0.4.0"},
+      {:toolshed, "~> 0.5.0"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
