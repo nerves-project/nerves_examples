@@ -3,11 +3,11 @@
 version: 2.1
 
 targets: &targets
-  [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, bbb, osd32mp1, x86_64, grisp2, mangopi_mq_pro]
+  [rpi0, rpi, rpi2, rpi3, rpi3a, rpi4, rpi5, bbb, x86_64, trellis, mangopi_mq_pro]
 
 defaults: &defaults
   docker:
-    - image: hexpm/elixir:1.19.5-erlang-28.4.1-ubuntu-noble-20260210.1
+    - image: hexpm/elixir:1.20.2-erlang-29.0.2-ubuntu-resolute-20260610
 
 context: &context
   context: "org-global"
@@ -34,8 +34,8 @@ install_fwup: &install_fwup
   run:
     name: Install fwup
     command: |
-      wget https://github.com/fwup-home/fwup/releases/download/v1.15.0/fwup_1.15.0_amd64.deb
-      dpkg -i fwup_1.15.0_amd64.deb
+      wget https://github.com/fwup-home/fwup/releases/download/v1.16.0/fwup_1.16.0_amd64.deb
+      dpkg -i fwup_1.16.0_amd64.deb
 
 fake_ssh_keys: &fake_ssh_keys
   run:

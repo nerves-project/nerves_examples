@@ -12,9 +12,8 @@ defmodule HelloLiveView.MixProject do
     :rpi4,
     :rpi5,
     :bbb,
-    :osd32mp1,
     :x86_64,
-    :grisp2,
+    :trellis,
     :mangopi_mq_pro
   ]
 
@@ -82,7 +81,7 @@ defmodule HelloLiveView.MixProject do
       {:nerves, "~> 1.12", runtime: false},
       {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.11.0"},
-      {:toolshed, "~> 0.5.0"},
+      {:toolshed, "~> 0.5"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
@@ -101,9 +100,8 @@ defmodule HelloLiveView.MixProject do
       {:nerves_system_rpi4, "~> 2.0", runtime: false, targets: :rpi4},
       {:nerves_system_rpi5, "~> 2.0", runtime: false, targets: :rpi5},
       {:nerves_system_bbb, "~> 2.14", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.10", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.19", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2},
+      {:nerves_system_trellis, "~> 0.4", runtime: false, targets: :trellis},
       {:nerves_system_mangopi_mq_pro, "~> 0.4", runtime: false, targets: :mangopi_mq_pro}
     ]
   end

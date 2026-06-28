@@ -12,9 +12,8 @@ defmodule HelloErlang.MixProject do
     :rpi4,
     :rpi5,
     :bbb,
-    :osd32mp1,
     :x86_64,
-    :grisp2,
+    :trellis,
     :mangopi_mq_pro
   ]
 
@@ -26,9 +25,12 @@ defmodule HelloErlang.MixProject do
       archives: [nerves_bootstrap: "~> 1.13"],
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      releases: [{@app, release()}],
-      preferred_cli_target: [run: :host, test: :host]
+      releases: [{@app, release()}]
     ]
+  end
+
+  def cli do
+    [preferred_targets: [run: :host, test: :host]]
   end
 
   # Run "mix help compile.app" to learn about applications.
@@ -60,9 +62,8 @@ defmodule HelloErlang.MixProject do
       {:nerves_system_rpi4, "~> 2.0", runtime: false, targets: :rpi4},
       {:nerves_system_rpi5, "~> 2.0", runtime: false, targets: :rpi5},
       {:nerves_system_bbb, "~> 2.8", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.4", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2},
+      {:nerves_system_trellis, "~> 0.4", runtime: false, targets: :trellis},
       {:nerves_system_mangopi_mq_pro, "~> 0.4", runtime: false, targets: :mangopi_mq_pro}
     ]
   end

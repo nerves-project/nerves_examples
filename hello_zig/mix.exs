@@ -11,9 +11,8 @@ defmodule HelloZig.MixProject do
     :rpi3a,
     :rpi4,
     :bbb,
-    :osd32mp1,
     :x86_64,
-    :grisp2,
+    :trellis,
     :mangopi_mq_pro
   ]
 
@@ -25,9 +24,12 @@ defmodule HelloZig.MixProject do
       archives: [nerves_bootstrap: "~> 1.13"],
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      releases: [{@app, release()}],
-      preferred_cli_target: [run: :host, test: :host]
+      releases: [{@app, release()}]
     ]
+  end
+
+  def cli do
+    [preferred_targets: [run: :host, test: :host]]
   end
 
   # Run "mix help compile.app" to learn about applications.
@@ -45,7 +47,7 @@ defmodule HelloZig.MixProject do
       {:nerves, "~> 1.10", runtime: false},
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.11.0"},
-      {:toolshed, "~> 0.5.0"},
+      {:toolshed, "~> 0.5"},
       {:zigler, "~> 0.16.0", runtime: false},
 
       # Dependencies for all targets except :host
@@ -60,9 +62,8 @@ defmodule HelloZig.MixProject do
       {:nerves_system_rpi3a, "~> 2.0", runtime: false, targets: :rpi3a},
       {:nerves_system_rpi4, "~> 2.0", runtime: false, targets: :rpi4},
       {:nerves_system_bbb, "~> 2.9", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.5", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.14", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2},
+      {:nerves_system_trellis, "~> 0.4", runtime: false, targets: :trellis},
       {:nerves_system_mangopi_mq_pro, "~> 0.4", runtime: false, targets: :mangopi_mq_pro}
     ]
   end
