@@ -22,6 +22,7 @@ install_hex_rebar: &install_hex_rebar
       mix local.hex --force
       mix local.rebar --force
       mix archive.install hex nerves_bootstrap --force
+      mix archive.install hex mix_gleam --force
 
 install_system_deps: &install_system_deps
   run:
@@ -29,6 +30,8 @@ install_system_deps: &install_system_deps
     command: |
       apt update
       apt install -y build-essential squashfs-tools openssh-client wget pkg-config git file
+      wget -qO- https://github.com/gleam-lang/gleam/releases/download/v1.18.1/gleam-v1.18.1-x86_64-unknown-linux-musl.tar.gz |
+        tar -xz -C /usr/local/bin gleam
 
 install_fwup: &install_fwup
   run:

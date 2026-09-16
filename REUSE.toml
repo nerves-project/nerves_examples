@@ -5,6 +5,7 @@ path = [
  "blinky/**",
  "minimal/**",
  "hello_erlang/**",
+ "hello_gleam/**",
  "hello_gpio/**",
  "hello_lfe/**",
  "hello_live_view/**",

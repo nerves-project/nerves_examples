@@ -13,5 +13,9 @@ for project in $ELIXIR_PROJECTS; do
     format $project
 done
 
-echo "Success"
+for project in $GLEAM_PROJECTS; do
+    format $project
+    (cd $project && gleam format src)
+done
 
+echo "Success"
