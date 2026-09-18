@@ -26,7 +26,7 @@ config :nerves_runtime, startup_guard_enabled: true
 # Advance the system clock on devices without a real-time clock.
 config :nerves, :erlinit, update_clock: true
 
-# Configure the device for SSH IEx prompt access and firmware updates
+# Configure the device for SSH shell access and firmware updates
 #
 # * See https://nerves-ssh.hexdocs.pm/readme.html for general SSH configuration
 # * See https://ssh-subsystem-fwup.hexdocs.pm/readme.html for firmware updates

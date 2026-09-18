@@ -46,7 +46,7 @@ Attach to your board's console after it boots. The application prints:
 Hello from Gleam!
 ```
 
-every five seconds. You can also call its public Gleam function from IEx:
+every five seconds. You can also call its public Gleam function from the shell:
 
 ```erlang
 hello_gleam:greeting().
