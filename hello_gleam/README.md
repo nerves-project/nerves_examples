@@ -21,7 +21,7 @@ mix archive.install hex mix_gleam
 
 ## Building
 
-Building follows the standard Nerves recipe. For example:
+Building uses the `mix` tooling like other Nerves projects. For example:
 
 ```sh
 export MIX_TARGET=rpi0
@@ -34,6 +34,7 @@ Burn the firmware to an SD card with `mix firmware.burn`.
 To try the application on your development machine without building firmware:
 
 ```sh
+unset MIX_TARGET
 mix deps.get
 mix run --no-halt
 ```
@@ -51,9 +52,6 @@ every five seconds. You can also call its public Gleam function from the shell:
 ```erlang
 hello_gleam:greeting().
 ```
-
-Gleam modules compile to Erlang modules, so Elixir calls them using atom module
-names.
 
 To power off when you're done, run:
 
