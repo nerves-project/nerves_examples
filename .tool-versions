@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: None
 # SPDX-License-Identifier: CC0-1.0
 
-erlang 29.0.2
-elixir 1.20.2-otp-29
-fwup 1.16.0
+erlang 29.1.2
+elixir 1.20.5-otp-29
+fwup 1.17.1
 gleam 1.18.1

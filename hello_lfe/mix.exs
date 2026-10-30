@@ -46,8 +46,7 @@ defmodule HelloLfe.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.10", runtime: false},
-      {:shoehorn, "~> 0.9.0"},
+      {:nerves, "~> 2.0.0-pre.5", runtime: false},
       {:ring_logger, "~> 0.11.0"},
       {:lfe, "~> 2.0", compile: "make"},
 
@@ -77,8 +76,8 @@ defmodule HelloLfe.MixProject do
       # Erlang distribution is not started automatically.
       # See https://hexdocs.pm/nerves_pack/readme.html#erlang-distribution
       cookie: "#{@app}_cookie",
-      include_erts: &Nerves.Release.erts/0,
-      steps: [&Nerves.Release.init/1, :assemble],
+      include_erts: &Nerves.erts/0,
+      steps: [&Nerves.init_release/1, :assemble],
       strip_beams: Mix.env() == :prod or [keep: ["Docs"]]
     ]
   end

@@ -6,11 +6,7 @@ import Config
 
 config :logger, backends: [RingLogger]
 
-# Use shoehorn to start the main application. See the shoehorn
-# library documentation for more control in ordering how OTP
-# applications are started and handling failures.
-
-config :shoehorn, init: [:nerves_runtime, :nerves_pack]
+config :nerves, application_sort: [init: [:nerves_runtime, :nerves_pack]]
 
 # Erlinit can be configured without a rootfs_overlay. See
 # https://github.com/nerves-project/erlinit/ for more information on

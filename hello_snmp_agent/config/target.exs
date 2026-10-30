@@ -2,11 +2,7 @@ import Config
 
 config :hello_snmp_agent, HelloSnmpAgent.Agent, dir: ~c"/root/"
 
-# Use shoehorn to start the main application. See the shoehorn
-# docs for separating out critical OTP applications such as those
-# involved with firmware updates.
-
-config :shoehorn, init: [:nerves_runtime, :nerves_pack]
+config :nerves, application_sort: [init: [:nerves_runtime, :nerves_pack]]
 
 # Erlinit can be configured without a rootfs_overlay. See
 # https://github.com/nerves-project/erlinit/ for more information on

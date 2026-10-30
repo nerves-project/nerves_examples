@@ -1,10 +1,6 @@
 import Config
 
-# Use shoehorn to start the main application. See the shoehorn
-# docs for separating out critical OTP applications such as those
-# involved with firmware updates.
-
-config :shoehorn, init: [:nerves_runtime]
+config :nerves, application_sort: [init: [:nerves_runtime]]
 
 # Erlinit can be configured without a rootfs_overlay. See
 # https://github.com/nerves-project/erlinit/ for more information on
