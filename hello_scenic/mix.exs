@@ -46,7 +46,7 @@ defmodule HelloScenic.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.10", runtime: false},
+      {:nerves, "~> 2.0.0-pre.5", runtime: false},
       {:nerves_runtime, "~> 0.13.0"},
       {:ring_logger, "~> 0.11.0"},
       {:shoehorn, "~> 0.9.1"},
