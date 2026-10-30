@@ -6,11 +6,7 @@ import Config
 
 config :logger, backends: [RingLogger]
 
-# Use shoehorn to start the main application. See the shoehorn
-# library documentation for more control in ordering how OTP
-# applications are started and handling failures.
-
-config :shoehorn, init: [:nerves_runtime, :nerves_pack]
+config :nerves, application_sort: [init: [:nerves_runtime, :nerves_pack]]
 
 # Enable the system startup guard to check that all OTP applications
 # started. If they didn't and you're on a Nerves system that supports
