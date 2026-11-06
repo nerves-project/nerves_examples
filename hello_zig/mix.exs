@@ -48,7 +48,7 @@ defmodule HelloZig.MixProject do
       {:shoehorn, "~> 0.9.0"},
       {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.5"},
-      {:zigler, "~> 0.16.0", runtime: false},
+      {:zigler, "~> 0.17.0", runtime: false},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
