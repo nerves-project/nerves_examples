@@ -5,8 +5,8 @@ defmodule HelloZig do
   const beam = @import("beam");
   const strings = @import("strings.zig");
 
-  pub fn hello(env: beam.env) beam.term {
-    return beam.make(env, .{.ok, strings.world}, .{});
+  pub fn hello() beam.term {
+    return beam.make(.{.ok, strings.world}, .{});
   }
   """
 end
